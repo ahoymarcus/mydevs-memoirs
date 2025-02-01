@@ -1,10 +1,14 @@
 # Digital Innovation One Challenges
-My courses and projects at the [Dio.me](https://web.dio.me/) platform: Marcus Richa Profile](https://www.dio.me/users/marcusviniciusdasilveiraricha)
+My courses and projects at the [Dio.me](https://web.dio.me/) platform: [Marcus Richa Profile](https://www.dio.me/users/marcusviniciusdasilveiraricha)
 
 My Courses List:
 
  - Introdução ao Git e ao GitHub
+ - Introdução à Programação e Pensamento Computacional
  - Introdução ao Desenvolvimento Moderno de Software
+ - Servidores de Arquivos com Linux
+ - Servidor de Banco de Dados com Linux
+ - Criando um Servidor Web com Linux
 
 
 

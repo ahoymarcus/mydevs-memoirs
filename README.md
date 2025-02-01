@@ -7,6 +7,12 @@ Hello there, my name is Marcus Richa and I would like to present here some of my
 
  - Linux Experience
 
+
+## My Certifications:
+
+ - None
+
+
 ## Links:
 
  - [linkedin:] https://www.linkedin.com/in/marcus-vinicius-richa-183104199/
