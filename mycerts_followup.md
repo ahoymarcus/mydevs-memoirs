@@ -64,7 +64,7 @@
         - [ ] Setup host security
         - [ ] Securing data with encryption
 
-    - [Link:](https://www.lpi.org/our-certifications/exam-101-102-objectives/) 
+    - [LPIC-1 Exam 101 and 102 Objectives](https://www.lpi.org/our-certifications/exam-101-102-objectives/) 
 
 
 

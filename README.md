@@ -5,12 +5,12 @@ Hello there, my name is Marcus Richa and I would like to present here some of my
 
 ## My Courses and Bootcamps:
 
- - Linux Experience
+ - Linux Experience - bootcamp 44h - Fev. 2025 (IMPENDING)
 
 
 ## My Certifications:
 
- - None
+ - Linux Professional Institute Certification 1 - LPIC1 (DESIRED)
 
 
 ## Links:
