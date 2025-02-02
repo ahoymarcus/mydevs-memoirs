@@ -5,7 +5,7 @@ Hello there, my name is Marcus Richa and I would like to present here some of my
 
 ## My Courses and Bootcamps:
 
- - Linux Experience - bootcamp 44h - Fev. 2025 (IMPENDING)
+ - Linux Experience - bootcamp 44h - Fev. 2025 ([Certificado](https://hermes.dio.me/certificates/QDWPSTH1.pdf)) 
 
 
 ## My Certifications:
