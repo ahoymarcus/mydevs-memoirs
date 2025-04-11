@@ -37,7 +37,7 @@ I got into the Tech world a while ago and among some of my interests are web des
 
 ## :white_check_mark: My Courses and Bootcamps at DIO:
 
- - Microsoft AI for Tech - Copilot Studio - 20h - (Em Andamento)
+ - Microsoft AI for Tech - Copilot Studio - 20h - ([Certificado](https://hermes.dio.me/certificates/4VG6HNFU.pdf))
  - Microsoft AI for Tech - OpenAI Services - bootcamp 15h - ([Certificado](https://hermes.dio.me/certificates/FGLJAUDL.pdf))
  - Santander - Linux para Iniciantes - bootcamp 30h - MAR. 2025 ([Certificado](https://hermes.dio.me/certificates/B1RTUSAM.pdf))
  - Linux Experience - bootcamp 44h - FEV. 2025 ([Certificado](https://hermes.dio.me/certificates/QDWPSTH1.pdf)) 

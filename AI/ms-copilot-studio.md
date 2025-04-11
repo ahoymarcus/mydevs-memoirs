@@ -197,14 +197,14 @@ Todavia, a documentação propõem três categorias básicas às quais os servi�
 
 <br>
 
-#### Processo de Design do Tópico
+### Processo de Design do Tópico
 
 Em termos gerais, para o processo de definição do design dos tópicos, a documentação propõe alguns passo, entre eles:
 
 1. **Identificar o Tópico**: aqui então, entra justamente o propósito geral dos serviços para os quais a organização está abrindo espaço para os seus usuários, lembrando apenas que, para a construção dos tópicos deve ser levando em conta também aspectos formas dos próprios usuários, como por exemplo, o ponto de vista do usuário, idade, comunidades a que pertence, nível de conhecimento técnico, etc.
 2. **Listar Todos os Cenários Possíveis**: assim, é preciso lembrar-se que juntamente com a descrição dos cenários é preciso pensar em uma experiência completa e útil ao usuário, trazendo as informações necessárias, resoluções de tarefaz, a solução de problemas e tudo mais quanto possa ser considerado importante para construir uma boa experiência para o usuário.
 3. **Projetar uma Árvore de Conversa de Alto Nível**: esta etapa, que poderia também ser vista como uma extensão da anterior, visa chamar a atenção para a importância de se construir uum modelo de agente simples e claro, ou seja, de uma modelo capaz de juntar ao serviço que se propõe, gerar satisfação ao oferecer ao usuário um fluxo agradável e capaz de ganhar a apreciação do usurário. Para tanto, o desenvolvedor poderia pensar aqui em uma série de estruturas e limitações capazes de melhorar a forma do fluxo das conversas: limite de perguntas, limites nos redirecionamentos de tópicos, limitar a quatidade de informação e manter limpa a estrutura de conversa com o cliente, criar hierarquia entre os encadeamentos para evitar que o cliente tenha necessariamente de cobrir todas as etapas, todas as vezes que ele recebe um atendimento, etc. 
-4. Validação e Melhora Contínua: assim, é preciso testar se o propósito do serviço fora atendido e se ele permanece sempre atualizado com relação às necessidades do modelo de negócio e também do próprio cliente.
+4. Validação e Melhoria Contínua: assim, é preciso testar se o propósito do serviço fora atendido e se ele permanece sempre atualizado com relação às necessidades do modelo de negócio e também do próprio cliente.
 
 
 Algumas dicas passadas pela documentação na hora de se construir a experiẽncia do usuário:
@@ -223,7 +223,7 @@ Algumas dicas passadas pela documentação na hora de se construir a experiẽnc
 
 <br>
 
-#### Uso do Tópico de Fallback
+### Uso do Tópico de Fallback
 
 Lembramos, aqui, daquilo que fora tratado anteriormente acerca da forma como o Copilot Studio gerencia a estrutura e os fluxos de encadeamento das conversas dos agentes e de como existem alguns eventos que são padronizado dentro da ferramenta para facilitar a tarefa de desenvolvimento dos agentes.
 
