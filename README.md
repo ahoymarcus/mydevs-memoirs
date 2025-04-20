@@ -25,6 +25,7 @@ I got into the Tech world a while ago and among some of my interests are web des
 
 ## :white_check_mark: My Courses at CISCO Academy:
 
+ - Python Essentials 2 - 40h - ABR. 2025 ([Badge](https://www.credly.com/badges/6a4abae9-640c-4c96-9692-e2af18ea8e18))
  - Python Essentials 1 - 30h - ABR. 2025 ([Badge](https://www.credly.com/badges/6803c8d6-a888-4d73-ad23-07ae0247d32e))
  - Ethical Hacker - 70h - DEZ. 2024 ([Badge](https://www.credly.com/badges/1f0ad3dc-20db-4401-a670-edf2622caa18))
  - Endpoint Security - 27h - NOV. 2024 ([Badge](https://www.credly.com/badges/455e142c-be19-4504-8729-d88d458b8ddb))
