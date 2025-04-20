@@ -23,7 +23,7 @@ I got into the Tech world a while ago and among some of my interests are web des
 
 <br>
 
-## :white_check_mark: My Courses at CISCO Academy:
+## :white_check_mark: My Courses at CISCO Networking Academy:
 
  - Python Essentials 2 - 40h - ABR. 2025 ([Badge](https://www.credly.com/badges/6a4abae9-640c-4c96-9692-e2af18ea8e18))
  - Python Essentials 1 - 30h - ABR. 2025 ([Badge](https://www.credly.com/badges/6803c8d6-a888-4d73-ad23-07ae0247d32e))
@@ -36,7 +36,7 @@ I got into the Tech world a while ago and among some of my interests are web des
 
 <br>
 
-## :white_check_mark: My Courses and Bootcamps at DIO:
+## :white_check_mark: My Courses and Bootcamps at DIO.me:
 
  - Microsoft AI for Tech - Copilot Studio - 20h - ([Certificado](https://hermes.dio.me/certificates/4VG6HNFU.pdf))
  - Microsoft AI for Tech - OpenAI Services - bootcamp 15h - ([Certificado](https://hermes.dio.me/certificates/FGLJAUDL.pdf))
