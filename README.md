@@ -25,6 +25,7 @@ I got into the Tech world a while ago and among some of my interests are web des
 
 ## :white_check_mark: My Courses at CISCO Networking Academy:
 
+ - Introduction to Modern AI - 6h - MAI. 2025 ([Badge](https://www.credly.com/badges/4a64e1d5-54a5-41cf-b1f9-3ef742a040bf))
  - Python Essentials 2 - 40h - ABR. 2025 ([Badge](https://www.credly.com/badges/6a4abae9-640c-4c96-9692-e2af18ea8e18))
  - Python Essentials 1 - 30h - ABR. 2025 ([Badge](https://www.credly.com/badges/6803c8d6-a888-4d73-ad23-07ae0247d32e))
  - Ethical Hacker - 70h - DEZ. 2024 ([Badge](https://www.credly.com/badges/1f0ad3dc-20db-4401-a670-edf2622caa18))
@@ -38,9 +39,9 @@ I got into the Tech world a while ago and among some of my interests are web des
 
 ## :white_check_mark: My Courses and Bootcamps at DIO.me:
 
- - Microsoft AI for Tech - Copilot Studio - 20h - ([Certificado](https://hermes.dio.me/certificates/4VG6HNFU.pdf))
- - Microsoft AI for Tech - OpenAI Services - bootcamp 15h - ([Certificado](https://hermes.dio.me/certificates/FGLJAUDL.pdf))
- - Santander - Linux para Iniciantes - bootcamp 30h - MAR. 2025 ([Certificado](https://hermes.dio.me/certificates/B1RTUSAM.pdf))
+ - Microsoft AI for Tech - Copilot Studio - 20h - ABR. 2025 ([Certificado](https://hermes.dio.me/certificates/4VG6HNFU.pdf))
+ - Microsoft AI for Tech - OpenAI Services - 15h - MAR. 2025 ([Certificado](https://hermes.dio.me/certificates/FGLJAUDL.pdf))
+ - Santander - Linux para Iniciantes - 30h - MAR. 2025 ([Certificado](https://hermes.dio.me/certificates/B1RTUSAM.pdf))
  - Linux Experience - bootcamp 44h - FEV. 2025 ([Certificado](https://hermes.dio.me/certificates/QDWPSTH1.pdf)) 
  - Eduzz Fullstack Developer - 95h - NOV-2021 [Certificado](https://certificates.digitalinnovation.one/081852F4)
  - MRV Front End SPA Developer - 81h - JUL-2021 [Certificado](https://certificates.digitalinnovation.one/62FDC5C9)
