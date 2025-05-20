@@ -23,6 +23,20 @@ I got into the Tech world a while ago and among some of my interests are web des
 
 <br>
 
+## :wrench: My Frameworks and Small Projects:
+
+ - Microsoft Excel
+    - [Ferramenta de Controle de Investimentos](https://github.com/ahoymarcus/desafio-excel-ferramenta-controle-de-investimenos)
+    - [Ferramenta de Gerenciamento de Backlog de Tarefas](/public/ferramenta-controle-de-tarefas-e-backlog-msxcel.png)
+ - TCPDump
+ - Wireshark 
+ - Kali Linux
+ - Docker - Containers
+ - Máquinas Virtuais - VirtualBox
+ 
+
+<br>
+
 ## :white_check_mark: My Courses at CISCO Networking Academy:
 
  - Introduction to Modern AI - 6h - MAI. 2025 ([Badge](https://www.credly.com/badges/4a64e1d5-54a5-41cf-b1f9-3ef742a040bf))
