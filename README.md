@@ -25,15 +25,16 @@ I got into the Tech world a while ago and among some of my interests are web des
 
 ## :wrench: My Frameworks and Small Projects:
 
- - Microsoft Excel
-    - [Ferramenta de Controle de Investimentos](https://github.com/ahoymarcus/desafio-excel-ferramenta-controle-de-investimenos)
-    - [Ferramenta de Gerenciamento de Backlog de Tarefas](/public/ferramenta-controle-de-tarefas-e-backlog-msxcel.png)
- - TCPDump
- - Wireshark 
- - Kali Linux
- - Docker - Containers
- - Máquinas Virtuais - VirtualBox
- 
+ - **TCPDump**.
+ - **Wireshark**.
+ - **Kali Linux**.
+ - **Docker - Containers**.
+ - **Máquinas Virtuais - VirtualBox**.
+ - **Microsoft Excel**:
+    - [Ferramenta Excel para Organização da Declaração de Imposto de Renda](https://github.com/ahoymarcus/desafio-excel-organizador-declaracao-irpf)
+    - [Ferramenta Excel de Controle de Investimentos](https://github.com/ahoymarcus/desafio-excel-ferramenta-controle-de-investimenos)
+    - [Ferramenta Excel de Gerenciamento de Backlog de Tarefas](/public/ferramenta-controle-de-tarefas-e-backlog-msxcel.png)
+
 
 <br>
 
