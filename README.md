@@ -31,6 +31,7 @@ I got into the Tech world a while ago and among some of my interests are web des
  - **Docker - Containers**.
  - **Máquinas Virtuais - VirtualBox**.
  - **Microsoft Excel**:
+    - [Relatório em Dashboard com Análise das Vendas de Assinaturas de uma Plataforma de Jogos Online](https://github.com/ahoymarcus/desafio-dashboard-xbox-excel)
     - [Ferramenta Excel para Organização da Declaração de Imposto de Renda](https://github.com/ahoymarcus/desafio-excel-organizador-declaracao-irpf)
     - [Ferramenta Excel de Controle de Investimentos](https://github.com/ahoymarcus/desafio-excel-ferramenta-controle-de-investimenos)
     - [Ferramenta Excel de Gerenciamento de Backlog de Tarefas](/public/ferramenta-controle-de-tarefas-e-backlog-msxcel.png)
@@ -54,6 +55,7 @@ I got into the Tech world a while ago and among some of my interests are web des
 
 ## :white_check_mark: My Courses and Bootcamps at DIO.me:
 
+ - Santander - Excel com Inteligência Artificial - 26h - MAI. 2025 ([Certificado](https://hermes.dio.me/certificates/ELQFGW4D.pdf))
  - Microsoft AI for Tech - Copilot Studio - 20h - ABR. 2025 ([Certificado](https://hermes.dio.me/certificates/4VG6HNFU.pdf))
  - Microsoft AI for Tech - OpenAI Services - 15h - MAR. 2025 ([Certificado](https://hermes.dio.me/certificates/FGLJAUDL.pdf))
  - Santander - Linux para Iniciantes - 30h - MAR. 2025 ([Certificado](https://hermes.dio.me/certificates/B1RTUSAM.pdf))
