@@ -23,8 +23,11 @@ I got into the Tech world a while ago and among some of my interests are web des
 
 <br>
 
-## :wrench: My Frameworks and Small Projects:
+## :wrench: My Programming Languages, Frameworks and Small Projects:
 
+ - **Python**
+ - **JavaScript**
+ - **Bash**
  - **TCPDump**.
  - **Wireshark**.
  - **Kali Linux**.
@@ -41,46 +44,47 @@ I got into the Tech world a while ago and among some of my interests are web des
 
 ## :white_check_mark: My Courses at CISCO Networking Academy:
 
- - Introduction to Modern AI - 6h - MAI. 2025 ([Badge](https://www.credly.com/badges/4a64e1d5-54a5-41cf-b1f9-3ef742a040bf))
- - Python Essentials 2 - 40h - ABR. 2025 ([Badge](https://www.credly.com/badges/6a4abae9-640c-4c96-9692-e2af18ea8e18))
- - Python Essentials 1 - 30h - ABR. 2025 ([Badge](https://www.credly.com/badges/6803c8d6-a888-4d73-ad23-07ae0247d32e))
- - Ethical Hacker - 70h - DEZ. 2024 ([Badge](https://www.credly.com/badges/1f0ad3dc-20db-4401-a670-edf2622caa18))
- - Endpoint Security - 27h - NOV. 2024 ([Badge](https://www.credly.com/badges/455e142c-be19-4504-8729-d88d458b8ddb))
- - Network Devices and Initial Configurations - 22h - OCT. 2024 ([Badge](https://www.credly.com/badges/e7c6a11b-4f6d-463e-875b-f8327e74ab7c))
- - Networking Basics - 22h - OCT. 2024 ([Badge](https://www.credly.com/badges/35c6abfe-7189-4d30-aab1-d5cce604116c))
- - Introduction to Cybersecurity - 6h - OCT. 2024 ([Badge](https://www.credly.com/badges/70f24534-2913-4609-ae0f-94b677c27918))
+ - **Data Science Essentials with Python** - 40h - JUL. 2025 ([Badge](https://www.credly.com/badges/74167970-9905-4460-8856-df4fb59d7ffb)) 
+ - **Introduction to Modern AI** - 6h - MAI. 2025 ([Badge](https://www.credly.com/badges/4a64e1d5-54a5-41cf-b1f9-3ef742a040bf))
+ - **Python Essentials** 2 - 40h - ABR. 2025 ([Badge](https://www.credly.com/badges/6a4abae9-640c-4c96-9692-e2af18ea8e18))
+ - **Python Essentials** 1 - 30h - ABR. 2025 ([Badge](https://www.credly.com/badges/6803c8d6-a888-4d73-ad23-07ae0247d32e))
+ - **Ethical Hacker** - 70h - DEZ. 2024 ([Badge](https://www.credly.com/badges/1f0ad3dc-20db-4401-a670-edf2622caa18))
+ - **Endpoint Security** - 27h - NOV. 2024 ([Badge](https://www.credly.com/badges/455e142c-be19-4504-8729-d88d458b8ddb))
+ - **Network Devices and Initial Configurations** - 22h - OCT. 2024 ([Badge](https://www.credly.com/badges/e7c6a11b-4f6d-463e-875b-f8327e74ab7c))
+ - **Networking Basics** - 22h - OCT. 2024 ([Badge](https://www.credly.com/badges/35c6abfe-7189-4d30-aab1-d5cce604116c))
+ - **Introduction to Cybersecurity** - 6h - OCT. 2024 ([Badge](https://www.credly.com/badges/70f24534-2913-4609-ae0f-94b677c27918))
 
 
 <br>
 
 ## :white_check_mark: My Courses and Bootcamps at DIO.me:
 
- - Santander - Excel com Inteligência Artificial - 26h - MAI. 2025 ([Certificado](https://hermes.dio.me/certificates/ELQFGW4D.pdf))
- - Microsoft AI for Tech - Copilot Studio - 20h - ABR. 2025 ([Certificado](https://hermes.dio.me/certificates/4VG6HNFU.pdf))
- - Microsoft AI for Tech - OpenAI Services - 15h - MAR. 2025 ([Certificado](https://hermes.dio.me/certificates/FGLJAUDL.pdf))
- - Santander - Linux para Iniciantes - 30h - MAR. 2025 ([Certificado](https://hermes.dio.me/certificates/B1RTUSAM.pdf))
- - Linux Experience - bootcamp 44h - FEV. 2025 ([Certificado](https://hermes.dio.me/certificates/QDWPSTH1.pdf)) 
- - Eduzz Fullstack Developer - 95h - NOV-2021 [Certificado](https://certificates.digitalinnovation.one/081852F4)
- - MRV Front End SPA Developer - 81h - JUL-2021 [Certificado](https://certificates.digitalinnovation.one/62FDC5C9)
+ - **Santander - Excel com Inteligência Artificial** - 26h - MAI. 2025 ([Certificado](https://hermes.dio.me/certificates/ELQFGW4D.pdf))
+ - **Microsoft AI for Tech - Copilot Studio** - 20h - ABR. 2025 ([Certificado](https://hermes.dio.me/certificates/4VG6HNFU.pdf))
+ - **Microsoft AI for Tech - OpenAI Services** - 15h - MAR. 2025 ([Certificado](https://hermes.dio.me/certificates/FGLJAUDL.pdf))
+ - **Santander - Linux para Iniciantes** - 30h - MAR. 2025 ([Certificado](https://hermes.dio.me/certificates/B1RTUSAM.pdf))
+ - **Linux Experience** - 44h - FEV. 2025 ([Certificado](https://hermes.dio.me/certificates/QDWPSTH1.pdf)) 
+ - **Eduzz Fullstack Developer** - 95h - NOV-2021 [Certificado](https://certificates.digitalinnovation.one/081852F4)
+ - **MRV Front End SPA Developer** - 81h - JUL-2021 [Certificado](https://certificates.digitalinnovation.one/62FDC5C9)
 
 
 <br>
 
 ## :white_check_mark: My Courses at FreeCodeCamp:
 
- - Back End Development and APIs - 300h - OUT-2021 ([Certificado]( https://www.freecodecamp.org/certification/ahoymarcus/back-end-development-and-apis))
- - JavaScript Algorithms and Data Structures - 300h - JUN-2021 ([Certificado](https://www.freecodecamp.org/certification/ahoymarcus/javascript-algorithms-and-data-structures))
- - Front End Development Libraries - 300h - JUN-2021 ([Certificado](https://www.freecodecamp.org/certification/ahoymarcus/front-end-libraries))
- - Responsive Web Design - 300h - JUN-2021 ([Certificado](https://www.freecodecamp.org/certification/ahoymarcus/responsive-web-design))
+ - **Back End Development and APIs** - 300h - OUT-2021 ([Certificado]( https://www.freecodecamp.org/certification/ahoymarcus/back-end-development-and-apis))
+ - **JavaScript Algorithms and Data Structures** - 300h - JUN-2021 ([Certificado](https://www.freecodecamp.org/certification/ahoymarcus/javascript-algorithms-and-data-structures))
+ - **Front End Development Libraries** - 300h - JUN-2021 ([Certificado](https://www.freecodecamp.org/certification/ahoymarcus/front-end-libraries))
+ - **Responsive Web Design** - 300h - JUN-2021 ([Certificado](https://www.freecodecamp.org/certification/ahoymarcus/responsive-web-design))
 
 
 <br>
 
 ## :scroll: My Certifications:
 
- - Técnico em Assistente de Suporte e Manutenção de Computadores - 282h - DEZ-2023 - Senac-DF
- - Pós-Graduação em Banco de Dados e Business Intelligence - 430h - DEZ-2021 - FacSenac
- - Técnico em Administração de Banco de Dados (DBA) - 200h - DEZ-2019 - Senac-DF
+ - **Técnico em Assistente de Suporte e Manutenção de Computadores** - 282h - DEZ-2023 - Senac-DF
+ - **Pós-Graduação em Banco de Dados e Business Intelligence** - 430h - DEZ-2021 - FacSenac
+ - **Técnico em Administração de Banco de Dados (DBA)** - 200h - DEZ-2019 - Senac-DF
 
 
 <br>
