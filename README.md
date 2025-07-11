@@ -25,8 +25,13 @@ I got into the Tech world a while ago and among some of my interests are web des
 
 ## :wrench: My Programming Languages, Frameworks and Small Projects:
 
- - **Python**
- - **JavaScript**
+ - **Python**:
+    - [Treinamento de Redes Neurais com Transfer Learning](https://github.com/ahoymarcus/desafio-transfer-learning-colab)        
+ - **JavaScript**:
+    - [React.JS Tech Blog (Web App ver. 1.0](https://nextjs-myjs-tech-blog.vercel.app/)
+    - [Online Portfolio (Antigo) (Web App ver. 3.0)](https://redux-reactjs-personal-portfolio-webpage-version-2.netlify.app/)
+    - [JavaScript Bookshelf App (Web App  ver. 1.0)](https://my-javascript-bookshelf.netlify.app/)
+    - [Música Erudita Blog (Web Site ver. 2.0)](https://musica-erudita.netlify.app/)
  - **Bash**
  - **TCPDump**
  - **Wireshark**
