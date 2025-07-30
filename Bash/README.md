@@ -5,7 +5,7 @@ Olá, este é o meu repositório para apresentar um pouco da minha experiência 
 
 Temos abaixo o resultado de um empolgante desafio para fazer a gestão automatizada de alguns trabalhos rodando em segundo plano em um terminal Linux:
 
-![saida-do-comando-jobs-com-operador-listing](/public/saida-do-comando-jobs-com-operador-listing.png)
+![saida-do-comando-jobs-com-operador-listing](public/saida-do-comando-jobs-com-operador-listing.png)
 
 
 <br>
@@ -20,9 +20,9 @@ E esse projeto nasceu de um desafio da faculdade de _Rede de Computadores_ que p
 
 O primeiro script, que é também o mais simples, aproveitando de uma resposta mais sistematizada por parte do comando **ps**, com valores regulares para os valores como:
 
-1. PID, 
-2. TTY, 
-3. TIME e 
+1. PID 
+2. TTY 
+3. TIME 
 3. CMD
 
 

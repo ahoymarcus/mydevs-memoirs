@@ -33,7 +33,7 @@ I got into the Tech world a while ago and among some of my interests are web des
     - [JavaScript "Vanilla" -  Bookshelf App (Web App  ver. 1.0) --- Web Design Project](https://my-javascript-bookshelf.netlify.app/)
     - [Música Erudita Blog (Web Site ver. 2.0) --- Web Design Project](https://musica-erudita.netlify.app/)
  - **Bash (+ SED E AWK)**:
-    - [Automatizando o Gerenciamento de Jobs com Bash e AWK]()
+    - [Automatizando o Gerenciamento de Tarefas com Bash e AWK](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/Bash)
  - **TCPDump**
  - **Wireshark**
  - **Kali Linux**
