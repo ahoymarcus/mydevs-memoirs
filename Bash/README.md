@@ -5,7 +5,7 @@ Olá, este é o meu repositório para apresentar um pouco da minha experiência 
 
 Temos abaixo o resultado de um empolgante desafio para fazer a gestão automatizada de alguns trabalhos rodando em segundo plano em um terminal Linux:
 
-![saida-do-comando-jobs-com-operador-listing](public/saida-do-comando-jobs-com-operador-listing.png)
+![saida-do-comando-jobs-com-operador-listing](./public/saida-do-comando-jobs-com-operador-listing.png)
 
 
 <br>
