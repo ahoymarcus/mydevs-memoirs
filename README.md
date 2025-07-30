@@ -13,8 +13,8 @@ I got into the Tech world a while ago and among some of my interests are web des
 
 <br>
 
-![Debian](https://img.shields.io/badge/Debian-D70A53?style=for-the-badge&logo=debian&logoColor=white)
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Debian](https://img.shields.io/badge/Debian-D70A53?style=for-the-badge&logo=debian&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-000?style=for-the-badge&logo=javascript)
 ![HTML5](https://img.shields.io/badge/HTML5-000?style=for-the-badge&logo=html5)
 ![CSS3](https://img.shields.io/badge/CSS3-000?style=for-the-badge&logo=css3)
@@ -26,13 +26,14 @@ I got into the Tech world a while ago and among some of my interests are web des
 ## :wrench: My Programming Languages, Frameworks and Small Projects:
 
  - **Python**:
-    - [Treinamento de Redes Neurais com Transfer Learning](https://github.com/ahoymarcus/desafio-transfer-learning-colab)        
+    - [Treinamento de Redes Neurais com Transfer Learning -- Machine Learning Project](https://github.com/ahoymarcus/desafio-transfer-learning-colab) 
  - **JavaScript**:
-    - [React.JS Tech Blog (Web App ver. 1.0](https://nextjs-myjs-tech-blog.vercel.app/)
-    - [Online Portfolio (Antigo) (Web App ver. 3.0)](https://redux-reactjs-personal-portfolio-webpage-version-2.netlify.app/)
-    - [JavaScript Bookshelf App (Web App  ver. 1.0)](https://my-javascript-bookshelf.netlify.app/)
-    - [Música Erudita Blog (Web Site ver. 2.0)](https://musica-erudita.netlify.app/)
- - **Bash**
+    - [React.JS e Next.JS - Tech Blog (Web App ver. 1.0) --- FullStack Project] (https://nextjs-myjs-tech-blog.vercel.app/)
+    - [React.JS Frontend - Online Portfolio (Antigo) (Web App ver. 3.0) --- FrontEnd Project](https://redux-reactjs-personal-portfolio-webpage-version-2.netlify.app/)
+    - [JavaScript "Vanilla" -  Bookshelf App (Web App  ver. 1.0) --- Web Design Project](https://my-javascript-bookshelf.netlify.app/)
+    - [Música Erudita Blog (Web Site ver. 2.0) --- Web Design Project](https://musica-erudita.netlify.app/)
+ - **Bash (+ SED E AWK)**:
+    - [Automatizando o Gerenciamento de Jobs com Bash e AWK]()
  - **TCPDump**
  - **Wireshark**
  - **Kali Linux**
