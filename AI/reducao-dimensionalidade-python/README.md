@@ -108,8 +108,7 @@ Interessante de notar que no script acima a aplicação da média ponderada é f
 Nesse sentido, a operação matemática sobre matriz ocorre por sobre uma estrutura tridimensional, onde a **altura** representaria todas as linhas do array, enquanto que a **largura** seria representada pelas colunas do array, que nesse caso temos três colunas, uma para **R**, outra para **G** e finalmente uma última colona para **B**, sendo que a posição ali acima na posição final, teríamos cada valor ou célula **célula**, propriamente dita! 
 
 
-![Lena_512x512_24bit_gray-manual](./public/lena_512x512_24bit_gray-manual.png)
-
+![Lena_512x512_24bit_gray-manual](./public/lena_512x512_24bit_gray-manual.jpg)
 
 <br>
 
@@ -136,8 +135,7 @@ De qualquer forma, lembrando que temos agora um único valor remanescente para c
 
 E em termos gráficos, o resultado final pode ser visto abaixo:
 
-![Lena_512x512_24bit_bw](./public/lena_512x512_24bit_bw.png)
-
+![Lena_512x512_24bit_bw](./public/lena_512x512_24bit_bw-manual.jpg)
 
 <br>
 

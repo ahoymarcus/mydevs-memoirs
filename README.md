@@ -29,7 +29,7 @@ I got into the Tech world a while ago and among some of my interests are web des
     - [Redução de Dimensionalidade com Python](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/AI/reducao-dimensionalidade-python)
     - [Treinamento de Redes Neurais com Transfer Learning -- Machine Learning Project](https://github.com/ahoymarcus/desafio-transfer-learning-colab) 
  - **JavaScript**:
-    - [React.JS e Next.JS - Tech Blog (Web App ver. 1.0) --- FullStack Project] (https://nextjs-myjs-tech-blog.vercel.app/)
+    - [React.JS e Next.JS - Tech Blog (Web App ver. 1.0) --- FullStack Project](https://nextjs-myjs-tech-blog.vercel.app/)
     - [React.JS Frontend - Online Portfolio (Antigo) (Web App ver. 3.0) --- FrontEnd Project](https://redux-reactjs-personal-portfolio-webpage-version-2.netlify.app/)
     - [JavaScript "Vanilla" -  Bookshelf App (Web App  ver. 1.0) --- Web Design Project](https://my-javascript-bookshelf.netlify.app/)
     - [Música Erudita Blog (Web Site ver. 2.0) --- Web Design Project](https://musica-erudita.netlify.app/)
