@@ -13,7 +13,7 @@ Neste laboratório do prof. Diego Renan, o objetivo é aplicar um método de tra
 A ideia é de se realizar essa tarefa usando a linguagem Python e a imagem escolhida é a famosa imagem da atriz Lena, que fora na história, a primeira imagem digitalizada com sucesso, isso ainda nos anos de 1973.
 
 
-![Lena_512x512_24bit_RGB](./public/Lena_512x512_24bit_RGB.png)
+![Lena_512x512_24bit_RGB](./public/lena_512x512_24bit_RGB.png)
 
 
 Lembramos que em termos computacionais, uma imagem no padrão RGB possui três valores para cada pixel que é representado na imagem digital, ou seja, um valor específico para cada canal de cor: Vermelho, Verde e Azul.
@@ -65,8 +65,8 @@ except Exception as e:
 Vemos acima que se trata de um script básico de teste que tão somente carrega a imgagem, e guarda alguns dados para serem posteriormente manipulação na forma de metadados.
 
 >[!NOTE]
-> Imagem carregada com sucesso! 
-> Image: Lena_512-512_24bit_RGB.png, 
+> Imagem carregada com sucesso!    
+> Image: Lena_512-512_24bit_RGB.png,   
 > Formato: PNG, Modo: RGBA, Tamanho: (640, 640)
    
 
@@ -80,9 +80,9 @@ Nesta primeira etapa dessa tarefa de extrair características dessa imagem, uma 
 Em termos matemáticos, essa média ponderada poderia ser descrita assim: 
 
 [!TIP]
-> Gray = 0.2989
-> timesR + 0.5870
-> timesG + 0.1140
+> Gray = 0.2989   
+> timesR + 0.5870   
+> timesG + 0.1140   
 > timesB
 
 
@@ -108,7 +108,7 @@ Interessante de notar que no script acima a aplicação da média ponderada é f
 Nesse sentido, a operação matemática sobre matriz ocorre por sobre uma estrutura tridimensional, onde a **altura** representaria todas as linhas do array, enquanto que a **largura** seria representada pelas colunas do array, que nesse caso temos três colunas, uma para **R**, outra para **G** e finalmente uma última colona para **B**, sendo que a posição ali acima na posição final, teríamos cada valor ou célula **célula**, propriamente dita! 
 
 
-![Lena_512x512_24bit_gray-manual](./public/Lena_512x512_24bit_gray-manual.png)
+![Lena_512x512_24bit_gray-manual](./public/lena_512x512_24bit_gray-manual.png)
 
 
 <br>
@@ -136,7 +136,7 @@ De qualquer forma, lembrando que temos agora um único valor remanescente para c
 
 E em termos gráficos, o resultado final pode ser visto abaixo:
 
-![Lena_512x512_24bit_bw](./public/Lena_512x512_24bit_bw.png)
+![Lena_512x512_24bit_bw](./public/lena_512x512_24bit_bw.png)
 
 
 <br>
