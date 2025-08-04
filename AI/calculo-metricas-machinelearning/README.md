@@ -86,7 +86,6 @@ Coletando as informações descritas na tabela acima, então, temos:
 
 - Sensibilidade = Verdadeiro Positivo / (Verdadeiro Positivo + Falso Negativo) 
 
-> [!NOTE]   
 > Sensibilidade = 40 / (40 + 10) = 0.8
 
 
@@ -96,7 +95,6 @@ Coletando as informações descritas na tabela acima, então, temos:
 
 - Especificidade = Verdadeiro Negativo / (Verdadeiro Negativo + Falso Positivo)
 
-> [!NOTE]   
 > Especificidade = 35 / (35 + 15)  = 0.7
 
 
@@ -106,7 +104,6 @@ Coletando as informações descritas na tabela acima, então, temos:
 
 Acurácia = (Verdadeiro Positivo + Verdadeiro Negativo) / Total de Itens
 
-> [!NOTE]   
 > Acurácia = (40 + 35) / (40 + 35 + 15 + 10) = 0.75
 
 
@@ -116,7 +113,6 @@ Acurácia = (Verdadeiro Positivo + Verdadeiro Negativo) / Total de Itens
 
 - Precisão = Verdadeiro Positivo / (Verdadeiro Positivo + Falso Positivo)
 
-> [!NOTE]   
 > Precisão = 40 / (40 + 15) = 0.73 
 
 
@@ -126,17 +122,7 @@ Acurácia = (Verdadeiro Positivo + Verdadeiro Negativo) / Total de Itens
 
 - f1 = 2 * ((Precisão * Sensibilidade)  / (Precisão + Sensibiliade)) 
 
-> [!NOTE]   
 > f1 = 2 * ((0.73 * 0.8) / (0.73 + 0.8)) ~= 0.76 
-
-
-<br>
-
-## Outros links:
-
- - [linkedin:] https://www.linkedin.com/in/marcus-vinicius-richa-183104199/
- - [Github:] https://github.com/ahoymarcus/
- - [My Old Web Portfolio:] https://redux-reactjs-personal-portfolio-webpage-version-2.netlify.app/
 
 
 <br>
