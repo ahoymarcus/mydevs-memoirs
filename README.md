@@ -26,7 +26,8 @@ I got into the Tech world a while ago and among some of my interests are web des
 ## :wrench: My Programming Languages, Frameworks and Small Projects:
 
  - **Python**:
-    - [Redução de Dimensionalidade com Python](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/AI/reducao-dimensionalidade-python)
+    - [Cálculo de Métricas de Avaliação de Aprendizado -- Machine Learning Project](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/AI/calculo-metricas-machinelearning)
+    - [Redução de Dimensionalidade com Python -- Machine Learning Project](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/AI/reducao-dimensionalidade-python)
     - [Treinamento de Redes Neurais com Transfer Learning -- Machine Learning Project](https://github.com/ahoymarcus/desafio-transfer-learning-colab) 
  - **JavaScript**:
     - [React.JS e Next.JS - Tech Blog (Web App ver. 1.0) --- FullStack Project](https://nextjs-myjs-tech-blog.vercel.app/)
