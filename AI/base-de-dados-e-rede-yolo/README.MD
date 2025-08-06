@@ -74,17 +74,22 @@ Assim, no sentido daquela imagem "total", ela vai ter todo o foco da operação 
 Na imagem acima, vemos além das imagens preparadas para o modelo de classificação, os seus rótulos também, embora isto não seja um ponto essencial para este projeto, porque a distinção entre a presença ou a ausência de rótulos seja mais determinante para a definição do que seriam **redes supervisionadas** ou **redes não-supervisionadas**.
 
 
+<br>
+
 Ou seja, numa rede supervisionada, o modelo está sendo supervisionado ou treinado a partir de um elemento ou referência externa, que aqui no caso é representado por um rótulo que vai definir esse objeto, enquanto que em uma rede não supervisionada, essa referência externa, no caso o rótulo, não haveria de estar presente.
 
 
 Mas voltando ao ponto central deste projeto, das **redes de detecção**, estas, por sua vez, poderiam ser consideradas mais complexas que as **redes de classificações**, na medida em que ao trabalharem as suas imagens ou objetos, elas haveriam de trabalhar simultaneamente com diferentes elementos ou focos a um mesmo tempo, diferentemente da operação de classificação que, como fora visto, tinha apenas um elemento total, ou tinha o seu foco reduzido para operar por sobre apenas um único elemento apenas:
 
-![rede-de-detecção-de-imagens](./public/rede-de-detecção-de-imagens.png
+![rede-de-detecção-de-imagens](./public/rede-de-detecção-de-imagens.png)
 
 
 A importância de se frisar este ponto que diferencia a operação desses dois tipos de modelos de machine learning estaria no fato de que para a própria preparação dos objetos ou dados também haveriam de ser diferentes, que no caso de uma redes de detecção, por exemplo, precisaria apresentar e diferenciar esses diferentes "elementos" ou "focos" para as regiões de cada uma das imagens: 
 
-![exemplo-de-praparacao-de-imagens-para-deteccao-com-a-ferramenta-labelme](./public/exemplo-de-praparacao-de-imagens-para-deteccao-com-a-ferramenta-labelme.png]
+![exemplo-de-praparacao-de-imagens-para-deteccao-com-a-ferramenta-labelme](./public/exemplo-de-praparacao-de-imagens-para-deteccao-com-a-ferramenta-labelme.png)
+
+
+<br>
 
 Acima vemos o prof. Renan apresentando a ferramenta online [LabelMe](http://labelme.csail.mit.edu/Release3.0/), enquanto demonstra o funcionamento e a forma de se representar as áreas de "interesse" ou "foco" numa imagem para treinamento por detecção através do uso do recursos das **Bounding Boxes** ou simplesmente **"caixas delimitadoras"**.
 
@@ -188,12 +193,7 @@ drive.mount('/content/gdrive')
 Como não foi possível rodar a Rede YOLOv3 no ambiente remoto com Notebook Colob, foi feita então a clonagem do projeto do Github para o teste local da rede com a versão **Tiny YOLOv3** dessa rede de detecção.
 
 
-Assim, primeiramente fora clonado o repositório da Rede YOLO localmente, bem como fora configurado a ferramenta **darknet**, conforme indicado no site da ferramenta:
-
-- [YOLO: Real-Time Object Detection](https://pjreddie.com/darknet/yolo/)
-
-
-E, configurando o modelo pré-treinado da rede **Tiny YOLOv3**, temos:
+Assim, primeiramente fora clonado o repositório da Rede [YOLO: Real-Time Object Detection](https://pjreddie.com/darknet/yolo/) localmente, e depois fora feita a sua configuração para o modelo reduzido da rede de detecção na versão **Tiny YOLOv3**:
 
 ```
 git clone https://github.com/pjreddie/darknet
@@ -206,6 +206,8 @@ make
 wget https://data.pjreddie.com/files/yolov3-tiny.weights
 ```
 
+
+<br>
 
 Aqui, temos a imagem **dog.jpg** para o teste feito localmente:
 
@@ -280,7 +282,14 @@ Enquanto isso, do outro lado, o modelo completo não apenas trouxe valores muito
 
 <br>
 
-Finalmente, num último teste da ferramenta de detecção **Tiny YOLOv3**, vemos que o modelo reduzido, além de retornar valores também baixos para as suas predições para os objetos na imagem **horses.jpg**, ela retornou apenas três predições para os cinco objetos presentes na imagem, sendo que duas dessas predições ainda teriam sido feitas incorretamente, pois foram identificadas como vacas e não cavalos:
+Finalmente, num último teste da ferramenta de detecção **Tiny YOLOv3**, vemos que no trabalho do modelo reduzido de tentar detectar e predizer os objetos presentes na imagem **horses.jpg**, que ele parece ter tido bastante dificuldade, não apenas para detectar as cinco imagens de cavalos existentes, bem como para também fazer a identificações corretamente como cavalos:
+
+![Teste para a imagem horses.jpg](./public/horses.jpg)
+
+
+<br>
+
+Nesse sentido, além de também retornar valores baixos para as suas predições, vemos que ela teria retornado duas identificações incorretas para os objetos, predizendo-os como vacas e não cavalos:
 
 - **detect cfg/yolov3-tiny.cfg yolov3-tiny.weights data/horses.jpg**
 
@@ -316,11 +325,6 @@ cow: 56%
 cow: 54%
 horse: 56%
 ```
-
-
-<br>
-
-![Teste para a imagem horses.jpg](./public/horses.jpg)
 
 
 <br>

@@ -26,6 +26,7 @@ I got into the Tech world a while ago and among some of my interests are web des
 ## :wrench: My Programming Languages, Frameworks and Small Projects:
 
  - **Python**:
+    - [Estudo de Criação de Base de Dados para Redes de Detecção e Uso da Rede YOLO -- Machine Learning](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/AI/base-de-dados-e-rede-yolo)
     - [Cálculo de Métricas de Avaliação de Aprendizado -- Machine Learning Project](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/AI/calculo-metricas-machinelearning)
     - [Redução de Dimensionalidade com Python -- Machine Learning Project](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/AI/reducao-dimensionalidade-python)
     - [Treinamento de Redes Neurais com Transfer Learning -- Machine Learning Project](https://github.com/ahoymarcus/desafio-transfer-learning-colab) 
