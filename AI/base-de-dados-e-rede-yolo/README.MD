@@ -66,7 +66,9 @@ Isto, então, pode ser visto durante o curso ministrado pelo prof. Renan, de que
 Isto porque, para o caso de uma imagem voltada para uma **rede de classficação**, esta imagem é apresentada, via de regra, de maneira mais simples para a sua rede , ou seja, na forma de objetos ou imagens independentes (ou "totais"), ou que de uma forma ou de outra haveria de ser reduzirdos ou focados a uma imagem apenas (por exemplo, uma imagem de um gato para ser classificado, em que o "pano de fundo" ou background é simplesmente desconsiderado para a tarefa em questão.
 
 
-Assim, no sentido daquela imagem "total", ela vai ter todo o foco da operação voltado para ela: 
+<br>
+
+Assim, no sentido daquela ideia de imagem "total" ou de um único ponto de foco quando se trata de uma aplicação de **Classificação de Imagens**, a ideia aqui, então, é que nesta operação apenas um objeto ou elemento pertencente à imagem como um todo concentre todo o foco da para ela, que neste caso, haveria de ser **cat** ou **dog** (ainda que houvesse algum objeto presente como detelhe ao fundo da imagem): 
 
 ![rede-de-classificação-de-imagens-supervisionadas](./public/rede-de-classificação-de-imagens-supervisionadas.png)
 
@@ -74,15 +76,17 @@ Assim, no sentido daquela imagem "total", ela vai ter todo o foco da operação 
 Na imagem acima, vemos além das imagens preparadas para o modelo de classificação, os seus rótulos também, embora isto não seja um ponto essencial para este projeto, porque a distinção entre a presença ou a ausência de rótulos seja mais determinante para a definição do que seriam **redes supervisionadas** ou **redes não-supervisionadas**.
 
 
-<br>
-
 Ou seja, numa rede supervisionada, o modelo está sendo supervisionado ou treinado a partir de um elemento ou referência externa, que aqui no caso é representado por um rótulo que vai definir esse objeto, enquanto que em uma rede não supervisionada, essa referência externa, no caso o rótulo, não haveria de estar presente.
 
+
+<br> 
 
 Mas voltando ao ponto central deste projeto, das **redes de detecção**, estas, por sua vez, poderiam ser consideradas mais complexas que as **redes de classificações**, na medida em que ao trabalharem as suas imagens ou objetos, elas haveriam de trabalhar simultaneamente com diferentes elementos ou focos a um mesmo tempo, diferentemente da operação de classificação que, como fora visto, tinha apenas um elemento total, ou tinha o seu foco reduzido para operar por sobre apenas um único elemento apenas:
 
 ![rede-de-detecção-de-imagens](./public/rede-de-detecção-de-imagens.png)
 
+
+<br>
 
 A importância de se frisar este ponto que diferencia a operação desses dois tipos de modelos de machine learning estaria no fato de que para a própria preparação dos objetos ou dados também haveriam de ser diferentes, que no caso de uma redes de detecção, por exemplo, precisaria apresentar e diferenciar esses diferentes "elementos" ou "focos" para as regiões de cada uma das imagens: 
 
@@ -104,7 +108,7 @@ Na image acima, então, podemos ver o prof. Renan delimitando e rotulando quatro
 
 <br>
 
-## Introduzindo a Rede YOLOv3
+## Introduzindo a Rede _YOLOv3_
 
 Com o intuito de apresentar a sua **Rede YOLOv3**, bem como para ensinar noções gerais de como realizar um treinamento usando aquele modelo, a ferramenta **Darknet** criou um Google Notebook Colab com um tutorial para trabalhar a rede YOLOv3.
 
@@ -188,7 +192,7 @@ drive.mount('/content/gdrive')
 
 <br>
 
-## Testando a Versão Compacta da Rede "Tiny YOLOv3" Localmente
+## Testando Localmente a Versão Compacta da Rede _Tiny YOLOv3_
 
 Como não foi possível rodar a Rede YOLOv3 no ambiente remoto com Notebook Colob, foi feita então a clonagem do projeto do Github para o teste local da rede com a versão **Tiny YOLOv3** dessa rede de detecção.
 
@@ -262,7 +266,9 @@ bicycle: 59%
 ```
  
 
-E, comparando-se o resultado das predições obtidas acima para a imagem **dog.jpg**, com os valores apresentados no site oficial da ferramenta, podemos confirmar como foi grande a defasagem em função do uso da versão reduzida do modelo local, em relação ao que pode ser alcançado pelo modelo pleno da rede **YOLOv3**.
+<br>
+
+E agora, comparando-se o resultado obtido nas predições acima para a imagem **dog.jpg** com a versão do modelo **Tiny YOLOv3**, temos abaixo os valores apresentados no site oficial da ferramenta, em que podemos confirmar a grande disparidade ou defasagem em relação ao resultado que é trazido pelos dados que representam a mesma operação sobre aquela mesma imagem, mas aqui realizada pelo modelo pleno da Rede de Detecção, ou seja, da versão **YOLOv3** da rede:
 
 
 
@@ -270,14 +276,17 @@ E, comparando-se o resultado das predições obtidas acima para a imagem **dog.j
 
 
 
-E podemos observar ainda nos resultados em comparação, que não apenas o modelo reduzido trouxera predições com percentuais muito reduzidos para a imagem do automável, que ele parece ter ficado em dúvidas com relação à sua classificação final:
+E podemos observar ainda nos resultados em comparação, que não apenas o modelo reduzido trouxera predições com percentuais muito mais reduzidos para as imagens detectadas, como também o modelo reduzido parece ter ficado com dúvidas sobre a possibilidade da classficação final do objeto, de modo que aparentemente trouxera três possíveis resultados para um único objeto presente na imagem! 
+
+
+Lembramos que, embora os objetos **dog** e **bicycle** também tivessem tido percentuais baixos de certeza por parte da aplicação, para eles não foram apresentadas outras possiveis classificações, como ocorreu para o objeto "automóvel":
 
 - Carro-1: **52%** 
 - Caminhão: **56%** 
 - Carro-2: **62%** 
 
 
-Enquanto isso, do outro lado, o modelo completo não apenas trouxe valores muito altos para a predição dos objetos, como ele apresenta um único valor para a predição do veículo na imagem.
+Enquanto isso, o modelo completo não apenas trouxe valores muito altos para a predição dos objetos, como ele apresenta um único valor para a predição do veículo na imagem.
 
 
 <br>
