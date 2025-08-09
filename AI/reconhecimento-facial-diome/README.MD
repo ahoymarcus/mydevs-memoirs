@@ -68,16 +68,32 @@ Assim, parece mesmo que atrevés dessa pequena experiência introdutória aprese
 
 ## Contruindo um Modelo de Detecção e Classificação Facial
 
-Primeiramente, considerando o objeto do desafio em questão, bem como de tudo o que foi apresentado pelo prof. Renan ao longo do curso, um modelo de **Detecção e Classificação Facial** remonta a uma operação bastante especializada, uma vez que tal modelo não apenas precisa realizar a classificação de um objeto presente em uma imagem, mas de detectar os diferentes objetos presentes em uma imagem, marcá-los todos e em seguida classificar cada um deles.
-
-
-Na imagem a seguir, do material do curso do prof. Renan, temos justamente esse visão de uma imagem sendo trabalhada com diferentes pontos ou elementos de foco que precisam ser detectados, para que posteriormente pudessem ser classificados:
+Primeiramente, considerando o objeto do desafio em questão, bem como de tudo o que foi apresentado pelo prof. Renan ao longo do curso, um modelo de **Detecção e Classificação Facial** remonta a uma operação bastante especializada, uma vez que tal modelo precisa primeiramente detectar os objetos presentes em uma imagem, marcar todos em relação às suas posições ou atributos que os individualizam, para ao final ainda fazer a sua predição para a classificação de cada um desses objetos encontrados e marcados.
 
 ![imagem de uma rede-de-detecção-de-imagens](./public/rede-de-detecção-de-imagens.png)
 
 
+<br>
+
+A imagem acima foi tirada do material do curso do prof. Renan, e mostra justamente o ciclo de trabalhos necessários que precisam ser feitos sobre uma imagem em uma operação de **detecção e classificação** de imagens ou faces, em que primeiramente é preciso serem detectados e marcardos todos os objetos encontrados dentro de uma imagem com as chamadas linhas de **bounding boxes**, para só ser possível proceder à classificação de cada objeto detectado na imagem:
+
+![Imagem para o desafio-5 de reconhecimento-faces big-bang-theory](./public/desafio-5-reconhecimento-faces-big-bang-theory.png)
 
 
+> [!IMPORTANT]
+> Por meio da Figura 1 é possível visualizar o resultado esperado para o modelo proposto, devendo detectar e reconhecer mais de uma face ao mesmo tempo:     
+> 1. Utilizar uma rede de detecção treinada para detectar faces.   
+> 2. Utilizar uma rede de classificação para classificar a face detectada.   
+
+
+<br>
+
+Observando, então, a complexidade relacionada às aplicações de machine learning para a **detecção e classificação de faces**, bem como os requisitos definidos para este desafio em particular, fora decidido trabalhar o problemde acordo da estrutura a seguir:
+
+- Simplificar o projeto, dividindo-o em dois módulos mais simples, o que também poderia permitir gerenciar e tratar da otimização de cada um deles separadamente:
+
+1. A utilização de um modelo inicial para a detecção de imagens, isto é, faces: o modelo **MTCNN**.
+2. A utilização de um modelo básico para a classificação final das imagens. 
 
 
 
