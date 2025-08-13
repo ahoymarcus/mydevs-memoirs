@@ -291,7 +291,7 @@ Assim, essa biblioteca que é voltada para o aprendizado de máquinas, traria co
 
 ![esquema-de-funcionamento-da-biblioteca-scikit-learn-ibm-article](./public/esquema-de-funcionamento-da-biblioteca-scikit-learn-ibm-article.png)
 
-> "By leveraging scikit-learn's robust suite of pretrained neural networks and machine learning algorithms, newcomers to the field can quickly and effectively preprocess datasets for supervised learning applications, such as regression or classification. This step can be accomplished without needing an in-depth understanding of complex mathematical concepts such as linear algebra, calculus or cardinality. Additionally, these tools facilitate unsupervised learning processes including clustering and dimensionality reduction. These tools allow users to focus on higher-level insights and business value creation." [Scikit-Learn](https://scikit-learn.org/stable/index.html)
+> "By leveraging scikit-learn's robust suite of pretrained neural networks and machine learning algorithms, newcomers to the field can quickly and effectively preprocess datasets for supervised learning applications, such as regression or classification. This step can be accomplished without needing an in-depth understanding of complex mathematical concepts such as linear algebra, calculus or cardinality. Additionally, these tools facilitate unsupervised learning processes including clustering and dimensionality reduction. These tools allow users to focus on higher-level insights and business value creation." [What is scikit-learn (sklearn)? - IBM.com](https://scikit-learn.org/stable/index.html)
 
 
 <br>
@@ -337,7 +337,7 @@ print("Modelo e encoder salvos como 'face_classifier.pkl' e 'label_encoder.pkl'.
 
 Observando o código preparado acima, podemos ver de início a importância da biblioteca NumPy para o trabalho realizado pela biblioteca Scikit-Learn, especialmente com relação ao trabalho com arrays multidimensionais:
 
-> "Numpy: A library that provides support for large, multi-dimensional arrays and matrices, along with a wide range of high-performance mathematical functions to manipulate them. It's a fundamental package for scientific computing in Python." [Scikit-Learn](https://scikit-learn.org/stable/index.html)
+> "Numpy: A library that provides support for large, multi-dimensional arrays and matrices, along with a wide range of high-performance mathematical functions to manipulate them. It's a fundamental package for scientific computing in Python." [What is scikit-learn (sklearn)? -IBM.com](https://scikit-learn.org/stable/index.html)
 
 
 Assim, esta última estapa começa com a chamada da biblioteca NumPy para consumir os recursos criados na etapa anterior de **embeddings** e **labels** preparando duas variáveis que (**x**, **y**) que vão alimentar o modelo responsável por fazer o treinamento e posteriormente testar o resultado, para medir a **acurácia** do modelo que fora treinado:
@@ -378,6 +378,8 @@ print("Modelo e encoder salvos como 'face_classifier.pkl' e 'label_encoder.pkl'.
 
 
 <br>
+
+A saída final para a operação de **Detecção e Classificação de Faces** é dada assim, então:
 
 ```
 Treinando o classificador SVM...
