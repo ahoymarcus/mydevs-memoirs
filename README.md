@@ -37,16 +37,16 @@ I got into the Tech world a while ago and among some of my interests are web des
     - [Música Erudita Blog (Web Site ver. 2.0) --- Web Design Project](https://musica-erudita.netlify.app/)
  - **Bash (+ SED E AWK)**:
     - [Automatizando o Gerenciamento de Tarefas com Bash e AWK](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/Bash)
- - **TCPDump**
- - **Wireshark**
- - **Kali Linux**
- - **Docker - Containers**
- - **Máquinas Virtuais - VirtualBox**
  - **Microsoft Excel**:
     - [Relatório em Dashboard com Análise das Vendas de Assinaturas de uma Plataforma de Jogos Online](https://github.com/ahoymarcus/desafio-dashboard-xbox-excel)
     - [Ferramenta Excel para Organização da Declaração de Imposto de Renda](https://github.com/ahoymarcus/desafio-excel-organizador-declaracao-irpf)
     - [Ferramenta Excel de Controle de Investimentos](https://github.com/ahoymarcus/desafio-excel-ferramenta-controle-de-investimenos)
     - [Ferramenta Excel de Gerenciamento de Backlog de Tarefas](/public/ferramenta-controle-de-tarefas-e-backlog-msxcel.png)
+ - **TCPDump**
+ - **Wireshark**
+ - **Kali Linux**
+ - **Docker - Containers**
+ - **Máquinas Virtuais - VirtualBox**
 
 
 <br>
