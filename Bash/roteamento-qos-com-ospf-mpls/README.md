@@ -1,24 +1,21 @@
 # Criando e Configurando uma Rede com QoS (OSPF e MPLS)
  
-Olá, neste projeto do Curso de **Rede de Computadores** da faculdade IESB, eu tenho o desafio de criar e configurar uma rede de uma empresa como QoS, de modo que para a obtenção desse resultado serão usados os protocolos OSPF e MPLS, ademais, serão usandos como base para este projeto o sistema operacional Debian Linux e a aplicação de simulação de redes da CISCO PacketTracer.
+Olá, neste projeto do Curso de **Rede de Computadores** da faculdade IESB, eu tenho o desafio de criar e configurar uma rede de uma empresa como QoS, de modo que para a obtenção desse resultado serão usados os protocolos OSPF e MPLS, ademais, serão usados como base para este projeto o sistema operacional Debian Linux e a aplicação de simulação de redes da CISCO PacketTracer.
 
 
 Requisitos do Projeto:
 
 1. **Criar três LANs para representar as três filiais de uma empresa**
 2. **Usar roteamento dinâmico OSPF: IPv4 e IPv6**
-3. **Configura MPLS**
+3. **Configurar serviço de MPLS**
 4. **Aplicar QoS para priorizar videoconferência e chamadas de voz**
-
-
-![](./public/)
 
 
 <br>
 
 ## Construindo o Projeto
 
-Como determinam os requisitos para este projeto, a topografia básica desta rede da empresa deve ter pelo menos três LANs para representar cada uma das redes locais das filiais da empresa, de forma que o primeiro passo, então, para este projeto fora construir separadamente cada uma das LANs individualmente.
+Como determinam os requisitos para este projeto, a topografia básica desta rede da empresa deve ter pelo menos três LANs para representar cada uma das redes locais das filiais da empresa, de forma que o primeiro passo, então, para este projeto foi construir separadamente cada uma das LANs individualmente.
 
 
 <br>
@@ -34,14 +31,14 @@ O procedimento utilizado fora de se escolher os ícones de computadores desktops
 Dessa forma, cada um dos hosts fora conectado ao switch por meio de cabos **Straight-Through**, nas portas FastEthernet, enquanto cada swicht fora ligado ao seu roteador de gateway por meio das portas GigaEthernet.  
 
 
-Ademais, para que cada host pudesse receber endereços privados IPv4 e IPv6, fora preciso mudar as configurações dos hosts de endereçamento estático para endereçamento dinâmico por meio do protocolo DHCP:
+Ademais, para que cada host pudesse receber endereços privados IPv4 e IPv6, fora usado a configuração básica de endereçamento dinâmico por meio do protocolo DHCP:
  
 ![Configurando o endereçamento IPv4 e IPv6 por DHCP](./public/enderecamento-dinamico-dhcp.png)
 
 
 <br>
 
-Podemos ver a seguir que não apenas os endereços privados foram configurados pelo servidor DHCP, como a conexão já estaria pronta, tendo sido testada por meio do comando ping:
+Podemos ver a seguir, que não apenas os endereços privados foram configurados por meio do servidor DHCP, como a rede interna ou LAN da Filial-1 já possui conexão com os demais hosts de sua própria rede! Eis o resultado de teste usando os comandos **ipconfig** e **ping**:
 
 ```
 C:\>ipconfig
@@ -49,39 +46,29 @@ C:\>ipconfig
 FastEthernet0 Connection:(default port)
 
    Connection-specific DNS Suffix..: 
-   Link-local IPv6 Address.........: FE80::210:11FF:FE52:7087
+   Link-local IPv6 Address.........: FE80::201:43FF:FEA6:278
    IPv6 Address....................: ::
-   Autoconfiguration IPv4 Address..: 169.254.112.135
+   Autoconfiguration IPv4 Address..: 169.254.100.1
    Subnet Mask.....................: 255.255.0.0
    Default Gateway.................: ::
                                      0.0.0.0
 
-Bluetooth Connection:
+C:\>ping 169.254.100.2
 
-   Connection-specific DNS Suffix..: 
-   Link-local IPv6 Address.........: ::
-   IPv6 Address....................: ::
-   IPv4 Address....................: 0.0.0.0
-   Subnet Mask.....................: 0.0.0.0
-   Default Gateway.................: ::
-                                     0.0.0.0
+Pinging 169.254.100.2 with 32 bytes of data:
 
-C:\>ping 169.254.2.120
+Reply from 169.254.100.2: bytes=32 time<1ms TTL=128
+Reply from 169.254.100.2: bytes=32 time<1ms TTL=128
+Reply from 169.254.100.2: bytes=32 time<1ms TTL=128
+Reply from 169.254.100.2: bytes=32 time<1ms TTL=128
 
-Pinging 169.254.2.120 with 32 bytes of data:
-
-Reply from 169.254.2.120: bytes=32 time<1ms TTL=128
-Reply from 169.254.2.120: bytes=32 time<1ms TTL=128
-Reply from 169.254.2.120: bytes=32 time<1ms TTL=128
-Reply from 169.254.2.120: bytes=32 time<1ms TTL=128
-
-Ping statistics for 169.254.2.120:
+Ping statistics for 169.254.100.2:
     Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
 Approximate round trip times in milli-seconds:
     Minimum = 0ms, Maximum = 0ms, Average = 0ms
 ```
 
-![Testando a conexão entre os hosts com o comando Ping](./public/testando-a-conexao-dos-host-com-ping.png)
+![Testando a conexão entre os hosts com o comando Ping](./public/teste-de-ping-de-conexao-na-filial-1.png)
 
 
 <br>
@@ -93,7 +80,7 @@ Contudo, como pode ser visto nesta próxima imagem geral da topologia da empresa
 
 <br>
 
-Nesse sentido, temos abaixo a imagem com a configuração no terminal CLI de um dos roteadores os comandos necessários para abilitar a porta/interface da rede interna da LAN: 
+Agora, temos na imagem abaixo a configuração no terminal CLI para habilitar a porta de um de um roteador, preparando a interface interna da rede interna da LAN da Filial-1:
 
 ![Configurando a Interface interna do Roteador por meio da CLI](./public/configurando-a-interface-interna-lan-do-roteador-na-cli.png)
 
@@ -113,7 +100,7 @@ Router(config-if)#
 
 <br>
 
-Finalmente, vermos a imagem com a visão geral da topologia da empresa com cada uma de suas três LANs plenamente funcionais!
+Finalmente, temos a imagem com a visão geral da topologia da empresa com cada uma de suas três LANs plenamente funcionais!
 
 ![Visão geral da Topologia da rede das LANs com os roteadores com suas interfaces abilitadas](./public/visao-geral-da-topologia-das-lans-com-roteadores-abilitados.png)
 
@@ -122,11 +109,10 @@ Finalmente, vermos a imagem com a visão geral da topologia da empresa com cada 
 
 ### Fazendo a Conexão dos Roteadores Gateway das LANs da Empresa 
 
+Como primeira tarefa para iniciar a interligação das três LANs das filias da empresa é a decisão acerca de um design para o uso dos roteadores na topologia do projeto da rede.
 
-A primeira tarefa a ser feita para pode iniciar a interligação das três LANs das filias da empresa seria decidir sobre o design do uso dos roteadores para o projeto da rede.
 
-
-Nesse caso, a ideia seria de se adicionar um roteador para cada filial para que eles pudessem fazer o papel de **roteadores de borada**, este roteadores que seriam, então, conectados uns aos outros da rede da empresa, enquanto o roteador original permanecendo apenas como um roteador Gateway simple para a sua respectiva LAN.
+E, nesse caso então, seria de se manter o roteador original como sendo um Roteador de Gateway na entrada de cada uma das LANs, enquanto que outro roteador pudesse fazer o papel de **roteador de borda** para ligar e conectar as filiais da rede da empresa entre si! 
 
 
 Duas razões que tratam de **Boas Práticas** poderiam justificar essa escolha:
@@ -138,7 +124,7 @@ Duas razões que tratam de **Boas Práticas** poderiam justificar essa escolha:
 Nesse sentido, no caminho de preparar os roteadores Gateway de cada LAN para se conectarem à rede principal da empresa, elas precisam primeiramente fazer uma expansão para adicionar novo módulo de portas para as conexões necessárias.
 
 
-Os passos para fazer a modança são:
+Os passos para fazer a mudança são:
 
 1. **Desligar os roteadores**
 2. **Buscar na Aba Physical de sua interface o novo módulo desejado: NIM-ES2-4**
@@ -179,7 +165,7 @@ end
 
 ### Conectando as Redes LANs da Empresa e Configurando o Roteamento OSPF
 
-Agora, então, que as redes LANs estão com a sua estrutrua básica funcionando:
+Agora, então, que as redes LANs estão com a sua estrutura básica funcionando:
 
 - Hosts e dispositivos
 - Switch
@@ -229,13 +215,13 @@ end
 ```
 
 > [!NOTA]
-> Lembrar que o mesmo procedimento que tem sido feito para definir o enderaçamento de um roteador, deve ser repetido para todos os roteadores, pertencentes às três LANs! 
+> Lembrar que o mesmo procedimento que tem sido feito para definir o endereçamento de um roteador, deve ser repetido para todos os roteadores, pertencentes às três LANs! 
 
 
 Agora, que temos todas as 3 LANs estruturadas e os roteadores Gateway e Borda configurados com seus endereços IPs, precisamos, ainda, para que os roteadores possam conversar, primeiramente iniciar a configuração do processo de roteamento com o OSPF.
 
 
-Mas buscando simplificar o processo, as Filiais 1 e 2 serão conectadas primeiramente! De qualquer forma a base da configuração seria a mesma para o grupo de roteadores Gateway e Borda.
+Mas buscando simplificar o processo, as Filiais 1 e 2 serão conectadas primeiramente! De qualquer forma, a base da configuração seria a mesma para o grupo de roteadores Gateway e Borda.
 
 
 Assim, começando com a configuração de Borda:
@@ -261,7 +247,7 @@ Assim, alguns pontos a serem observados acima são:
     - Anúncio da rota Borda <-> Borda
 
 
-Observe ainda que o valor para a Área escolhi foi **0**, porque nesse caso toda essa topologia estarira sendo tomada como uma única parte central!
+Observe ainda que o valor para a Área escolhida foi **0**, porque nesse caso toda essa topologia estaria sendo tomada como uma única parte central!
 
 
 Ademais, é importante observar que o valor da máscara da rede anunciado no comando **network** do OSPF é representado na forma de **Wildcard Mask**, ou seja, ele é anunciado com os valores invertidos em relação aos valores da máscara padrão! 
@@ -335,24 +321,24 @@ O 169.254.0.0/16 [110/2] via 10.20.2.1, 00:04:35, GigabitEthernet0/0/0
 Contudo, infelizmente, ao se tentar ligar a Filial-3 à essa rede já configurada com o protocolo de roteamento OSPF, um erro recorrente no PacketTracer esteve impedindo ativação de uma terceira porta para o Roteador de Borda que serviria de entroncamento para a Filial-3. 
 
 
-Observe, ainda, que isso aconteceu independentemente de se escolher o roteador de borada da filial-1 ou da filial-2 para fazer essa conexão, independentemente também de haver portas disponíveis igualmente em cada um deles! E, abaixo, temos o bug potencial ao se tentar fazer a ativação e endereçamento da terceira porta do de cada um dos roteadores de borda para receberem a conexão da filial-3! 
+Observe, ainda, que isso aconteceu independentemente de se escolher o roteador de borda da filial-1 ou da filial-2 para fazer essa conexão, independentemente de haver portas disponíveis igualmente em cada um deles! E, abaixo, temos o bug potencial ao se tentar fazer a ativação e endereçamento da terceira porta do de cada um dos roteadores de borda para receberem a conexão da filial-3!
 
 
 Primeiro, tentando a ligação pelo Router4 da Filial-2:
 
-![bug-potencial-do-packettracer-no-roteador-4](./public/bug-potencial-do-packettracer-no-roteador3-isr4331-ativacao-porta.png)
+![bug-potencial-do-packettracer-no-roteador-4](./public/bug-potencial-do-packettracer-no-roteador4-isr4331-ativacao-porta.png)
 
 
 <br>
 
 E agora tentando a ligação também com o Router3 da Filial-1, embora tendo exatamente o mesmo erro visto acima:
 
-![bug-potencial-do-packettracer-no-roteador-3](./public/bug-potencial-do-packettracer-no-roteador4-isr4331-ativacao-porta.png)
+![bug-potencial-do-packettracer-no-roteador-3](./public/bug-potencial-do-packettracer-no-roteador3-isr4331-ativacao-porta.png)
 
 
 <br>
 
-É possível ver que, em ambos os casos, há portas disponíveis e que é tentada a ativação de uma terceira porta do roteador usando do mesmo grupo de comandos repedidamente usados mais acima para realizar essas mesmas operações de ativação de porta com o seu endereçamento de rede!
+É possível ver que, em ambos os casos, há portas disponíveis e que é tentada a ativação de uma terceira porta do roteador usando do mesmo grupo de comandos repetidamente usados mais acima para realizar essas mesmas operações de ativação de porta com o seu endereçamento de rede!
 
 ```
 enable
@@ -366,13 +352,13 @@ ip address 10.10.3.1 255.255.255.252
 
 ## Configurando o MPLS na Rede Filiais 1 e 2
 
-Entendendo o papel do MPLS, temos que o roteamento, no caso feito através do protocolo OSPF, é a base e o responsável por fazer a topologia "conversar", uma vez que através desse protocolo os roteadores envolvidos no processo de gestão de rotas na rede conversam e trocam informações sobre a topologia, e, como visto, cada um monta a sua própria tabela de rotas e passa a ter uma fisão aguçada da rede como um todo!
+Entendendo o papel do MPLS, temos que o roteamento, no caso feito através do protocolo OSPF, é a base e o responsável por fazer a topologia "conversar", uma vez que através desse protocolo os roteadores envolvidos no processo de gestão de rotas na rede conversam e trocam informações sobre a topologia, e, como visto, cada um monta a sua própria tabela de rotas e passa a ter uma visão aguçada da rede como um todo!
 
 
 O problema que, embora esse sistema seja extremamente inteligente e efetivo, ele também é custoso e demanda muito processamento que se repete e se acumula a cada novo roteador adicionado à topologia, de forma que temos aí consumo excessivo e de processamento e inevitável latência para o sistema em geral.
 
 
-O protocolo MPLS vem para ajudar a solucionar a parte do problema que causa um consumo exagerado de processamento dos dispositivos, que é o roteamento propriamente dito! Neste caso, o MPLS vem com uma proposta de simplifiar o processo de roteamento que seria feito por cada roteador independentemente por meio da análise geral de toda a tabela de roteamento e cálculo de caminhos, que com a ajuda do MPLS poderia ser feito por um sistema de rotulagem no qual a maioria dos roteadores envolvidos no roteamento atuariam meramente como encaminhadores de pacotes, através do uso dos rótulos, sem precisar realizar outras operações custosas que necessariamente causariam latência a todo o sistema. 
+O protocolo MPLS vem para ajudar a solucionar a parte do problema que causa um consumo exagerado de processamento dos dispositivos, que é o roteamento propriamente dito! Neste caso, o MPLS vem com uma proposta de simplificar o processo de roteamento que seria feito por cada roteador independentemente por meio da análise geral de toda a tabela de roteamento e cálculo de caminhos, que com a ajuda do MPLS poderia ser feito por um sistema de rotulagem no qual a maioria dos roteadores envolvidos no roteamento atuariam meramente como encaminhadores de pacotes, através do uso dos rótulos, sem precisar realizar outras operações custosas que necessariamente causariam latência a todo o sistema. 
 
 
 Nesse sentido, então, os próprios roteadores de bordas das duas filiais já conectadas é que seriam a espinha dorsal desse novo sistema de roteamento, usando ambas a seguinte configuração:
@@ -411,7 +397,7 @@ Mas infelizmente, como pode ser visto acima, parece que retorna o bug persistent
 
 ### Tentando Debugar o Problema com os Roteadores
 
-Para tentar dar proceguimento ao projeto, os roteadores de borda **ISR4331**, que precisavam de um módulo de expansão de portas, foram trocados pelo roteador **2911**, esse roteador tem inclusive a vantagem de já oferecer três portas, de modo que para o roteador de entroncamento para a filial-3, não haveria a necessidade de usar expansão de portas.
+Para tentar dar prosseguimento ao projeto, os roteadores de borda **ISR4331**, que precisavam de um módulo de expansão de portas, foram trocados pelo roteador **2911**, esse roteador tem inclusive a vantagem de já oferecer três portas, de modo que para o roteador de entroncamento para a filial-3, não haveria a necessidade de usar expansão de portas.
 
 
 De qualquer forma, o processo agora é o mesmo, seguindo o mesmo padrão de endereçamento das portas internas e externas proposto acima:
@@ -487,7 +473,7 @@ end
 ```
 
 
-E agora parece termos uma rede completa com três filiais gerenciadas pelo OSPF! Abaixo, na imagem, vemos que o Roteador de Borda da Filia-2 que serve de entroncamento entre as duas LANs, tem informações de sua vizinhança, onde tudo possue o estado perfeito de **Full**, bem como a sua tabela de rotas em que observamos as rotas marcadas com **'O'** para o **OSPF**:
+E agora parece termos uma rede completa com três filiais gerenciadas pelo OSPF! Abaixo, na imagem, vemos que o Roteador de Borda da Filial-2 que serve de entroncamento entre as duas LANs, tem informações de sua vizinhança, onde tudo possui o estado perfeito de **Full**, bem como a sua tabela de rotas em que observamos as rotas marcadas com **'O'** para o **OSPF**:
 
 ![conferindo-rotas-ospf-para-a-rede-completa-com-as-filiais](./public/conferindo-rotas-ospf-para-a-rede-completa-com-as-filiais.png)
 
@@ -510,7 +496,7 @@ Success rate is 100 percent (5/5), round-trip min/avg/max = 0/0/0 ms
 
 ### Voltando à Configuração do Protocolo MPLS
 
-Sanado o problema com o roteador **ISR4331** com a troca pelos roteadores **2911** para a borda da topologia da empresa, agora é o momento de buscar implementar aquela vantagem funcional de voteamento que o MPLS pode trazer para a eficiência e para a economia de recursos de roteamento!
+Sanado o problema com o roteador **ISR4331** com a troca pelos roteadores **2911** para a borda da topologia da empresa, agora é o momento de buscar implementar aquela vantagem funcional de roteamento que o MPLS pode trazer para a eficiência e para a economia de recursos de roteamento!
 
 
 Infelizmente, a ferramenta do Packet Tracer não parece suportar o uso do protocolo MPLS:
@@ -541,12 +527,12 @@ Router(config-if)#mpls ip
 % Invalid input detected at '^' marker.
 ```
 
-![testando-se-a-ferramenta-packettracer-suporta-mpls](./public/testando-se-a-ferramenta-packettracer-suporta-mpls.png)
+![testando-se-a-ferramenta-packettracer-suporta-mpls](./public/testando-se-a-ferramenta-packettracer-realmente-suporta-mpls.png)
 
 
 <br>
 
-Desse modo, pensando apenas no código necessário para configurar as filiais da empresa, poderiamos ter:
+Desse modo, pensando apenas no código necessário para configurar as filiais da empresa, podemos usar:
 
 - **Filial-1:**
 
@@ -591,7 +577,7 @@ Observando as configurações acima, vemos que a filial-2 por funcionar como ent
 Ademais, pelo que se pode ser entendido de todo esse processo de roteamento avançado com MPLS, ele operaria por sobre essa topologia de rede a partir dos Roteadores de Borda, que é onde a configuração recairia na topologia, porque estes roteadores de borda é que seriam os responsáveis por operar e gerenciar todo roteamento por rótulos para acelerar o tráfego de entrada e de saída para cada uma das LANs!
 
 
-Do outro lado, os Roteadores Gateway internos para as LANs operarariam apenas da forma tradicional, ou seja, trabalhando por sobre o endereçamento IP, na medida em que eles cuidariam de um número mais reduzido de dispositivos, os quais estariam ligados a ele diretamente, uma vez que ele seria justamente o roteador responsável por ligar as redes LANs internas com as demais redes. E internamente própria rede ou LAN seque é preciso haver roteamento, pois todos os dispositivos podem ser alcanados via Camada 2 do modelo TCP-IP!
+Do outro lado, os Roteadores Gateway internos para as LANs operarariam apenas da forma tradicional, ou seja, trabalhando por sobre o endereçamento IP, na medida em que eles cuidariam de um número mais reduzido de dispositivos, os quais estariam ligados a ele diretamente, uma vez que ele seria justamente o roteador responsável por ligar as redes LANs internas com as demais redes. E internamente própria rede ou LAN seque é preciso haver roteamento, pois todos os dispositivos podem ser alcançados via Camada 2 do modelo TCP-IP!
 
 
 <br>
@@ -604,7 +590,7 @@ Levando em conta as limitações da ferramenta Packet Tracer, essa parte da cons
 Nesse sentido, podemos entender que o serviço de QoS é mais uma forma de aprimorar o serviço geral de uma rede de computadores para tirar dela a melhor experiência, garantindo um uso eficiente e bem gerido de recursos. E isso é possível na medida, que embora todo o tráfego que corre em uma rede seja importante de uma forma geral, nem todo ele é igual e apresenta os mesmos requisitos e limitações! 
 
 
-Assim, mesmo uma grande rede, com uma generosa infraestrutura de vazão para os dados poderia ter problemas ao tentar processar tudo nela igualmente e de uma única vez, ou poderia do outro lado, ficar extremamente ociosa, porque matém uma quantidade absurda de recursos disponibilizados esperando para serem usado durante pequenos picos de tráfego, mas voltando às taxas normais de baixo uso de rede na maior parte de sua operação.
+Assim, mesmo uma grande rede, com uma generosa infraestrutura de vazão para os dados poderia ter problemas ao tentar processar tudo nela igualmente e de uma única vez, ou poderia do outro lado, ficar extremamente ociosa, porque mantém uma quantidade absurda de recursos disponibilizados esperando para serem usado durante pequenos picos de tráfego, mas voltando às taxas normais de baixo uso de rede na maior parte de sua operação.
 
 
 É por isso, então, que o QoS poderia ser tão efetivo no emprego da gestão de uma rede de computadores, porque ele permitiria justamente fazer um uso inteligente e racionalizado dos recursos básicos da rede existes nos momentos de pico de tráfego, priorizando o tráfego de pacotes mais críticos nesses momentos, sem exigir que a rede tivesse que escalar demasiadamente, de modo que tivesse que operar com um gasto proibitivo de recursos, mesmo nos momentos que não envolvessem pico de tráfego, mas que, ao contrário, teriam provavelmente uma grande ociosidade de uso! 
@@ -620,7 +606,7 @@ E para alcançar esse objetivo de tratar diferentemente o tráfego da rede, priv
 E, novamente, essa configuração deve ser feita nos Roteadores de Borda da rede dessa empresa, especificamente na porta ou interface de entrada da LAN (que é a porta/interface que estará diretamente ligada ao roteador gateway de uma rede local ou LAN).
 
 
-- **Passo-1: Classficação** 
+- **Passo-1:** Classificação 
 
 ```
 class-map match-any VOICE_TRAFFIC
@@ -630,7 +616,7 @@ class-map match-any VIDEO_TRAFFIC
 match protocol h323
 ```
 
-- **Passo-2: Marcação**
+- **Passo-2:** Marcação
 
 ```
 policy-map QOS_POLICY
@@ -642,7 +628,7 @@ class VIDEO_TRAFFIC
 set dscp af41
 ``` 
 
-- **Passo-3: Aplicação**
+- **Passo-3:** Aplicação
 
 ```
 interface GigabitEthernet0/0
@@ -656,11 +642,49 @@ service-policy input QOS_POLICY
 
 <br>
 
+## Conclusão
+
+Ao final deste projeto, o qual visava a criação de uma rede de computadores para uma empresa, levando em consideração alguns requisito básicos, acreditamos ter respondido a todos eles!
+
+
+Como dito ao início do projeto, os requisitos seriam os seguintes:
+
+1. **Criar três LANs para representar as três filiais da empresa**
+2. **Usar roteamento dinâmico OSPF: IPv4 e IPv6**
+3. **Configurar serviço de MPLS**
+4. **Aplicar QoS para priorizar videoconferência e chamadas de voz**
+
+
+Nesse sentido, para todos eles oferecemos descrições do seu funcionamento, passos de construção e códigos de configurações, além de design e boas práticas, também! Sendo que especialmente com relação aos dois primeiros requisitos, criação da topologia básica de uma rede a partir de três LANs/Filiais e configuração de roteamento dinâmico com OSPF em IPv4 e IPv6, os quais podiam ser totalmente simulados através da ferramenta de estudo da empresa CISCO, o Packet Tracer, construímos uma rede completa com roteamento pelo protocolo OSPF. 
+
+
+Abaixo temos a topologia final da rede roteada na ferramenta Packet Tracer! Assim, neste último teste, temos o roteador de borda da Filial-3, **Router9**, se comunicando com o roteador gateway da Filial-1, **Router 0**, para o qual ele não tem ligação direta, mas que conhece apenas apartir das informações compartilhadas pelo protocolo de roteamento OSPF, como pode ser visto na sua tabela de roteamento, pela linha: **O 10.20.0.0/30 [110/3] via 10.10.2.1, 00:29:25, GigabitEthernet0/1**
+
+![teste-final-de-ping-para-a-topologia-com-3-lans-e-roteamento-ospf](./public/teste-final-de-ping-para-a-topologia-com-3-lans-e-roteamento-ospf.png)
+
+
+Observe que a letra **'O'** descreve uma operação originária do protocolo OSPF na construção da tabela de roteamento, e que por meio dassa informação, esse roteador, **Router9**, pode construir a sua topologia interna para com o uso do comando **Ping** se comunicar diretamente com o roteador **Router0**, o qual tem ligação apenas por meio do protocolo OSPF, como fora descrito anteriormente!
+
+
+<br>
+
+Já os dois últimos requisitos em diante, a ferramenta de simulação de redes da CISCO não oferecia compatibilidade, de forma que neste trabalho, então, estes serviços foram descritos e configurados de forma textual, apresentando as explicações, os passos e os códigos necessários para fazê-los funcionar no caso concreto!
+
+
+
+<br>
+
 ## Outros links:
 
  - [linkedin:] https://www.linkedin.com/in/marcus-vinicius-richa-183104199/
  - [Github:] https://github.com/ahoymarcus/
  - [My Old Web Portfolio:] https://redux-reactjs-personal-portfolio-webpage-version-2.netlify.app/
+
+
+
+
+
+
 
 
 
