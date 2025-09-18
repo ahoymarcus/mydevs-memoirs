@@ -270,7 +270,7 @@ Assim, usando os comandos abaixo, podemos ver que os roteadores das filiais 1 e 
 - **show ip ospf neighbor**
 - **show ip route**
 
-![Conferindo as rotas ospf para as filiais 1 e 2](./public/conferindo-rotas-ospf-para-filiais-1-e-2.pdf)
+![Conferindo as rotas ospf para as filiais 1 e 2](./public/conferindo-rotas-ospf-para-filiais-1-e-2.png)
 
 
 <br>
@@ -387,7 +387,7 @@ GigabitEthernet0/1/3   unassigned      YES unset  up                    down
 Vlan1                  unassigned      YES unset  administratively down down
 ```
 
-![bug-potencial-do-packettracer-no-roteadores3-e-4-isr4331-ativacao-mpls](./public/bug-potencial-do-packettracer-no-roteadores3-e-4-isr4331-ativacao-mpls)
+![bug-potencial-do-packettracer-no-roteadores3-e-4-isr4331-ativacao-mpls](./public/bug-potencial-do-packettracer-no-roteadores3-e-4-isr4331-ativacao-mpls.png)
 
 
 Mas infelizmente, como pode ser visto acima, parece que retorna o bug persistente, que pode ser do roteador **ISR4331** ou que pode ser do próprio PacketTracer!
