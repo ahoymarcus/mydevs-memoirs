@@ -46,11 +46,12 @@ I got into the Tech world a while ago and among some of my interests are web des
     - [Ferramenta Excel de Gerenciamento de Backlog de Tarefas](/public/ferramenta-controle-de-tarefas-e-backlog-msxcel.png)
  - **TCPDump**
  - **Wireshark**
+ - **NMap**
+    - [Simulando um Ataque de Brute Force de Senhas com Medusa e Kali Linux](/public/Simulando um Ataque de Brute Force de Senhas com Medusa e Kali Linux)
  - **Kali Linux**
  - **Docker - Containers**
  - **Máquinas Virtuais - VirtualBox**
-
-
+    
 <br>
 
 ## :white_check_mark: My Courses at CISCO Networking Academy:
