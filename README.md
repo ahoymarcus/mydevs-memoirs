@@ -47,7 +47,7 @@ I got into the Tech world a while ago and among some of my interests are web des
  - **TCPDump**
  - **Wireshark**
  - **NMap**
-    - [Simulando um Ataque de Brute Force de Senhas com Medusa e Kali Linux](/public/Simulando um Ataque de Brute Force de Senhas com Medusa e Kali Linux)
+    - [Simulando um Ataque de Brute Force de Senhas com Medusa e Kali Linux](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/Bash/ciber-medusa-bruteforce)
  - **Kali Linux**
  - **Docker - Containers**
  - **Máquinas Virtuais - VirtualBox**
