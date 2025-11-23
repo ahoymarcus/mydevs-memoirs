@@ -26,6 +26,7 @@ I got into the Tech world a while ago and among some of my interests are web des
 ## :wrench: My Programming Languages, Frameworks and Small Projects:
 
  - **Python**:
+    - [Simulando Testes de Malwares para Captura de Dados com Python e Cibersegurança](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/Bash/malware-testes-python/)
     - [Sistema de Reconhecimento Facial do Zero com MTCNN e FaceNet -- Machine Learning](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/AI/reconhecimento-facial-diome)
     - [Estudo com Bases de Dados para Redes de Detecção e Uso da Rede YOLO -- Machine Learning](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/AI/base-de-dados-e-rede-yolo)
     - [Cálculo de Métricas de Avaliação de Aprendizado -- Machine Learning Project](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/AI/calculo-metricas-machinelearning)
@@ -44,11 +45,8 @@ I got into the Tech world a while ago and among some of my interests are web des
     - [Ferramenta Excel para Organização da Declaração de Imposto de Renda](https://github.com/ahoymarcus/desafio-excel-organizador-declaracao-irpf)
     - [Ferramenta Excel de Controle de Investimentos](https://github.com/ahoymarcus/desafio-excel-ferramenta-controle-de-investimenos)
     - [Ferramenta Excel de Gerenciamento de Backlog de Tarefas](/public/ferramenta-controle-de-tarefas-e-backlog-msxcel.png)
- - **TCPDump**
- - **Wireshark**
- - **NMap**
+ - **Kali Linux**, **TCPDump**,  **Wireshark**, **NMap**:
     - [Simulando um Ataque de Brute Force de Senhas com Medusa e Kali Linux](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/Bash/ciber-medusa-bruteforce)
- - **Kali Linux**
  - **Docker - Containers**
  - **Máquinas Virtuais - VirtualBox**
     
