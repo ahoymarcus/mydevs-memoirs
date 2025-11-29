@@ -32,23 +32,25 @@ I got into the Tech world a while ago and among some of my interests are web des
     - [Cálculo de Métricas de Avaliação de Aprendizado -- Machine Learning Project](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/AI/calculo-metricas-machinelearning)
     - [Redução de Dimensionalidade com Python -- Machine Learning Project](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/AI/reducao-dimensionalidade-python)
     - [Treinamento de Redes Neurais com Transfer Learning -- Machine Learning Project](https://github.com/ahoymarcus/desafio-transfer-learning-colab) 
- - **JavaScript**:
+ - **Bash (+ SED, AWK)**:
+    - [Automatizando o Gerenciamento de Tarefas com Bash e AWK](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/Bash/gerenciando-jobs-bash-awk/)
+ - **Kali Linux**, **TCPDump**,  **Wireshark**, **NMap** e **Redes**:
+    - [Roteamento com OSPF e MPLS e QoS para Vídeoconf. e Voz](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/Bash/roteamento-qos-com-ospf-mpls/)
+    - [Simulando um Ataque de Brute Force de Senhas com Medusa e Kali Linux](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/Bash/ciber-medusa-bruteforce)
+ - **Docker, Kubernetes e Blockchain**:
+    - [Criando Criptomoeda padrão ERC-20 com Solidity e Ganache](https://github.com/ahoymarcus/criando-criptomoeda-diocoin-com-solidity-e-ganache)
+    - [Criando Carteira de Criptomoedas Bitcoin com Electrum e Node-JS](https://github.com/ahoymarcus/cryptocoins-with-nodejs-and-electrum)
+ - **Máquinas Virtuais - VirtualBox**
+ - **JavaScript e Node-JS**:
     - [React.JS e Next.JS - Tech Blog (Web App ver. 1.0) --- FullStack Project](https://nextjs-myjs-tech-blog.vercel.app/)
     - [React.JS Frontend - Online Portfolio (Antigo) (Web App ver. 3.0) --- FrontEnd Project](https://redux-reactjs-personal-portfolio-webpage-version-2.netlify.app/)
     - [JavaScript "Vanilla" -  Bookshelf App (Web App  ver. 1.0) --- Web Design Project](https://my-javascript-bookshelf.netlify.app/)
     - [Música Erudita Blog (Web Site ver. 2.0) --- Web Design Project](https://musica-erudita.netlify.app/)
- - **Bash (+ SED, AWK e Redes)**:
-    - [Roteamento com OSPF e MPLS e QoS para Vídeoconf. e Voz](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/Bash/roteamento-qos-com-ospf-mpls/)
-    - [Automatizando o Gerenciamento de Tarefas com Bash e AWK](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/Bash/gerenciando-jobs-bash-awk/)
  - **Microsoft Excel**:
     - [Relatório em Dashboard com Análise das Vendas de Assinaturas de uma Plataforma de Jogos Online](https://github.com/ahoymarcus/desafio-dashboard-xbox-excel)
     - [Ferramenta Excel para Organização da Declaração de Imposto de Renda](https://github.com/ahoymarcus/desafio-excel-organizador-declaracao-irpf)
     - [Ferramenta Excel de Controle de Investimentos](https://github.com/ahoymarcus/desafio-excel-ferramenta-controle-de-investimenos)
     - [Ferramenta Excel de Gerenciamento de Backlog de Tarefas](/public/ferramenta-controle-de-tarefas-e-backlog-msxcel.png)
- - **Kali Linux**, **TCPDump**,  **Wireshark**, **NMap**:
-    - [Simulando um Ataque de Brute Force de Senhas com Medusa e Kali Linux](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/Bash/ciber-medusa-bruteforce)
- - **Docker - Containers**
- - **Máquinas Virtuais - VirtualBox**
     
 <br>
 
@@ -68,7 +70,8 @@ I got into the Tech world a while ago and among some of my interests are web des
 <br>
 
 ## :white_check_mark: My Courses and Bootcamps at DIO.me:
-
+ 
+ - Santander - Cibersegurança 2025 - 31h - NOV. 2025 ([Certificado](https://hermes.dio.me/certificates/GERXOQD3.pdf))
  - Santander - Excel com Inteligência Artificial - 26h - MAI. 2025 ([Certificado](https://hermes.dio.me/certificates/ELQFGW4D.pdf))
  - Microsoft AI for Tech - Copilot Studio - 20h - ABR. 2025 ([Certificado](https://hermes.dio.me/certificates/4VG6HNFU.pdf))
  - Microsoft AI for Tech - OpenAI Services - 15h - MAR. 2025 ([Certificado](https://hermes.dio.me/certificates/FGLJAUDL.pdf))
