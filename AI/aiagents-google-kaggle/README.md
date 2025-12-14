@@ -135,9 +135,10 @@ Outro ponto a se observar nesta segunda prática, é o fato de haver três model
 2. **Paralela**
 3. **Em loop**
 
-
 ![multi-agent-team-system](./public/multi-agent-team-system.png)
 
+
+<br>
 
 Segundo a documentação do Google, várias seriam as vantagens de se escalar a operação através de criação de vários agentes simples especializados para trabalharem em colaboração:
 
@@ -260,6 +261,7 @@ response = await runner.run_debug(
 > Contudo, segundo os documentos técnicos do Google, essa forma de utilização da orquestração é precária, porque depende apenas do modelo de IA para garantir a realização da sequência correta das tarefas, sem possuir qualquer garantia para o caso do modelo não conseguir os passos definidos!!!
 
 
+<br>
 
 É assim, então, que entra em cena o uso do recurso da criação de uma pipeline, por meio da função **SequentialAgent**, que vai definir e controlar todo o comportamento do **root_agent**:
 
