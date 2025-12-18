@@ -42,6 +42,7 @@ I got into the Tech world a while ago and among some of my interests are web des
  - **Docker, Kubernetes e Blockchain**:
     - [Criando Criptomoeda padrão ERC-20 com Solidity e Ganache](https://github.com/ahoymarcus/criando-criptomoeda-diocoin-com-solidity-e-ganache)
     - [Criando Carteira de Criptomoedas Bitcoin com Electrum e Node-JS](https://github.com/ahoymarcus/cryptocoins-with-nodejs-and-electrum)
+    - [Criando um Projeto de Organização Autônoma Descentralizada (DAO) nos Padrões Web3](https://github.com/ahoymarcus/criando-uma-dao-nos-padroes-web3)
  - **Máquinas Virtuais - VirtualBox**
  - **JavaScript e Node-JS**:
     - [React.JS e Next.JS - Tech Blog (Web App ver. 1.0) --- FullStack Project](https://nextjs-myjs-tech-blog.vercel.app/)
@@ -72,7 +73,8 @@ I got into the Tech world a while ago and among some of my interests are web des
 <br>
 
 ## :white_check_mark: My Courses and Bootcamps at DIO.me:
- 
+
+ - Binance - Blockchain Developer with Solidity 2025 - 40h - DEZ. 2025 ([Certificado](https://hermes.dio.me/certificates/IBDNKXGR.pdf)) 
  - Santander - Cibersegurança 2025 - 31h - NOV. 2025 ([Certificado](https://hermes.dio.me/certificates/GERXOQD3.pdf))
  - Santander - Excel com Inteligência Artificial - 26h - MAI. 2025 ([Certificado](https://hermes.dio.me/certificates/ELQFGW4D.pdf))
  - Microsoft AI for Tech - Copilot Studio - 20h - ABR. 2025 ([Certificado](https://hermes.dio.me/certificates/4VG6HNFU.pdf))
