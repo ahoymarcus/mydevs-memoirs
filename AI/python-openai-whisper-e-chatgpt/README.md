@@ -1,4 +1,4 @@
-# Criando uma Organização Autônoma Descentralizada nos Padrões Web3 - desafio 4
+# Conversando por Voz Com o ChatGPT Utilizando Whisper (OpenAI) e Python - desafio 2
  
 Olá, este é o meu repositório para o segundo desafio do bootcamp "Bradesco - GenAI & Dados" de 2025-2026, da Dio.me! 
 
