@@ -55,36 +55,36 @@ E depois da definição do foco para o serviço do chat de IA, é preciso config
 1. **Perfil e Identidade (Role)**: 
     - "Você é o 'Bradesco-eFin', um Agente de Consultoria de Investimentos de IA de alto nível. Seu objetivo é ajudar clientes a entender o mercado financeiro, analisar o seu perfil de risco e sugerir estratégias de alocação de ativos. Você deve ser técnico, porém sem deixar de ser didático nas interações com o cliente. Você deve agir sempre com ética e com transparência diante do cliente, garantindo sempre agir com muita cautela ao oferecer dicas e instruções para o cliente."
 2. **Diretrizes de Personalidade (Tom e Estilo)**:
-2.1. **Tom de Voz**: Profissional, calmo e encorajador. Evitar termos excessivamente informais (ex: "cara", "beleza"), mas também não ser frio demais.
-2.2. **Clareza**: sempre que usar um termo técnico (ex: Marcação a Mercado, FIIs, Duration), fornecer uma explicação breve e simples entre parênteses.
-2.3. **Objetividade**: Ir direto ao ponto, mas sempre oferencendo um pouco de contexto para o cliente. E, sempre que o cliente perguntar por algo que seja financeiramente perigoso ou ariscado, seja bastante firme na negativa.
+    2.1. **Tom de Voz**: Profissional, calmo e encorajador. Evitar termos excessivamente informais (ex: "cara", "beleza"), mas também não ser frio demais.
+    2.2. **Clareza**: sempre que usar um termo técnico (ex: Marcação a Mercado, FIIs, Duration), fornecer uma explicação breve e simples entre parênteses.
+    2.3. **Objetividade**: Ir direto ao ponto, mas sempre oferencendo um pouco de contexto para o cliente. E, sempre que o cliente perguntar por algo que seja financeiramente perigoso ou ariscado, seja bastante firme na negativa.
 3. **Processo de Tomada de Decisão (Regras de Engajamento)**: antes de sugerir qualquer investimento, você deve seguir este fluxo lógico:
-3.1. **Identificação do Perfil do Investidor**: se o perfil do usuário não estiver claro, faça perguntas curtas sobre: (a) Objetivo do dinheiro, (b) Prazo desejado e (c) Tolerância a perdas.
-3.2. **Consulta da Matriz de Suitability**: todas informações repassadas pelo clinte com relação ao seu perfil devem ser comparadas com a "Tabela de Perfil de Risco" interna da instituição. 
-3.2.1. **Double-Check**: deve ser feito "Double-Check" em qualquer sugestão de investimento que o agente vai sugerir, para garantir que o ativo sendo sugerido cruza com o "Rótulo do Perfil" (ex: Conservador), em relação aos produtos que são permitidos para cada tipo de perfil, de modo que se houver incompatibilidade (ex: Agente ia sugerir Ações para um perfil conservador), o sistema deve disparar um alerta interno ou corrigir a sugestão automaticamente.  
-3.3. **Gatilho de Reclassificação**: por exemplo, "Se o cliente mudar seus objetivos de curto para longo prazo durante a conversa, o Agente deve sugerir uma nova avaliação de perfil" e, portanto, deve fazer nova consulta junto à "Tabela de Perfil de Risco" interna da instituição.
-3.3.1. **Gestão de Estado do Perfil de Risco**: se em uma conversa o cliente diz "Na verdade, agora que pensei bem, posso deixar esse dinheiro guardado por 10 anos para minha aponsentadoria", o agente deve identificar a mudança na identidade "Prazo" (de curto para longo), e, antes de continuar sua interação como o cliente, deve interromper o fluxo com uma frase como: "Notei que seu horizonte de tempo mudou para o longo prazo. Isso pode alterar o seu perfil de investidor. Vamos atualizar sua classificação?".
-3.4. **Educação Primeiro**: explique a relação risco-retorno antes de mostrar números ao cliente.
-3.5. **Sugestão, não Ordem**: nunca use frases como "Compre isso agora". Use "Dada a sua tolerância, uma alocação de 20% em Renda Fixa Pós-Fixada pode ser adequada".
+    3.1. **Identificação do Perfil do Investidor**: se o perfil do usuário não estiver claro, faça perguntas curtas sobre: (a) Objetivo do dinheiro, (b) Prazo desejado e (c) Tolerância a perdas.
+    3.2. **Consulta da Matriz de Suitability**: todas informações repassadas pelo clinte com relação ao seu perfil devem ser comparadas com a "Tabela de Perfil de Risco" interna da instituição. 
+    3.2.1. **Double-Check**: deve ser feito "Double-Check" em qualquer sugestão de investimento que o agente vai sugerir, para garantir que o ativo sendo sugerido cruza com o "Rótulo do Perfil" (ex: Conservador), em relação aos produtos que são permitidos para cada tipo de perfil, de modo que se houver incompatibilidade (ex: Agente ia sugerir Ações para um perfil conservador), o sistema deve disparar um alerta interno ou corrigir a sugestão automaticamente.  
+    3.3. **Gatilho de Reclassificação**: por exemplo, "Se o cliente mudar seus objetivos de curto para longo prazo durante a conversa, o Agente deve sugerir uma nova avaliação de perfil" e, portanto, deve fazer nova consulta junto à "Tabela de Perfil de Risco" interna da instituição.
+    3.3.1. **Gestão de Estado do Perfil de Risco**: se em uma conversa o cliente diz "Na verdade, agora que pensei bem, posso deixar esse dinheiro guardado por 10 anos para minha aponsentadoria", o agente deve identificar a mudança na identidade "Prazo" (de curto para longo), e, antes de continuar sua interação como o cliente, deve interromper o fluxo com uma frase como: "Notei que seu horizonte de tempo mudou para o longo prazo. Isso pode alterar o seu perfil de investidor. Vamos atualizar sua classificação?".
+    3.4. **Educação Primeiro**: explique a relação risco-retorno antes de mostrar números ao cliente.
+    3.5. **Sugestão, não Ordem**: nunca use frases como "Compre isso agora". Use "Dada a sua tolerância, uma alocação de 20% em Renda Fixa Pós-Fixada pode ser adequada".
 4. **Segurança e Guardrails (Importância Crítica)**: 
-4.1. **Proibição de Promessas**: você está terminantemente proibido de garantir lucros ou rentabilidade futura. Use sempre: "Rendimentos passados não garantem resultados futuros".
-4.2. **Limites de Atuação**: se o usuário pedir para realizar uma transação (ex: "Venda minhas ações"), responda que você é um consultor informativo e que ele deve realizar a operação pela plataforma oficial do banco.
-4.3. **Dados Sensíveis**: nunca peça ou armazene senhas, números de cartão ou CPF. Se o usuário fornecer, ignore o dado e peça para ele não compartilhar informações sensíveis no chat.
-4.4. **Alucinação**: se você não tiver dados atualizados sobre um ativo específico, admita e sugira que o cliente consulte o relatório oficial de RI (Relações com Investidores) da empresa.
+    4.1. **Proibição de Promessas**: você está terminantemente proibido de garantir lucros ou rentabilidade futura. Use sempre: "Rendimentos passados não garantem resultados futuros".
+    4.2. **Limites de Atuação**: se o usuário pedir para realizar uma transação (ex: "Venda minhas ações"), responda que você é um consultor informativo e que ele deve realizar a operação pela plataforma oficial do banco.
+    4.3. **Dados Sensíveis**: nunca peça ou armazene senhas, números de cartão ou CPF. Se o usuário fornecer, ignore o dado e peça para ele não compartilhar informações sensíveis no chat.
+    4.4. **Alucinação**: se você não tiver dados atualizados sobre um ativo específico, admita e sugira que o cliente consulte o relatório oficial de RI (Relações com Investidores) da empresa.
 5. **Exemplo de Formatação de Resposta**:
-5.1. Use **negrito** para destacar nomes de produtos financeiros.
-5.2. Use tabelas para comparar cenários (ex: Tesouro Selic vs. CDB).
-5.3. Sempre termine com uma pergunta de acompanhamento para manter o engajamento.
+    5.1. Use **negrito** para destacar nomes de produtos financeiros.
+    5.2. Use tabelas para comparar cenários (ex: Tesouro Selic vs. CDB).
+    5.3. Sempre termine com uma pergunta de acompanhamento para manter o engajamento.
 
 
 <br>
 
 ### Tabela de Perfil de Risco
 
-Perfil      | Objetivo Principal                        | Tolerância a Perda                                         | Tipos de Ativos Sugeridos                                         | Exemplo de Alocação |
-Conservador | Preservação de capital e liquidez.        | Baixíssima (não aceita ver o saldo oscilar negativamente). | "Tesouro Selic, CDBs com liquidez diária, Fundos DI."                | 90% Renda Fixa / 10% FIIs de baixo risco. |
-Moderado    | Equilíbrio entre segurança e crescimento. | Média (aceita pequenas oscilações em busca de ganho real). | "Tesouro IPCA+, Debêntures, Fundos Multimercado, FIIs."              | 70% Renda Fixa / 20% FIIs / 10% Ações. | 
-Arrojado    | Maximização de retorno no longo prazo.    | Alta (entende que a volatilidade faz parte do processo).   | "Ações, ETFs, Criptoativos, Investimentos Internacionais."    | 40% Renda Fixa / 40% Ações / 20% Ativos Alternativos. |
+| Perfil      | Objetivo Principal                        | Tolerância a Perda                                         | Tipos de Ativos Sugeridos                                         | Exemplo de Alocação |
+| Conservador | Preservação de capital e liquidez.        | Baixíssima (não aceita ver o saldo oscilar negativamente). | "Tesouro Selic, CDBs com liquidez diária, Fundos DI."                | 90% Renda Fixa / 10% FIIs de baixo risco. |
+| Moderado    | Equilíbrio entre segurança e crescimento. | Média (aceita pequenas oscilações em busca de ganho real). | "Tesouro IPCA+, Debêntures, Fundos Multimercado, FIIs."              | 70% Renda Fixa / 20% FIIs / 10% Ações. | 
+| Arrojado    | Maximização de retorno no longo prazo.    | Alta (entende que a volatilidade faz parte do processo).   | "Ações, ETFs, Criptoativos, Investimentos Internacionais."    | 40% Renda Fixa / 40% Ações / 20% Ativos Alternativos. |
 
 
 <br> 
@@ -108,6 +108,8 @@ Nesse sentido, para este projeto, o objetivo é utilizar esses dados disponibili
 Assim, além de fazer uso desses dados com o objetivo de contextualizar como deveriam ser esquematizadas as interações do agente de consultoria financeira do banco com os seus cliente, esses dados também servem para personalização as informações dos clientes para melhorar a sua experiência de atendimento pela ferramenta de IA, bem como para ajudar a definir os limites de operação para o agente, definindo quais produtos estão disponíveis, além de fazer referências claras às informações mais importantes sobre a descrição e natureza dos produtos financeiros disponibilizados, os riscos percebidos e e a quem eles seriam mais indicados. 
 
 
+<br>
+
 Abaixo, temos então um exemplo do prof. Venilton de uma forma de se carregar os do projeto por usando um script Python:
 
 ```python
@@ -125,6 +127,8 @@ with open('data/produtos_financeiros.json', 'r', encoding='utf-8') as f:
     produtos = json.load(f)
 ```
 
+
+<br>
 
 Esses dados poderiam ser ainda injetados diretamente no prompt do agente de IA como uma operação básica de **Ctrl+C e Ctrl+V**, embora essa seja uma solução com uma pior usabilidade para o cliente que precisaria ficar copiando manualmente esses dados a cada nova interação como o agente!
 
@@ -221,6 +225,8 @@ PRODUTOS FINANCEIROS DISPONIVEIS (data/produtos_financeiros.json):
 ```
 
 
+<br>
+
 Contudo, seja qual for a forma escolhida, a ideia geral seria de ter ao final um contexto de informações semelhantes ao que o prof. Venilton propõe, com a criação de quatro seções de dados descrevendo os aspectos primordiais para o atendimento ao cliente, sublinhando, ainda, o professor que seria sempre indicado em termos de boas práticas para o consumo de **tokens** nas operações de engenharia de prompts, que os dados ou informações pudessem ser consolidades ou resumidos com as descrições essenciais e pertinentes ao atendimento:
 
 ```text
@@ -257,6 +263,8 @@ Como apresenta o prof. Venilton, esta parte referente à **engenharia de prompt*
 Assim, seria nesta parte da engenharia de prompt em que seriam definidos pontos como o perfil de comportamento do atente e as regras que são importantes para as suas ações, bem como aquelas restrições já citadas anteriormente, além de definir a resposta dos agentes em algumas situações específicas ou das chamadas **"edges cases"**, quando o usuário tenta a realização de ações não disponibilizadas ou buscar informações não permitidas.
 
 
+<br>
+
 Nesse sentido, o prof. Venilton dá um exemplo de como poderia ser um prompt básico e geral para o agente de IA para educação financeira:
 
 ```text
@@ -287,12 +295,18 @@ Usuário: "Devo investir em ações?
 Bradesco-eFi: "Não posso te dizer se você deve, mas posso explicar como funciona! Ações são pedaços de empresas -- vocẽ vira sócio. O risco é alto, porque o prreço varia muito. Seu perfil está como 'moderado', de modo que, então, vale a pena entender bem desta questão antes de se decidir a investir em ações. Quer saber mais sobre o risco?"
 ```
 
+
+<br>
+
 > [!NOTE]
 > Foi mudado apenas o nome do agente de educação financeira para se adequar ao nome escolhido para este projeto.
 > Mais sobre Few-Shot Prompts no artigo [Zero, One e Few-Shot Prompts: Entendendo os Conceitos Básicos](https://hub.asimov.academy/tutorial/zero-one-e-few-shot-prompts-entendendo-os-conceitos-basicos/)
 
 
 E, para potencializar a testagem dos agentes de IA, o professor prepara três casos gerais de uso, além de outros três exemplos de **Edge Cases** para os quais o agente precisa entender as restrições sob as quais ele precisa atuar e como ele deveria responder ao cliente em tais situações:
+
+
+<br>
 
 ---
 
@@ -351,10 +365,14 @@ Bradesco-eFi: "Como educador financeiro, não posso recomendar investimentos, am
 ---
 
 
+<br>
+
 Aqui, neste primeiro teste de prompt usando um modelo LLM na Internet, temos um resultado bastante interessante, pois o agente de IA utilizado para responder à questão é capaz reconhecer que fora passado anteriormente um outro prompt contendo regras e definições de contexto para a sua atuação como educador financeiro, mas em que podemos ver que a restrição que o deveria impedir que ele respondesse às questões fora de contexto não foi observada.
 
-![teste-de-restricao-ao-prompt-do-agente-educacao-financeira](./public/teste-de-restricao-ao-prompt-do-agente-educacao-financeira/png)
+![teste-de-restricao-ao-prompt-do-agente-educacao-financeira](./public/teste-de-restricao-ao-prompt-do-agente-educacao-financeira.png)
 
+
+<br>
 
 > [!TIP]
 > Uma outra dica do professor Venilton para melhorar a performance dos trabalhos, inclusive para o desenvolvimento de projetos como este, seria o de usar prompts de agentes de IA pedindo auxílio para a ferramenta de LLM para ela gerar conteúdos e casos de exemplos ou explicações gerais:
@@ -383,6 +401,8 @@ Nesse sentido, como base de tecnologias, o professor escolheu usar:
 2. [Ollama.com](https://ollama.com/): Esta é uma ferramenta open-source que facilita o trabalho de execução de modelos de linguagem (Llama, Mistral, Gemma, etc.), e que pode ser rodado localmente.
 3. **Requests**: Trata-se de uma biblioteca Python muito usada para fazer requisições HTTP e para a interação com APIs, por ser mais simples de uso e porque ela costuma esconder algumas complexidades que são encontradas em outras bibliotecas do mesmo tipo, como é o caso da biblioteca **urllib**.
 
+
+<br>
 
 > [!NOTE]
 > Observe que embora o Llama seja light weight, por ser um modelo de IA, ele ainda assim precisa de uma quantidade razoável de processamento, sendo o ideal algo como 16GB de RAM ou um placa de vídeo dedicada pelo menos! :-).
@@ -450,6 +470,11 @@ MODELO = "gpt-oss"
 
 Acima temos a parte de configuração de **app.py** com a importação das bibliotecas básicas e com a definição de variáveis de configuração para a porta da ferramenta **Ollama** e indicando o modelo de linguagem que está sendo usado localmente.
 
+
+<br>
+
+Já abaixo, temos esta segunda parte de **app.py** que faz o carregamento dos dados do usuário na interface do app, lembrando que os os dados estão presentes nos arquivos de dados colocados localmente na pasta **data** do projeto.
+
 ```
 # ========== CARREGAR DADOS ===========
 perfil = json.load(open('./data/perfil_investidor.json')
@@ -490,8 +515,7 @@ REGRA:
 ```
 
 
-Assim, acima temos esta segunda parte de **app.py** que faz o carregamento dos dados do usuário na interface do app, lembrando que os os dados estão presentes nos arquivos de dados colocados localmente na pasta **data** do projeto.
-
+<br>
 
 Vemos, então, que ali no script, depois dos dados serem carregados do repositório em variáveis básicas, eles são modelados e ordenados em uma variável chamada **contexto**, que está modelando todas as informações necessárias de contexto para o app em uma string bem ordenada, separadas em quatro seções específicas:
 
@@ -501,6 +525,8 @@ Vemos, então, que ali no script, depois dos dados serem carregados do repositó
 4. **ATENDIMENTOS ANTERIORES**: nesta seção também os dados históricos de atendimento vem de um arquivo CSV e que portanto usa do método to_string().
 5. **PRODUTO DISPONÍVEIS**: usa o método dump() para "jogar" todas as informções no contexto de uma vez.
 
+
+<br>
 
 Na sequência, temos a segunda parte do **app.py**, que vai trazer o script de integração com a ferramenta **Ollama**:
 
@@ -535,10 +561,12 @@ A parte final do script **app.py** cria uma função auxiliar para a criação d
 3. **Retorna um JSON com a resposta do modelo**  
 
 
-Ali, na parte final do script, no bloco **If/Else** é que de fato ocorre o controle da interface da aplicação web pela biblioteca Streamlit, que por meio do controle da variável **pergunta**, quando esta é reconhecida como verdadeira, à medida em que o usuário interage com a interface gráfica do app mandando uma pergunta, podemos ver que o objeto **st** da biblioteca Streamlit envia uma mensagem ao agente de IA usando da função auxiliar **perguntar()** para criar o seu prompt.
+Ainda com relação à parte final do script, no bloco **If/Else** é que de fato ocorre o controle da interface da aplicação web pela biblioteca Streamlit, que por meio do controle da variável **pergunta**, quando esta é reconhecida como verdadeira, à medida em que o usuário interage com a interface gráfica do app mandando uma pergunta, podemos ver que o objeto **st** da biblioteca Streamlit envia uma mensagem ao agente de IA usando da função auxiliar **perguntar()** para criar o seu prompt.
 
 
-Aqui temos o resultado do teste da aplicação no ambiente do professor Venilton, onde podemos ver que embora possa se tratar de um **Modelo de Linguagem Light Weight**, o gasto de recursos ainda é alto, tal qual é esperado em aplicações de dados com IA, pois só de RAM temos um gasto de mais de 13GB:
+<br>
+
+E, aqui, temos o resultado do teste da aplicação no ambiente do professor Venilton, onde podemos ver que embora possa se tratar de um **Modelo de Linguagem Light Weight**, o gasto de recursos ainda é alto, tal qual é esperado em aplicações de dados com IA, pois só de RAM temos um gasto de mais de 13GB:
  
 ![imagem-do-gasto-de-ram-da-ferramenta-ollama](./public/imagem-do-gasto-de-ram-da-ferramenta-ollama.png)
 
@@ -556,6 +584,8 @@ Assim, o prof. Venilton fala de pelo menos dois tipos de testes básicos importa
 2. **Feedback Real**: em que uma amostra representativa de usuários testa e avalia as respostas recebidas.
 
 
+<br>
+
 E, em termos qualitativos, o professor define três métricas para poder fazer essa avaliação:
 
 1. **Assertividade**: diz respeito à capacidade do agente de IA de educação financeira responder exatamente ao que foi perguntado.
@@ -564,6 +594,8 @@ E, em termos qualitativos, o professor define três métricas para poder fazer e
  3.1. Ou seja, não basta o agente de IA para educação financeira responder corretamente às explicações de finanças e de se manter dentro das regras e limites impostos, pois ele precisa fazer tudo isso levando em conta à pessoa do seu usuário (perfil do usuário, metas, dados de patrimônio, histórico de transações, etc.).
  3.2. Por exemplo, se o usuário tem um perfil de investimento como **moderado**, não adianta o agente passar lições financeiras avançadas ou básicas de mais também.
 
+
+<br>
 
 Abaixo, temos um exemplo de um **Template Básico de Testes** mostrado pelo prof. Venilton:
 
@@ -595,6 +627,8 @@ Abaixo, temos um exemplo de um **Template Básico de Testes** mostrado pelo prof
 ```
 
 
+<br>
+
 Um outro recurso de avaliação muito interessante proposto pelo professor foi a passagem de um **Template de Questionário de Feedback** a ser aplicado nos tipos de testes baseados em feedback real:
 
 ```text
@@ -602,16 +636,16 @@ Um outro recurso de avaliação muito interessante proposto pelo professor foi a
 
 Use com os participantes do teste:
 
-| Métrica | Pergunta | Nota (1-5) |
-|---------|----------|------------|
-| Assertividade | "As respostas responderam suas perguntas?" | ___ |
-| Segurança | "As informações pareceram confiáveis?" | ___ |
-| Coerência | "A linguagem foi clara e fácil de entender?" | ___ |
+| Métrica       | Pergunta                                     | Nota (1-5) |
+|---------------|----------------------------------------------|------------|
+| Assertividade | "As respostas responderam suas perguntas?"   | ___ |
+| Segurança     | "As informações pareceram confiáveis?"       | ___ |
+| Coerência     | "A linguagem foi clara e fácil de entender?" | ___ |
 
 **Comentário aberto:** O que você achou desta experiência e o que poderia melhorar?
 ```
 
-![teste-do-agente-de-educacao-financeira-para-restricao-de-edge-cases](./publicteste-do-agente-de-educacao-financeira-para-restricao-de-edge-cases.png)
+![teste-do-agente-de-educacao-financeira-para-restricao-de-edge-cases](./public/teste-do-agente-de-educacao-financeira-para-restricao-de-edge-cases.png)
 
 
 <br>
