@@ -76,6 +76,7 @@ I got into the Tech world a while ago and among some of my interests are web des
 
 ## :white_check_mark: My Courses and Bootcamps at DIO.me:
 
+ - Bradesco - GenAI & Dados - 52h - FEV-2026 ([Certificado](https://hermes.dio.me/certificates/DFY4YQY8.pdf))
  - Binance - Blockchain Developer with Solidity 2025 - 40h - DEZ. 2025 ([Certificado](https://hermes.dio.me/certificates/IBDNKXGR.pdf)) 
  - Santander - Cibersegurança 2025 - 31h - NOV. 2025 ([Certificado](https://hermes.dio.me/certificates/GERXOQD3.pdf))
  - Santander - Excel com Inteligência Artificial - 26h - MAI. 2025 ([Certificado](https://hermes.dio.me/certificates/ELQFGW4D.pdf))
