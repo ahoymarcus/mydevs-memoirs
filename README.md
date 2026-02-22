@@ -26,9 +26,8 @@ I got into the Tech world a while ago and among some of my interests are web des
 ## :wrench: My Programming Languages, Frameworks and Small Projects:
 
  - **Python**:
-    - [Projeto para Um Assistente Virtual de IA Generativa de Relacionamento Financeiro](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/AI/aiagent-financeiro-dio)
- 
     - [AI Agents Course with Google and Kaggle -- Self Paced AI Agents Course](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/AI/aiagents-google-kaggle)
+    - [Projeto DIO Assistente de IA Generativa para Relacionamento Financeiro](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/AI/aiagent-financeiro-dio)
     - [Conversando por Voz Com o ChatGPT Utilizando Whisper (OpenAI) e Python](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/AI/python-openai-whisper-e-chatgpt)
     - [Simulando Testes de Malwares para Captura de Dados com Python e Cibersegurança](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/Bash/malware-testes-python/)
     - [Sistema de Reconhecimento Facial do Zero com MTCNN e FaceNet -- Machine Learning](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/AI/reconhecimento-facial-diome)
