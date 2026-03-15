@@ -46,6 +46,8 @@ Considerando ainda estes outros requisitos, inclusive no que toca ao ao “Texto
 - A necessidade de implantação do uso de uma TI nas empresas públicas ou privadas, que não seja apenas uma TI de suporte técnico para as operações, mas que possa ser principalmente uma capaz de criar valor para o modelo de negócio, além de poder melhorar os processos administrativos existentes.
 
 
+<br>
+
 Nesse sentido, considerando o objetivo central destacado acima, antes de podermos falar das dificuldades nos processos de governança de TI, primeiro precisamos entender o que poderia ser a gestão de TI e como ela poderia melhorar, bem como entender também a sua relação, quer seja com a gestão da empresa em geral, quer seja com os diversos setores ou áreas de uma empresa pública ou privada, para então, apresentarmos o primeiro esboço das questões que definiriam as dificuldades de gestores e de usuários com a Governança de TI. 
 
 
@@ -79,6 +81,8 @@ Para tratar do primeiro ponto apresentado acima, aquele acerca de uma definiçã
 > “A Governança de TI garante que as necessidades, condições e opções das partes interessadas (stakeholders) sejam avaliadas para determinar objetivos corporativos equilibrados e acordados; definindo a direção por meio de priorização e tomada de decisão; e monitorando o desempenho e a conformidade em relação à direção e aos objetivos estabelecidos.” (COBIT 2019 Framework: Introduction and Methodology. Schaumburg, IL: ISACA, 2018)
 
 
+<br>
+
 Ademais, além dessa definição que busca traçar as principais responsabilidades da governança de TI, o Cobit traz três “Pilares de Valor” (EDM02 - Ensured Benefits Delivery: COBIT 2019 Framework: Introduction and Methodology. Schaumburg, IL: ISACA, 2018):
 
 1. Realização de Benefícios: criação de valor por meio de investimentos.
@@ -93,6 +97,8 @@ Já para tratar das principais responsabilidades relacionadas à Implantação d
 3. Estrutura e Processos. Operações e Gestão
 4. Medição e Desempenho
 
+
+<br> 
 
 Com relação a esse Ciclo de Vida, observamos ao longo do curso que o Alinhamento da TI é o ponto focal de uma Governança de TI, de forma que ele junto com a definição das Necessidades da Partes Interessadas, da criação de uma Comunicação entre todos os setores da empresa, Criação de uma Política de Segurança, Risco e Compliance, estas todas que seriam responsabilidades essenciais de serem planejadas em qualquer projeto para implantação de uma governança de TI.
 
@@ -129,6 +135,8 @@ Nesse sentido, as primeiras questões do questionário, ao nosso ver, têm a imp
 - A empresa possui atualmente um processo de governança específico de TI?
 - Seja o Gestor, sejam os Usuários/Colaboradores da empresa, eles entendem a importância de se separar a  Governança de TI e da Gestão Operacional de TI?
 
+
+<br>
 
 Portanto, para as três primeiras questões, propomos as seguintes redações:
 
@@ -204,6 +212,8 @@ dados_base = {
 ```
 
 
+<br>
+
 Já nesta segunda parte, temos o loop iterativo que vai fazer o preenchimento dos 10 formulários:
 
 ```
@@ -230,6 +240,8 @@ df = pd.DataFrame(lista_final_de_casos)
 print(df.head())
 ```
 
+
+<br>
 
 Finalmente, nesta terceira e última parte do script temos a função Python que vai exportar o resultado final com os dados construídos para um arquivo de formato **CSV** que será utilizado para a análise e para a construção de relatório por meio da ferramenta Sheets da Google:
 
@@ -270,6 +282,8 @@ E, continuando no processo de descrição da amostra de dados de simulação, in
 2. A Geração de Um Sintoma de Falta de Feedback: esta poderia ser a observação de que por estarem separadas e ilhadas as partes ou setores da empresa, que esta falta de integração poderia acabar por impedir as comunicações de ocorrerem ou poderia criar ruído suficiente para prevenir que os processos de Medição e de Avaliação criados para fazer o acompanhamento contínuo dos processos de governança de TI pudessem refletir a verdadeira realidade dos processos que acontecem dentro da empresa.
 
 
+<br>
+
 Finalmente, essa hipotética correlação observada aqui neste simples processo de sorteio de uma amostra de dados de governança de TI, parece implicar ainda que além daquela presunção inicial de que as dificuldades no mundo real haveriam de ser fortemente influenciadas pelo caso concreto de cada empresa (diferentes ramos, tamanhos, metas, etc.), de que deveria haver também forte influência entre diferentes tipos de problemas ou dificuldades entre si, ou seja, de que os problemas de governança não se apresentariam meramente de forma isoladas umas das outras.
 
 ![visao-comparativa-de-duas-categorias-de-dificuldades-com-graficos-de-pizza](./public/visao-comparativa-de-duas-categorias-de-dificuldades-com-graficos-de-pizza.png)
@@ -286,7 +300,8 @@ Isto porque, poderíamos esperar que também nesses casos, observando-se a reali
 Seja como for, considerando esta situação hipotética que alcançamos aqui nessa pesquisa simulada, poderíamos pensar que o problema ou dificuldade apresentado na Questão 2 (Cultura) como aversão ou mentalidade contrária à mudanças não poderia ser tratado senão pela tentativa de se alcançar diretamente os colaboradores da empresa através de treinamentos específicos aplicados para poder ajudá-los a atravessar todo esse processo de mudanças que devem ocorrer durante a implantação de uma governança de TI bem sucedida:
 
 
-> [!IMPORTANT] 💡 Insight de Governança:
+> [!IMPORTANT]
+> 💡 Insight de Governança:
 > Sintoma: Baixo Engajamento.
 > Causa Identificada: Falta de Treinamento.
 > Impacto Cultural: Resistência a novos modelos e frameworks.
@@ -320,8 +335,8 @@ Este formulário busca compreender quais seriam as principais dificuldades encon
 
 Marcar apenas uma oval.
 
-[ ] Gestor ou Membro da Alta Direção
-[ ] Usuário ou Colaborador
+ - [ ] Gestor ou Membro da Alta Direção
+ - [ ] Usuário ou Colaborador
 
 ---
 
