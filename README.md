@@ -26,7 +26,7 @@ I got into the Tech world a while ago and among some of my interests are web des
 ## :wrench: My Programming Languages, Frameworks and Small Projects:
 
  - **Análise de dados e Engenharia de Dados com Python**:
-    - [Análise de Dados de Governança de TI com Python e Excel]()
+    - [Análise de Dados de Governança de TI com Python e Excel](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/Governance/analise-desc-python-excel)
     - [Simulando Testes de Malwares para Captura de Dados com Python e Cibersegurança](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/Bash/malware-testes-python/)
  - **Engenharia de Agentes de IA com Python**:
     - [AI Agents Course with Google and Kaggle -- Self Paced AI Agents Course](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/AI/aiagents-google-kaggle)
