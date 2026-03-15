@@ -25,17 +25,19 @@ I got into the Tech world a while ago and among some of my interests are web des
 
 ## :wrench: My Programming Languages, Frameworks and Small Projects:
 
- - **Python**:
+ - **Análise de dados e Engenharia de Dados com Python**:
+    - [Análise de Dados de Governança de TI com Python e Excel]()
+    - [Simulando Testes de Malwares para Captura de Dados com Python e Cibersegurança](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/Bash/malware-testes-python/)
+ - **Engenharia de Agentes de IA com Python**:
     - [AI Agents Course with Google and Kaggle -- Self Paced AI Agents Course](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/AI/aiagents-google-kaggle)
     - [Projeto DIO Assistente de IA Generativa para Relacionamento Financeiro](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/AI/aiagent-financeiro-dio)
     - [Conversando por Voz Com o ChatGPT Utilizando Whisper (OpenAI) e Python](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/AI/python-openai-whisper-e-chatgpt)
-    - [Simulando Testes de Malwares para Captura de Dados com Python e Cibersegurança](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/Bash/malware-testes-python/)
+ - **Machine Learning com Python**:
     - [Sistema de Reconhecimento Facial do Zero com MTCNN e FaceNet -- Machine Learning](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/AI/reconhecimento-facial-diome)
     - [Estudo com Bases de Dados para Redes de Detecção e Uso da Rede YOLO -- Machine Learning](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/AI/base-de-dados-e-rede-yolo)
     - [Cálculo de Métricas de Avaliação de Aprendizado -- Machine Learning Project](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/AI/calculo-metricas-machinelearning)
     - [Redução de Dimensionalidade com Python -- Machine Learning Project](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/AI/reducao-dimensionalidade-python)
     - [Treinamento de Redes Neurais com Transfer Learning -- Machine Learning Project](https://github.com/ahoymarcus/desafio-transfer-learning-colab)
-    
  - **Bash (+ SED, AWK)**:
     - [Automatizando o Gerenciamento de Tarefas com Bash e AWK](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/Bash/gerenciando-jobs-bash-awk/)
  - **Kali Linux**, **TCPDump**,  **Wireshark**, **NMap** e **Redes**:
@@ -56,6 +58,7 @@ I got into the Tech world a while ago and among some of my interests are web des
     - [Ferramenta Excel para Organização da Declaração de Imposto de Renda](https://github.com/ahoymarcus/desafio-excel-organizador-declaracao-irpf)
     - [Ferramenta Excel de Controle de Investimentos](https://github.com/ahoymarcus/desafio-excel-ferramenta-controle-de-investimenos)
     - [Ferramenta Excel de Gerenciamento de Backlog de Tarefas](/public/ferramenta-controle-de-tarefas-e-backlog-msxcel.png)
+ 
     
 <br>
 
