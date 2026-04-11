@@ -513,7 +513,7 @@ import requests
 import json
 
 sdw2023_api_url = 'https://sdw-2023-prd.up.railway.app'
-´´´
+```
 
 
 <br>
@@ -611,6 +611,7 @@ Ao final é usado um loop para iterar na lista de clientes do banco que foi puxa
 
 
 ![resultado-do-etapa-de-transformacao-de-dados-prof.-venilton](./public/resultado-do-etapa-de-transformacao-de-dados-prof.-venilton.png)
+
 
 <br>
 
