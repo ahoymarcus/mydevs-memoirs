@@ -46,14 +46,42 @@ Finalmente, também será usado um multímetro para nos permitir acompanhar a op
 
 Na figura abaixo temos um esquema geral explicativo da placa Arduino UNO:
 
-![esquema-explicativo-do-Arduino-Uno](/public/esquema-explicativo-do-Arduino-Uno.png)
+![esquema-explicativo-do-Arduino-Uno](/public/esquema-explicativo-do-Arduino-Uno.jpeg)
 
 <br>
 
 ## Funcionamento do Projeto
 
+Como dito, então, o projeto funciona seguindo o gerenciamento do Arduino e a prototipagem da placa Protoboard, de forma que o Arduino envia sinal de corrente de 5V para alimentar o sistema, recebendo de volta no pino GND as cargas negativas para garantir o fechamento do circuito. Veja que nas imagens abaixo da próxima seção, os fios que conduzem carga positiva foram padronizados com a cor vermelha, enquanto os que têm carga negativa têm a cor preta.
 
 
+Embora os leds e os resistores estejam posicionados na placa Protoboard para permitir uma melhor arrumação (e ela esteja recebendo corrente do Arduino), não será a placa a responsável por alimentar os leds com energia, pois como discutimos antes, queremos que seja o próprio Arduino o responsável por controlar de forma automatizada o acendimento e o apagamento dos leds de acordo com algoritmo definido nele.   
+
+Do outro lado, o sensor de temperatura também está posicionado na Protoboard, sendo que dessa vez será a própria placa que o alimentará com energia, afinal, o sensor não precisa ser controlado diretamente pelo Arduino, mas apenas enviar ao Arduino as suas medições que, depois de recebidas, elas são tratadas por ele com um delay de um segundo, que também está definido na programação feita.
+
+
+Assim, de posse da informação recebida pelo sensor, o Arduino usa a seguinte expressão para fazer a conversão do sinal enviado pelo sensor para o padrão da temperatura Celsius:
+
+    - **val_celsius = map(((analogRead(A0) - 20) * 3.04), 0, 1023, -40, 125);** 
+
+
+Vemos na expressão que o valor recebido pelo sensor é subtraído de vinte e multiplicado por 3,04. Já a segunda parte da expressão descreve de um lado a faixa de funcionamento do sensor (de 0 a 1023) e a faixa de capacidade de operação do mesmo, que vai de -40º até 125º Célsius. Ou seja, um sensor mais potente ou ainda um sensor voltado para operações mais específicas poderia ter uma outra capacidade de operação, de forma que, então, deveríamos relacionar a sua nova capacidade de operação correlacionando com o seu valor de funcionamento naquela função de mapeamento.
+
+
+Na sequência, após o valor recebido do sensor ser convertido para um valor em Célsius, esse valor é usado no algoritmo do Arduino para decidir quais leds acenderão a cada momento.
+
+
+Para ajudar a visualizar todo esse processo de conversão, utilizamos dois sistemas, como poderá ser visto mais adiante:
+
+1. Método Serial.begin(9600) do Arduino
+2. Multímetro
+
+
+O primeiro permite que possamos jogar o valor recebido pelo pino A0 para um terminal de uso ou um “Monitor Serial”, tal qual a plataforma Tinkercad disponibiliza logo abaixo da caixa de texto de codificação:
+
+![monitor-serial-da-plataforma-tinkercad](/public/monitor-serial-da-plataforma-tinkercad.png)
+
+<br>
 
 
 

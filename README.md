@@ -41,7 +41,7 @@ I got into the Tech world a while ago and among some of my interests are web des
     - [Treinamento de Redes Neurais com Transfer Learning -- Machine Learning Project](https://github.com/ahoymarcus/desafio-transfer-learning-colab)
  - **Bash (+ SED, AWK)** e Arduino:
     - [Automatizando o Gerenciamento de Tarefas com Bash e AWK](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/Bash/gerenciando-jobs-bash-awk/)
-    - [Arduino com Sensor de Temperatura Analógico e Multímero -- Prototipação]()
+    - [Arduino com Sensor de Temperatura Analógico e Multímero -- Prototipação](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/Bash/Prototipacao/arduino-sensor-temperatura)
  - **Kali Linux**, **TCPDump**,  **Wireshark**, **NMap** e **Redes**:
     - [Roteamento com OSPF e MPLS e QoS para Vídeoconf. e Voz](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/Bash/roteamento-qos-com-ospf-mpls/)
     - [Simulando um Ataque de Brute Force de Senhas com Medusa e Kali Linux](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/Bash/ciber-medusa-bruteforce)
