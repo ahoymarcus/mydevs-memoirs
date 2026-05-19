@@ -144,7 +144,7 @@ void setup()
 
 Já no próximo print, podemos ver a parte inicial e a parte final do bloco de condição usado para definir o acendimento dos leds:
 
-´´´ 
+```
 if (val_celsius <= 0) {
     digitalWrite(5, LOW);
     digitalWrite(6, LOW);
@@ -182,7 +182,7 @@ if (val_celsius <= 0) {
   } 
   delay(1000); // Aplicar um segundo de espera entre medições
 }
-´´´
+```
 
 
 <br>
