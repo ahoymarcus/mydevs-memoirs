@@ -2,7 +2,7 @@
  
 O objetivo deste trabalho é de testar o uso do Arduino para gerenciar um modelo de dispositivos interligados para simular na plataforma Tinkercad a medição da temperatura do ambiente com um sensor analógico, de forma que, a  partir dos valores que forem sendo lidos pelo sensor, o Arduino possa decidir que decisões tomar, o que no caso, significa decidir quais os leds devem ser acesos ou apagados com as mudanças na temperatura medida. 
 
- - [Link da Plataforma Tinkercad](https://www.tinkercad.com/) 
+ - [Link da plataforma Tinkercad](https://www.tinkercad.com/) 
 
 
 <br>
@@ -66,7 +66,7 @@ Do outro lado, o sensor de temperatura também está posicionado na Protoboard, 
 
 Assim, de posse da informação recebida pelo sensor, o Arduino usa a seguinte expressão para fazer a conversão do sinal enviado pelo sensor para o padrão da temperatura Celsius:
 
-    - **val_celsius = map(((analogRead(A0) - 20) * 3.04), 0, 1023, -40, 125);** 
+    - val_celsius = map(((analogRead(A0) - 20) * 3.04), 0, 1023, -40, 125); 
 
 
 Vemos na expressão que o valor recebido pelo sensor é subtraído de vinte e multiplicado por 3,04. Já a segunda parte da expressão descreve de um lado a faixa de funcionamento do sensor (de 0 a 1023) e a faixa de capacidade de operação do mesmo, que vai de -40º até 125º Célsius. Ou seja, um sensor mais potente ou ainda um sensor voltado para operações mais específicas poderia ter uma outra capacidade de operação, de forma que, então, deveríamos relacionar a sua nova capacidade de operação correlacionando com o seu valor de funcionamento naquela função de mapeamento.
@@ -156,7 +156,9 @@ if (val_celsius <= 0) {
     digitalWrite(12, LOW);
     digitalWrite(13, HIGH);
   } 
-[...]
+...
+...
+...
   } else if (val_celsius > 60 && val_celsius <= 70) {
     digitalWrite(5, LOW);
     digitalWrite(6, HIGH);
@@ -197,7 +199,7 @@ A seguir, temos dois prints apresentando o sistema em funcionamento, em que no p
 
 Já aqui neste print abaixo temos a simulação da temperatura máxima de medição do sistema que é de 125º Célsius, de forma que por se tratar de um valor posicionado no intervalo acima de 70º Célsius, temos os três leds vermelhos marcando o alerta crítico do sistema: 
 
-![teste-2-do-circuito-arduino-com-sensor-de-temperatura](/public/teste-2-do-circuito-arduino-com-sensor-de-temperatura.png)
+![teste-2-do-circuito-arduino-com-sensor-de-temperatura](./public/teste-2-do-circuito-arduino-com-sensor-de-temperatura.png)
 
 
 <br>
