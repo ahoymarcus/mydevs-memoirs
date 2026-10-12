@@ -319,7 +319,8 @@ E, de forma mais específica, podemos ver em cada resposta, que:
 A seguir, o mesmo resultado para **pc2**:
 
 <br>
-![resultado-das-resolucoes-de-nomes-direta-e-reversa-com-dig-para-pc2](./public/resultado-das-resolucoes-de-nomes-direta-e-reversa-com-dig-para-pc2png)
+![resultado-das-resolucoes-de-nomes-direta-e-reversa-com-dig-para-pc2](./public/resultado-das-resolucoes-de-nomes-direta-e-reversa-com-dig-para-pc2.png)
+
 
 <br>
 
@@ -513,6 +514,8 @@ Já no teste de resolução Reversa, podemos ver que o PC2, a VM Linux-alpine-2,
 - **dig -x 192.168.10.10:** pc1.lab.seg.test
 
 
+<br>
+
 5. **T05: Conectividade com Gateways (PING de cada cliente ao seu Gateway)**
 
 ![protocolo-de-testes_t05-A](./public/protocolo-de-testes_t05-A.png)
@@ -530,6 +533,8 @@ Já no teste de resolução Reversa, podemos ver que o PC2, a VM Linux-alpine-2,
 - **ping -c 3 192.168.20.1:** 0% Pacotes Perdidos
 
 
+<br> 
+
 6. **T06: PING PC1 para PC2 por nome (PING + captura ou estado de conexão - Permitido e com Resposta)**
 
 ![protocolo-de-testes_t06](./public/protocolo-de-testes_t06.png)
@@ -539,6 +544,8 @@ Já no teste de resolução Reversa, podemos ver que o PC2, a VM Linux-alpine-2,
 - **ping -c 5 pc2.lab.seg.test:** 0% Pacotes Perdidos
 
 
+<br>
+
 7. **T07: PING PC2 para PC1 por nome (PING + Registro do Firewall - Bloqueado)**
 
 ![protocolo-de-testes_t07](./public/protocolo-de-testes_t07.png)
@@ -547,6 +554,8 @@ Já no teste de resolução Reversa, podemos ver que o PC2, a VM Linux-alpine-2,
 
 Acima, podemos notar que o **PC2** enviou cinco pacotes **ICMP** para o **host pc1.lab.seg.test** e teve 100% de perdas de pacotes, fato que podemos observar logo abaixo na saída de log marcado pelo servidor de firewall com **NFT-FORWARD-DROP**, em que cinco pacotes com timestamp sequenciados foram desprezados pelo firewall, tendo sido o último timestamp de **“Aug 20 12:51:56”**.
 
+
+<br>
 
 8. **T08: SSH PC1 para Gateway (Conexão ou Tentativa autenticada - Permitido)**
 
@@ -559,6 +568,8 @@ Na imagem acima, podemos notar que o PC1, a VM Linux-alpine-1, foi bem sucedido 
 
 - **ssh marcus@192.168.10.1**
 
+
+<br>
 
 9. **T09: SSH PC2 para Gateway (Tentativa + Log do descarte)**
 
@@ -577,6 +588,8 @@ Nos logs do gateway, podemos ver ali as informações de referência, como:
 - **Protocolo de transporte:** TCP
 - **Porta de destino:** DPT=22
 
+
+<br>
 
 10. **T10: Persistência (Reiniciar gateway e repetir T03, T06 e T07 - Serviços e Regras continuam ativos)**
 
@@ -597,6 +610,8 @@ Entretanto, mesmo tendo o gateway sido reiniciado, o **PC1** ainda foi capaz de 
 - **ping -c 2 pc2.lab.seg.test:** 0% de Pacotes perdidos
 
 
+<br>
+
 Finalmente, ao repetir o teste de **PING** com resolução de nome do **PC2** para **PC1**:
 
 ![protocolo-de-testes_t10-C](./public/protocolo-de-testes_t10-C.png)
@@ -610,365 +625,620 @@ Vemos agora que o **PC2** outros cinco pacotes **ICMP** para o host **pc1.lab.se
 
 ### Captura e Análise de Pacotes e Logs
 
+Utilize tcpdump ou Wireshark para registrar pelo menos três evidências:
 
 
-
-
-
-
-
-
-
-
-
+- Processo DHCP DORA: Discover, Offer, Request e ACK;
+- Consulta e resposta DNS;
+- ICMP permitido e tentativa bloqueada pelo firewall.
 
 
 <br>
 
-![arquitetura-basica-do-projeto](./public/arquitetura-basica-do-projeto.png)
+1. **Escutando o processo de solicitação de IPs: Discover, Offer, Request e ACK**
 
-<br>
+No servidor gateway, fazer a captura com o tcpdump:
 
-<br>
 
-![arquitetura-basica-do-projeto](./public/arquitetura-basica-do-projeto.png)
-
-<br>
-
-<br>
-
-![arquitetura-basica-do-projeto](./public/arquitetura-basica-do-projeto.png)
-
-<br>
-
+- **tcpdump -ni enp0s9 port 67 or port 68 -vv**
 
 
 <br>
 
-![arquitetura-basica-do-projeto](./public/arquitetura-basica-do-projeto.png)
+E no host **PC2**, usando o comando udhcpc para iniciar um processo de pedido de endereços IPs:
+
+
+- **udhcpc -i eth0**
+
 
 <br>
 
+Na imagem abaixo, temos a interessante conversa acontecendo entre o host **PC2** e o gateway/firewall, através de seu servidor Kea DHCP4 negociando endereços de IP para a **Rede-B**.
+
+
+Nesse sentido, à direita da imagem vemos PC2 iniciar a negociação com um envio de uma mensagem de broadcast de Discover para a rede, que é respondida por algum servidor DHCP na rede (no caso o Kea DHCP4) com um Offer ou Oferta, que pode ter um Request ou Aceite, por parte do host, de forma que se tudo se encaminha de forma natural, toda a negociação é fechada com um ACK do servidor reconhecendo o leasing do endereço de IP, bem como das demais informações.
+
+
+No lado esquerdo da imagem temos a ferramenta **Tcpdump** escutando na interface **enp0s9** (Rede-B) do gateway/firewall: 
+
+![captura-de-pacotes-kea-dhcp-com-tcpdump](./public/captura-de-pacotes-kea-dhcp-com-tcpdump.png)
 
 <br>
 
-![arquitetura-basica-do-projeto](./public/arquitetura-basica-do-projeto.png)
+Assim, à esquerda podemos ver bem acima, um pouco escondida a mensagem de Discover recebida e depois já visível desde o começo a mensagem de resposta do servidor com o Offer. Finalmente, do meio para baixo vemos as mensagens de Request e o ACK, e entre as informações, podemos reconhecer, de um lado e do outro, os dados referente ao serviço sendo passados:
+
+
+- **Your-IP:** 192.168.20.10
+- **Default-Gateway:** 192.168.20.1
+- **Domain-Name-Server:** 192.168.10.1, 192.168.20.1
+- **Lease-Time:** 4000
+
 
 <br>
-
-
-
-
-
-<br> 
-
-### Desenvolvimento:
-
-Como visto, então, o objetivo deste trabalho é o de buscar as principais dificuldades encontradas pelos gestores e usuários das empresas em trabalhar com esse novo modelo de processo de gestão de TI, chamado mais especificamente de Governança de TI.
-Assim, em vistas de se poder definir quais poderiam ser tais dificuldades, este trabalho segue no sentido de primeiro apresentar uma pequena definição do que seria tal modelo de governança de TI, para num segundo momento buscar, seja no material de estudo de nosso curso, seja na literatura de Gestão da TI encontrada na Internet e na Nuvem, possíveis questões que possam ser candidatas para compor as questões a serem transcrevidas para o questionário direcionado à pesquisa de campo.
-
-Para tratar do primeiro ponto apresentado acima, aquele acerca de uma definição corrente para Governança de TI, buscamos, então, no framework Cobit (mantido pela ISACA ou Information Systems Audit and Control Association) que é a ferramenta mais celebrada pela literatura a gestão de TI, uma ferramenta que foi lançada em 1996 e que hoje, na sua última versão, o Cobit 2019, acumulando a expertise e a robustez de grande parte dos conhecimentos experimentados na área de gestão de TI:
 
 > [!NOTE]
-> “A Governança de TI garante que as necessidades, condições e opções das partes interessadas (stakeholders) sejam avaliadas para determinar objetivos corporativos equilibrados e acordados; definindo a direção por meio de priorização e tomada de decisão; e monitorando o desempenho e a conformidade em relação à direção e aos objetivos estabelecidos.” (COBIT 2019 Framework: Introduction and Methodology. Schaumburg, IL: ISACA, 2018)
+> Interessante notar que o servidor Kea DHCP4 passa os endereços de ambas as interfaces como referência para oa DNS da rede interna!
 
 
 <br>
 
-Ademais, além dessa definição que busca traçar as principais responsabilidades da governança de TI, o Cobit traz três “Pilares de Valor” (EDM02 - Ensured Benefits Delivery: COBIT 2019 Framework: Introduction and Methodology. Schaumburg, IL: ISACA, 2018):
+2. **Escutando o Processo Consulta e resposta de DNS**
 
-1. Realização de Benefícios: criação de valor por meio de investimentos.
-2. Otimização de Riscos: riscos ajustados ao apetite de riscos da empresa e à criticidade dos negócios e das normas/legislação.
-3. Otimização de Recursos: garantir a maior eficiência possível às capacidades (pessoas, infraestruturas e aplicações) da empresa.
+Desta vez temos uma imagem que traz lado a lado, a conversa entre o **PC1** buscando o gateway/firewall, que a partir de seu serviço de DNS (BIND9) faz para o host a resolução do seu nome, **pc1.lab.seg.test**, mapeando para endereço para o qual ele está autorizado a ser referência para a rede interna.
 
 
-Já para tratar das principais responsabilidades relacionadas à Implantação de uma Governança de TI, temos visto ao longo do nosso curso que Governança de TI apresenta um novo Ciclo de Vida que é específico desse novo modelo e que precisa ser distinguido daquele que era próprio da gestão de TI mais tradicional:
+- **tcpdump -ni enp0s8 port 53 -vv**
+- **dig pc1.lab.seg.test**
 
-1. Alinhamento Estratégico e Compliance
-2. Decisão, Compromisso, Priorização e Alocação de Recursos
-3. Estrutura e Processos. Operações e Gestão
-4. Medição e Desempenho
+<br>
 
+![captura-de-pacotes-dns-bind9-com-tcpdump](./public/captura-de-pacotes-dns-bind9-com-tcpdump.png)
 
-<br> 
+<br>
 
-Com relação a esse Ciclo de Vida, observamos ao longo do curso que o Alinhamento da TI é o ponto focal de uma Governança de TI, de forma que ele junto com a definição das Necessidades da Partes Interessadas, da criação de uma Comunicação entre todos os setores da empresa, Criação de uma Política de Segurança, Risco e Compliance, estas todas que seriam responsabilidades essenciais de serem planejadas em qualquer projeto para implantação de uma governança de TI.
-
-
-Finalmente, nas três últimas etapas do ciclo podemos observar ainda derradeiras responsabilidades que podem também afetar o projeto de implantação, de modo que também precisariam ser devidamente modelados a contento: definição de um Mecanismo de Decisão, Critérios de Priorização e de Portfólio, Relacionamento com Usuários, Relacionamento com Fornecedores, Gestão do Valor da TI e Gestão do Desempenho da TI.
+Vemos do lado esquerdo duas mensagens, sendo a primeira do host (192.168.10.10), buscando o servidor na porta 53 (192.168.10.1) em que uma pergunta é feita envolvendo o um nome de recurso (A? pc1.lab.seg.test).
 
 
-Do outro lado, depois de apresentarmos as grandes responsabilidades de uma Governança de TI, podemos também apontar algumas dificuldades gerais relacionadas à Implantação de Governança de TI que têm sido estudadas por alguns grupos e organizações relacionados à Gestão e à Governança e Projetos de TI no mundo:
-
-1. Chaos Report (The Standish Group): apontaria como principais dificuldades ou causas de falhas:
-    - Falta de envolvimento dos usuários.
-    - Falta de apoio da alta gestão (Executivos)
-    - Requisitos incompletos ou em constante mudança.
-2. Global Status Report on the Governance of Enterprise IT (GEIT): que por sua vez faz os seguintes apontamentos:
-    - Resistência Cultural: travas advindas da própria gestão e dos colaboradores da empresa, colocando a própria Governança como sendo mais um “encargo burocrático” que lhes é imposto.
-    - Dificuldade de Medição: as complexidades de se provar o ROI (Retorno sobre Investimentos) relacionados aos processos de TI.
-    - Lacuna de Comunicação: a dificuldade do discurso técnico da área de TI de chegar aos executivos e aos gestores dos demais setores da empresa.
-3. Gartner Group:
-    - Fadiga de Processos: relacionado à tentativa de se implementar todos os processos de Cobit de uma única vez, gerando problemas aos processos em andamento e grande complexidade aos que são remodelados. 
+A resposta vem logo abaixo, saindo do servidor (192.168.10.1) para o host **PC1** (192.168.10.10), que embora não esteja toda visível, responde:
 
 
-<br> 
-
-### Confecção do Formulário:
-
-Depois de termos falado da especificamente de questões gerais sobre a Governança de TI, de sua evolução e de seus principais processos, passamos, à definição de até oito questões para conformar o formulário para ser lido e respondido por um Gestor e por um Usuário em uma empresa sobre as dificuldades encontradas com relação aos processos de Governança de TI.
-
-
-Observe que, devido à importância de se determinar inicialmente não apenas a possível existência de dificuldades com relação aos processos de governança de TI da empresa, mas também de se definir se existe na empresa um conhecimento geral acerca da importância dos processos relacionados a ela, bem como a existência de apoio mútuo entre as partes e comprometimento, iniciamos, então, definindo essas três primeiras questões aos nossos leitores.
-
-
-Nesse sentido, as primeiras questões do questionário, ao nosso ver, têm a importância de determinar o tom dos questionamentos com relação à compreensão do papel da TI em relação à governança estratégica da empresa:
-
-- A empresa possui atualmente um processo de governança específico de TI?
-- Seja o Gestor, sejam os Usuários/Colaboradores da empresa, eles entendem a importância de se separar a  Governança de TI e da Gestão Operacional de TI?
+- **"[...]A? pc1.lab.seg.test 1/0/1 A 192.168.10.10[...]"**
 
 
 <br>
 
-Portanto, para as três primeiras questões, propomos as seguintes redações:
+3. **Escutando Permissão e Bloqueio pelo firewall de Mensagem ICMP na Rede Interna**
 
-1. Como você definiria a sua relação com os Processos de Governança da sua empresa: como um Gestor ou como um Usuário? 
-    - Gestor ou Membro da Alta Direção
-    - Usuário ou Colaborador
-2. Pensando numa escala de 1 a 5, qual valor indicaria como executivos de alto escalão compreendem o papel estratégico da TI e quais seriam as maiores barreiras para se estabelecer o alinhamento de intenções da TI para com os objetivos da empresa?
-3. Culturalmente, quais seriam os maiores entraves existentes à compreensão de que a TI deveria atuar como um importante ativo da empresa, e portanto merecedor de ser pensado como investimento e não como simples gasto? 
+Na primeira imagem, vemos que o **tcpdump** escutando na interface **enp0p8**, Rede-A, escuta duas trocas de mensagens ICMP, sendo se tratam de duas duplas de mensagens:
 
 
-Já para as questões remanescentes, cujo o foco seria de buscar por outros tipos de dificuldades mais específicos, como, por exemplo, dos processos de comunicação, riscos, compliance, tudo isso com relação aos processos de governança de TI em geral:   
+- **tcpdump -ni enp0s8 icmp**
+- **ping -c2 pc2.lab.seg.test**
 
-4. Quais as principais dificuldades de comunicação observadas em relação às partes interessadas (Stakeholders) dentro do processo de governança dos processos? 
-5. Quais seriam as maiores dificuldades relacionadas à definição de responsabilidades e à tomada de decisão na TI? Existe o uso de algum tipo de framework para fazer essa atribuição de responsabilidades (como a Matriz RACI, por exemplo)?
-6. Quais seriam as maiores dificuldades para engajar, envolver e ganhar a adesão dos colaboradores ou dos usuários aos processos definidos pela governança de TI da empresa para gerir a criação dos produtos ou serviços da empresa?
+<br>
 
-7. A empresa foi capaz de definir processos eficientes de risco e de compliance de acordo com as necessidades do negócio ou haveria dificuldades implícitas interferindo nesse processo?
-8. Considerando que existe uma natural dificuldade no processo de se medir o valor de TI para as empresas, bem como para se lidar com as complexidades da definição de ROI para o negócio, perguntamos se a sua empresa também tem dificuldades nesse sentido?  
+![captura-de-pacotes-icmp-com-permissao-do-firewall-com-tcpdump](./public/captura-de-pacotes-icmp-com-permissao-do-firewall-com-tcpdump.png)
 
+<br>
 
-<br> 
-
-### Análise Descritiva dos Dados:
-
-Para esta penúltima parte do trabalho, o primeiro passo é a definição da estratégia para a criação do formulário com as questões feitas na seção anterior, bem como de se definir a forma de sua distribuição para gerar os dados para esta pesquisa de campo.
-Nesse sentido, com relação à criação do formulário, a ideia é de usar a ferramenta Google Forms, ela que possui uma interface bastante intuitiva e que permite a criação de diferentes tipos de perguntas (múltiplas escolhas, forma de resposta longa, etc.) e que é capaz de gerenciar tanto a publicação do link de endereço para a URL da página da pesquisa, quanto os dados angariados na operação.
-
-
-> [!IMPORTANT]
-> 🔗 Link da pesquisa: https://forms.gle/1ie35UjfhK6qiStM6 
+- **Echo request:** 192.168.10.10 -> 192.168.20.10
+- **Echo reply:** 192.168.20.10 -> 192.168.10.10
+- **0% de Perdas de pacotes**
 
 
 <br>
 
-Já com relação à estratégia de distribuição do formulário, a primeira tentativa foi a de repassar o link da página de pesquisa por email para algumas empresas da região. Entre as empresas, havia também uma importante empresa de marca internacional que oferece tanto produtos eletrônicos, quanto mantém um contrato de terceirização para prestar assistência técnica aos clientes. 
+> [!NOTE]
+> Observamos apenas a presença de uma mensagem prévia encaminhada pelo gateway/firewall (192.168.20.1), que segundo consta seria justamente o trabalho do gateway de fazer atualizações na tabela **ARP**, que como não excedeu o tempo limite de resposta para a conversa em curso, isso não teria gerado qualquer perda de pacotes (coisa que poderia ter sido diversa, talvez, numa rede com latência, em que a primeira mensagem enviada poderia ter sido perdida, enquanto as demais poderiam obter sucesso)  
 
 
-Contudo, até o momento do fechamento deste trabalho os emails não foram retornados e nem o formulário respondido. Cabe apontar que de acordo com o que foi possível observar, as empresas em geral não pareciam ter gestores especializados em TI, inclusive aquela empresa multinacional, que também mantinha um responsável especializado em tecnologia.
+<br>
+
+Já nesta última imagem desta seção, observamos também abaixo como responde a interface de rede quando esta está trabalhando com restrições da passagem de pacotes, que nesse caso podemos atentar para o fato das duas mensagens de **Echo Request** terem ficado sem disparar qualquer tipo de resposta, de modo que no terminal do host **PC2**, temos **100% de perdas de pacotes**.
 
 
-Outra estratégia utilizada enquanto eram esperadas as respostas aos emails, foi a de postar na mídia social do Linkedin uma chamada para a participação da comunidade na pesquisa de campo. O texto utilizado na postagem pode ser visto no Apêndice II deste trabalho. 
+- **tcpdump -ni enp0s9 icmp**
+- **ping -c 2 pc1.lab.seg.test**
+
+<br>
+
+![captura-de-pacotes-icmp-sem-permissao-do-firewall-com-tcpdump](./public/captura-de-pacotes-icmp-sem-permissao-do-firewall-com-tcpdump.png)
+
+<br>
+
+### Comandos de Diagnósticos
+
+1. **ip -br address:** imprime uma saída básica das interfaces na forma tabular
+
+![debian-13-minimal-ip-br-address](./public/debian-13-minimal-ip-br-address.png)
+
+<br>
+
+2. **ip route:** imprime informações de rota, relacionando as interfaces de rede presentes, bem com o Default Gateway.
+
+![debian-13-minimal-ip-route](./public/debian-13-minimal-ip-route.png)
+
+<br>
+
+3. **ss -lntup:** comando de diagnóstico de sockets, que lista na forma numérica os sockets TCP, UDP e outros processos
+
+![debian-13-minimal-ss-lntup](./public/debian-13-minimal-ss-lntup.png)
+
+<br>
+
+4. **sysctl net.ipv4.ip_forward:** comando de gerenciamento e de diagnóstico de parâmetros correntes do Kernel (leitura e modificação). Já no caso da diretiva net.ipv4.ip_forward, ela é responsável por definir o parâmetro de encaminhamento ou roteamento do kernel, que no caso deste print e do laboratório foi configurado como ativo ‘1’, de forma que o valor ‘0’, ao contrário, significa o desligamento desta diretiva. 
+
+![debian-13-minimal-sysctl-net.ipv4.ip_forward](./public/debian-13-minimal-sysctl-net.ipv4.ip_forward.png)
+
+<br>
+
+5. **nft list ruleset:** lista as regras correntes sendo usadas pelo firewall nftables
+
+![debian-13-minimal-nft-list-ruleset](./public/debian-13-minimal-nft-list-ruleset.png)
+
+<br>
+
+6. **conntrack -L:** lista conexões sendo acompanhadas pelo kernel e pelos subsistemas do kernel
+
+![debian-13-minimal-conntrack-L](./public/debian-13-minimal-conntrack-L.png)
+
+<br>
+
+7. **journalctl -u nftables:** apresenta mensagens de log do sistema de gerenciamento do host que se chama systemd, bem como de seus serviços. Neste comando estão sendo especificados as mensagens relacionadas à unidade de serviço do firewall NFTables.
+
+![debian-13-minimal-journalctl-u-nftables](./public/debian-13-minimal-journalctl-u-nftables.png)
+
+<br>
+
+8. **journalctl -u kea-dhcp4-server:** apresenta mensagens de log do sistema de gerenciamento do host que se chama systemd, bem como de seus serviços. Neste comando estão sendo especificados as mensagens relacionadas à unidade de serviço do servidor Kea DHCP4.
 
 
-Provavelmente em função da minha lista restrita de contatos, também não houve até o momento do fechamento deste trabalho resposta por parte da comunidade do Linkedin, o que nos levou a utilizar uma terceira estratégia de apoio, que se definiu pela criação de dados mokados e pela sua subsequente análise com a ferramenta Google Sheets. 
+![debian-13-minimal-journalctl-u-kea-dhcp4-server](./public/debian-13-minimal-journalctl-u-kea-dhcp4-server.png)
+
+<br>
+
+9. **journalctl -u bind9:** apresenta mensagens de log do sistema de gerenciamento do host que se chama systemd, bem como de seus serviços. Neste comando estão sendo especificados as mensagens relacionadas à unidade de serviço do servidor de nomes BIND9.
+
+![debian-13-minimal-journalctl-u-bind9](./public/debian-13-minimal-journalctl-u-bind9.png)
+
+<br>
+
+> [!NOTE]
+> Observe que na distribuição Debian (e seus derivados), nas versões mais atuais, os logs normalmente estão concentrados no módulo NAMED, responsável por gerenciar serviços de resolução de nomes.
 
 
-Com relação ao processo de geração dos dados foram criados diferentes casos de respostas para cada questão e depois foram feitos sorteios simples, simulados por meio do uso de ferramentas ou linguagnes de programação.
+<br>
+
+### Considerações Finais
+
+Este laboratório apresentou um excelente desafio para o aprendizado de redes e de infraestrutura de sistemas, trazendo objetivos muito importantes relacionados a aspectos de virtualização de dispositivos, configuração e administração de sistemas operacionais, configuração e administração de serviços de rede, controle de acesso por SSH, além de incluir segurança de redes e firewall. 
 
 
-Poderiam ser usados recursos de sistema operacional, como os do Linux, que possui tanto a variável $RANDOM (echo $((RANDOM % 15)), quanto o comando shuf (shuf -i 1-100 -n 1) do Bash do Linux, que gerava número aleatório para escolher cada uma das respostas para as 8 questões.
+Por tudo isso, fica evidente se tratar de um desafio extenso, mas que permitiu que se cobrisse todo o ciclo de vida da gestão dos sistemas trabalhados (DHCP, DNS, Firewall, etc.), cobrindo desde a instalação das aplicações, a configuração dos serviços e a gestão necessária para ser possível alcançar sucesso nos testes realizados.
 
 
-No entanto, neste trabalho fora utilizada a linguagem Python, mais especificamente a biblioteca **Pandas** para fazer o sorteio de itens para responder o questionário criado, gerando, então, uma amostra de **10 Casos de Teste** dos questionários das dificuldades de gestores e de colaborados com processos de governança de TI para serem analisados.
+Outra dificuldade está relacionada à necessidade de planejamento e economia de recursos do sistema, uma vez que estão envolvidos neste laboratório o trabalho com uma grande quantidade de recursos e de processos, coisa que se tornou mais fácil de lidar na medida de se encontrar no mundo Open Source, incluindo no ecossistema Linux, a disponibilização de muitos recursos destinados racionalizar os gastos de recursos e de processos. 
 
 
-Nesta primeira parte do script, temos a importação das bibliotecas de apoio e a definição de uma estrutura de dados de dicionário contento os itens de respostas para cada questão e que devem ser sorteados para o preenchimento de cada um dos **10 Casos de Testes** para análise:
+Finalmente, quanto aos aprendizados, estes foram muitos e todos significativos, porque envolveram trabalhar cada etapa do ciclo de vida da infraestrutura necessária para suportar uma rede de computadores, aplicando ainda segurança e boas práticas aos serviços. 
+
+
+<br>
+
+### Apêndice
+
+#### 1. Arquivo /etc/nftables.conf
 
 ```
-import pandas as pd
-import random
+#!/usr/sbin/nft -f
 
-# Definir dicioário de dados
-dados_base = {
-    "Cargo": ["Gestor", "Usuário ou Colaborador"],
-    "Alta Direção": ["Falta de alinhamento estratégico", "Falta de comprometimento da liderança", "Falta de apoio da diretoria", "Falta de integração entre diretorias"],
-    "Cultura": ["Resistência cultural", "Falta de verbas e recursos", "Gastos desnecessários", "Altos custos dos processos", "Processos não criam valor", "Problemas de escala", "Mentalidade contrária às mudanças", "Falta de agilidade", "Dificuldade na adoção de Frameworks"],
-    "Comunicação": ["Inexistência de base de conhecimentos", "Falta de padronização", "Excesso de documentação", "Pouca transparência", "Falta de eventos", "Inexistência de meios de comunicação"],
-    "Responsabilidades": ["Inexistência de políticas de posse", "Falta de clareza nos processos", "Problemas com portfólio de TI", "Falta de liderança gerencial", "Falta de mapeamento de necessidades", "Incapacidade na gestão de dados"],
-    "Engajamento": ["Processos burocráticos", "Falta de entendimento das regras", "Falta de treinamento", "Escassez de talentos", "Dificuldades no gerenciamento", "Problemas de relacionamento/suporte"],
-    "Risco e Compliance": ["Falta de integração", "Excesso de regras", "Ineficiência/Perda de agilidade", "Complexidade excessiva", "Sistemas legados", "Incapacidade com novas tecnologias", "Problemas de segurança", "Conformidade/Sustentabilidade", "Falta de gestão de mudanças", "Falta de gestão de incidentes", "Falta de gestão de continuidade"],
-    "Medição e Avaliação": ["Ineficiência de KPIs", "Dificuldade em apresentar ROI", "Monitoramento deficiente", "Dificuldade na otimização", "Falta de feedback", "Metas não realistas"]
+flush ruleset
+
+table inet filter {
+    chain input {
+        type filter hook input priority filter; policy drop;
+
+        # 1. Permitir tráfego de Loopback
+        iif "lo" accept
+
+        # 2. Permitir conexões ESTABLISHED e RELATED
+        ct state established,related accept
+
+        # 3. Permitir DHCP e DNS SOMENTE pelas interfaces internas (enp0s8 e enp0s9)
+        iifname { "enp0s8", "enp0s9" } udp dport { 53, 67 } accept
+        iifname { "enp0s8", "enp0s9" } tcp dport 53 accept
+
+        # 4. Permitir administração SSH do Gateway SOMENTE a partir do PC1 (192.168.10.10)
+        iifname "enp0s8" ip saddr 192.168.10.10 tcp dport 22 accept
+
+        # 5. Permitir PING (ICMP) vindo de qualquer rede interna para diagnosticar o Gateway
+        iifname { "enp0s8", "enp0s9" } icmp type echo-request accept
+
+        # 6. Registrar pacotes descartados com limite de taxa (Rate Limit)
+        limit rate 5/minute log prefix "NFT-INPUT-DROP: " flags all
+
+        # Política padrão: DROP
+    }
+
+    chain forward {
+        type filter hook forward priority filter; policy drop;
+
+        # 1. Permitir conexões ESTABLISHED e RELATED (Respostas de conexões já iniciadas)
+        ct state established,related accept
+
+        # 2. Permitir que o PC1 (Rede A) inicie PING para o PC2 (Rede B)
+       # Note: A resposta do PC2 voltará automaticamente graças à regra ESTABLISHED acima
+        iifname "enp0s8" oifname "enp0s9" ip saddr 192.168.10.10 ip daddr 192.168.20.10 icmp type echo-request accept
+
+        # 3. Permitir navegação WAN (Internet) para as redes internas A e B
+        iifname { "enp0s8", "enp0s9" } oifname "enp0s3" accept
+
+        # 4. Registrar pacotes descartados (ex: PING do PC2 para o PC1) com limite de taxa
+        limit rate 5/minute log prefix "NFT-FORWARD-DROP: " flags all
+
+        # Política padrão: DROP (Bloqueia novos PINGs iniciados pelo PC2 para o PC1)
+    }
+
+    chain output {
+        type filter hook output priority filter; policy accept;
+    }
+}
+
+table ip nat {
+    chain postrouting {
+        type nat hook postrouting priority srcnat; policy accept;
+
+        # 1. Traduzir Endereços (NAT / Mascaramento)
+        oifname "enp0s3" masquerade
+    }
+}
+``` 
+
+
+<br>
+
+#### 2. Arquivo Kea DHCP4
+
+- /etc/kea/kea-dhcp4.conf
+
+```
+{
+  "Dhcp4": {
+    "interfaces-config": {
+      "interfaces": [ "enp0s8", "enp0s9" ]
+    },
+    "lease-database": {
+      "type": "memfile",
+      "persist": true,
+      "name": "/var/lib/kea/kea-leases4.csv"
+    },
+    "valid-lifetime": 4000,
+    "max-valid-lifetime": 7200,
+
+    "option-data": [
+      {
+        "name": "domain-name-servers",
+        "data": "192.168.10.1, 192.168.20.1"
+      },
+      {
+        "name": "domain-name",
+        "data": "lab.seg.test"
+      }
+    ],
+
+    "subnet4": [
+      {
+        "id": 1,
+        "subnet": "192.168.10.0/24",
+        "pools": [ { "pool": "192.168.10.100 - 192.168.10.200" } ],
+        "option-data": [
+          {
+            "name": "routers",
+            "data": "192.168.10.1"
+          }
+        ],
+        "reservations": [
+          {
+            "hw-address": "08:00:27:XX:XX:XX",
+            "ip-address": "192.168.10.10",
+            "hostname": "pc1"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "subnet": "192.168.20.0/24",
+        "pools": [ { "pool": "192.168.20.100 - 192.168.20.200" } ],
+        "option-data": [
+          {
+            "name": "routers",
+            "data": "192.168.20.1"
+          }
+        ],
+        "reservations": [
+          {
+            "hw-address": "08:00:27:YY:YY:YY",
+            "ip-address": "192.168.20.10",
+            "hostname": "pc2"
+          }
+        ]
+      }
+    ]
+  }
 }
 ```
 
 
 <br>
 
-Já nesta segunda parte, temos o loop iterativo que vai fazer o preenchimento dos 10 formulários:
+#### 3. Arquivo /etc/bind/named.conf (e demais arquivos alterados do BIND9)
+
+- /etc/bind/named.conf.options
 
 ```
-# Criar os casos de teste (iniciar com 10 amostras)
-lista_final_de_casos = []
+options {
+        directory "/var/cache/bind";
 
-for i in range(1, 11):
-    # IMPORTANTE: criar um dicionário novo para cada caso
-    novo_caso = {"ID_Caso": f"Caso {i}"}
-   
-    # Percorrer cada cadegoria de Questões
-    for categoria, opcoes in dados_base.items():
-        escolha = random.choice(opcoes)
-        novo_caso[categoria] = escolha
+        # Escuta em todas as interfaces IPv4
+        listen-on port 53 { any; };
 
-    # Adicionar o dicionário de caso individual (com as 8 Questões)
-    lista_final_de_casos.append(novo_caso)
+        # Permite consultas a partir do localhost e das redes A e B
+        allow-query { localhost; 192.168.10.0/24; 192.168.20.0/24; };
+
+        # Encaminhadores para sites externos da Internet (Google DNS)
+        forwarders {
+                8.8.8.8;
+                8.8.4.4;
+        };
+
+        dnssec-validation auto;
+};
+
+/etc/bind/named.conf.local
+# Zona Direta
+zone "lab.seg.test" {
+    type master;
+    file "/etc/bind/db.lab.seg.test";
+};
+
+# Zona Reversa da Rede A (192.168.10.0/24)
+zone "10.168.192.in-addr.arpa" {
+    type master;
+    file "/etc/bind/db.192.168.10";
+};
+
+# Zona Reversa da Rede B (192.168.20.0/24)
+zone "20.168.192.in-addr.arpa" {
+    type master;
+    file "/etc/bind/db.192.168.20";
+};
+
+``` 
 
 
-# Converter dados para DataFrame (Tabela)
-df = pd.DataFrame(lista_final_de_casos)
+<br>
 
-# Visualizar o resultado final
-print(df.head())
+#### 4. Arquivos das Zonas Direta e Reversas
+
+- /etc/bind/db.lab.seg.test
+
+```
+$TTL    86400
+@       IN      SOA     gw.lab.seg.test. admin.lab.seg.test. (
+                              1         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                          86400 )       ; Negative Cache TTL
+;
+@       IN      NS      gw.lab.seg.test.
+
+; Registros do tipo A
+gw      IN      A       192.168.10.1
+gw      IN      A       192.168.20.1
+pc1     IN      A       192.168.10.10
+pc2     IN      A       192.168.20.10
+```
+
+<br>
+
+- /etc/bind/db.192.168.10
+
+```
+$TTL    86400
+@       IN      SOA     gw.lab.seg.test. admin.lab.seg.test. (
+                              1         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                          86400 )       ; Negative Cache TTL
+;
+@       IN      NS      gw.lab.seg.test.
+
+; Registros do tipo PTR (Rede 192.168.10.x)
+1       IN      PTR     gw.lab.seg.test.
+10       IN      PTR     pc1.lab.seg.test.
+```
+
+- /etc/bind/db.192.168.20
+
+```
+$TTL    86400
+@       IN      SOA     gw.lab.seg.test. admin.lab.seg.test. (
+                              1         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                          86400 )       ; Negative Cache TTL
+;
+@       IN      NS      gw.lab.seg.test.
+
+; Registros do tipo PTR (Rede 192.168.20.x)
+1       IN      PTR     gw.lab.seg.test.
+10       IN      PTR     pc2.lab.seg.test.
+```
+
+
+<br> 
+
+#### 5. Arquivo Utilizado para Persistir o Encaminhamento IPv4
+
+```
+# Versão do host Gateway/Firewall
+# Interface de Loopback (Sempre necessária)
+auto lo
+iface lo inet loopback
+
+# -------------------------------------------------------------
+# Placa 1 (WAN / Internet via NAT do VirtualBox)
+# -------------------------------------------------------------
+allow-hotplug enp0s3
+iface enp0s3 inet dhcp
+      post-up sysctl -w net.ipv4.ip-forward=1
+
+# -------------------------------------------------------------
+# Placa 2 (LAN A / Gateway da Rede Restrita A)
+# -------------------------------------------------------------
+auto enp0s8
+iface enp0s8 inet static
+    address 192.168.10.1
+    netmask 255.255.255.0
+
+# -------------------------------------------------------------
+# Placa 3 (LAN B / Gateway da Rede Restrita B)
+# -------------------------------------------------------------
+auto enp0s9
+iface enp0s9 inet static
+    address 192.168.20.1
+    netmask 255.255.255.0
 ```
 
 
 <br>
 
-Finalmente, nesta terceira e última parte do script temos a função Python que vai exportar o resultado final com os dados construídos para um arquivo de formato **CSV** que será utilizado para a análise e para a construção de relatório por meio da ferramenta Sheets da Google:
+#### 6. Saídas dos comandos: nft list ruleset, ip route e ss -lntup
 
-```  
-# Salvar dados finais em Excel/CSV:
-#df.to_csv("amostra_governanca_ti.csv", index=False)
+- Saída do comando: nft list ruleset
 
-#print("---------------------------")
-#print("Arquivo gerado com sucesso!")
+``` 
+table inet filter {
+    chain input {
+        type filter hook input priority filter; policy drop;
+        iif "lo" accept
+        ct state established,related accept
+        iifname "enp0s3" tcp dport 22 accept
+        iifname { "enp0s8", "enp0s9" } udp dport { 53, 67 } accept
+        iifname { "enp0s8", "enp0s9" } tcp dport 53 accept
+        iifname "enp0s8" ip saddr 192.168.10.10 tcp dport 22 accept
+        iifname { "enp0s8", "enp0s9" } icmp type echo-request accept
+        limit rate 5/minute burst 5 packets log prefix "NFT-INPUT-DROP: " flags all
+    }
+
+    chain forward {
+        type filter hook forward priority filter; policy drop;
+        ct state established,related accept
+        iifname "enp0s8" oifname "enp0s9" ip saddr 192.168.10.10 ip daddr 192.168.20.10 icmp type echo-request accept
+        iifname { "enp0s8", "enp0s9" } oifname "enp0s3" accept
+        limit rate 5/minute burst 5 packets log prefix "NFT-FORWARD-DROP: " flags all
+    }
+
+    chain output {
+        type filter hook output priority filter; policy accept;
+    }
+
+    chain postrouting {
+        type nat hook postrouting priority srcnat; policy accept;
+        oifname "enp0s3" masquerade
+    }
+}
+``` 
+
+
+<br>
+
+- Saída do comando: ip route
+
+```
+default via 10.0.2.2 dev enp0s3 proto dhcp src 10.0.2.15 metric 1002 
+10.0.2.0/24 dev enp0s3 proto dhcp scope link src 10.0.2.15 metric 1002 
+192.168.10.0/24 dev enp0s8 proto kernel scope link src 192.168.10.1 
+192.168.20.0/24 dev enp0s9 proto kernel scope link src 192.168.20.1 
 ```
 
 
 <br>
 
-Abaixo, temos um pequeno sample dos dadoss que foram gerados:
+- saída do comando: ss -lntup
 
-  ID_Caso  ...            Medição e Avaliação
-0  Caso 1  ...      Dificuldade na otimização
-1  Caso 2  ...      Dificuldade na otimização
-2  Caso 3  ...  Dificuldade em apresentar ROI
-3  Caso 4  ...  Dificuldade em apresentar ROI
-4  Caso 5  ...           Ineficiência de KPIs
-
-
-De qualquer forma, ao final do processo, após serem gerados os 10 formulários respondidos, estes passaram a ser analisados por este trabalho seguindo o seguinte procedimento:
-
-![tabela-com-a-visao-geral-das-dificuldades-com-as-maiores-frequencias-observadas.png](./public/tabela-com-a-visao-geral-das-dificuldades-com-as-maiores-frequencias-observadas.png)
-
-
-<br>
-
-Assim, inicialmente podemos ver que, apesar de alguns itens parecerem ter tido uma maior frequência nas respostas, que a amostra ainda parece ter uma distribuição bastante heterogênea, tal qual poderíamos esperar encontrar em situações reais de medição das dificuldades de Governança de TI, uma vez que seria apropriado de se esperar que no caso concreto da observação de diferentes empresas, de diferentes ramos, de diferentes tamanhos e com metas muito específicas, que os desafios apresentados também haveriam de ser bastante específicos a cada uma das operações existentes em cada uma das empresas.
-
-
-E, continuando no processo de descrição da amostra de dados de simulação, interessante notar também os resultados específicos observados nas questões 2 e 8, respectivamente, sobre a “Alta Direção” e sobre a “Medição e Avaliação”, porque elas parecem tocar em dois fenômenos interessantes para o processo de uma Governança de TI:
-
-1. A Hipótese da Criação de Silos Organizacionais: essa ideia estaria relacionada à criação ou à existência de uma separação ou espaço entre cada uma das áreas ou setores da empresa, criando algo como “silos” que impediram os processos da empresa de fluirem de um lado a outro dentro da empresa.
-2. A Geração de Um Sintoma de Falta de Feedback: esta poderia ser a observação de que por estarem separadas e ilhadas as partes ou setores da empresa, que esta falta de integração poderia acabar por impedir as comunicações de ocorrerem ou poderia criar ruído suficiente para prevenir que os processos de Medição e de Avaliação criados para fazer o acompanhamento contínuo dos processos de governança de TI pudessem refletir a verdadeira realidade dos processos que acontecem dentro da empresa.
-
-
-<br>
-
-Finalmente, essa hipotética correlação observada aqui neste simples processo de sorteio de uma amostra de dados de governança de TI, parece implicar ainda que além daquela presunção inicial de que as dificuldades no mundo real haveriam de ser fortemente influenciadas pelo caso concreto de cada empresa (diferentes ramos, tamanhos, metas, etc.), de que deveria haver também forte influência entre diferentes tipos de problemas ou dificuldades entre si, ou seja, de que os problemas de governança não se apresentariam meramente de forma isoladas umas das outras.
-
-![visao-comparativa-de-duas-categorias-de-dificuldades-com-graficos-de-pizza](./public/visao-comparativa-de-duas-categorias-de-dificuldades-com-graficos-de-pizza.png)
+```
+Netid    State      Recv-Q     Send-Q                              Local Address:Port         Peer Address:Port    Process    
+udp      UNCONN     0          0                                       10.0.2.15:53                0.0.0.0:*                  
+udp      UNCONN     0          0                                    192.168.20.1:53                0.0.0.0:*                  
+udp      UNCONN     0          0                                    192.168.10.1:53                0.0.0.0:*                  
+udp      UNCONN     0          0                                       127.0.0.1:53                0.0.0.0:*                  
+udp      UNCONN     0          0                                    192.168.20.1:67                0.0.0.0:*                  
+udp      UNCONN     0          0                                    192.168.10.1:67                0.0.0.0:*                  
+udp      UNCONN     0          0                                       10.0.2.15:68                0.0.0.0:*                  
+udp      UNCONN     0          0              [fe80::2794:a9dd:13a7:8c74]%enp0s3:546                  [::]:*                  
+udp      UNCONN     0          0                                           [::1]:53                   [::]:*                  
+udp      UNCONN     0          0              [fe80::2794:a9dd:13a7:8c74]%enp0s3:53                   [::]:*                  
+udp      UNCONN     0          0               [fe80::a00:27ff:fef9:ec62]%enp0s8:53                   [::]:*                  
+udp      UNCONN     0          0               [fe80::a00:27ff:fed5:da80]%enp0s9:53                   [::]:*                  
+tcp      LISTEN     0          5                                       127.0.0.1:953               0.0.0.0:*                  
+tcp      LISTEN     0          10                                   192.168.20.1:53                0.0.0.0:*                  
+tcp      LISTEN     0          10                                      10.0.2.15:53                0.0.0.0:*                  
+tcp      LISTEN     0          10                                   192.168.10.1:53                0.0.0.0:*                  
+tcp      LISTEN     0          10                                      127.0.0.1:53                0.0.0.0:*                  
+tcp      LISTEN     0          128                                       0.0.0.0:22                0.0.0.0:*                  
+tcp      LISTEN     0          5                                           [::1]:953                  [::]:*                  
+tcp      LISTEN     0          10              [fe80::a00:27ff:fef9:ec62]%enp0s8:53                   [::]:*                  
+tcp      LISTEN     0          10              [fe80::a00:27ff:fed5:da80]%enp0s9:53                   [::]:*                  
+tcp      LISTEN     0          10                                          [::1]:53                   [::]:*                  
+tcp      LISTEN     0          128                                          [::]:22                   [::]:*                  
+tcp      LISTEN     0          10             [fe80::2794:a9dd:13a7:8c74]%enp0s3:53                   [::]:*                  
+```
 
 
 <br>
 
-De qualquer forma, mesmo considerando se tratar de uma pesquisa de campo simulada, parece que temos ainda outra interessante correlação de resultados entre as dificuldades ou problemas de governança de TI, que é a encontrada entre as questões 3 e 6, respectivamente, sobre “Cultura” e sobre “Engajamento de Usuários”, porque nelas podemos ver como respostas mais frequentes as dificuldades respectivas: “Mentalidade Contrária às Mudanças” e “Falta de Treinamento”.
+#### 7. Arquivos com as Interfaces: /etc/network/interfaces
 
+```
+# Versão do host Gateway/Firewall
+# Interface de Loopback (Sempre necessária)
+auto lo
+iface lo inet loopback
 
-Isto porque, poderíamos esperar que também nesses casos, observando-se a realidade concreta das empresas (principalmente no Brasil), o treinamento de colaboradores poderia ser visto antes como interrupção de trabalho ou perda de tempo ou de valor, do que como um ativo relevante para o processo de governança de TI da organização.
+# -------------------------------------------------------------
+# Placa 1 (WAN / Internet via NAT do VirtualBox)
+# -------------------------------------------------------------
+allow-hotplug enp0s3
+iface enp0s3 inet dhcp
+      post-up sysctl -w net.ipv4.ip-forward=1
 
+# -------------------------------------------------------------
+# Placa 2 (LAN A / Gateway da Rede Restrita A)
+# -------------------------------------------------------------
+auto enp0s8
+iface enp0s8 inet static
+    address 192.168.10.1
+    netmask 255.255.255.0
 
-Seja como for, considerando esta situação hipotética que alcançamos aqui nessa pesquisa simulada, poderíamos pensar que o problema ou dificuldade apresentado na Questão 2 (Cultura) como aversão ou mentalidade contrária à mudanças não poderia ser tratado senão pela tentativa de se alcançar diretamente os colaboradores da empresa através de treinamentos específicos aplicados para poder ajudá-los a atravessar todo esse processo de mudanças que devem ocorrer durante a implantação de uma governança de TI bem sucedida:
+# -------------------------------------------------------------
+# Placa 3 (LAN B / Gateway da Rede Restrita B)
+# -------------------------------------------------------------
+auto enp0s9
+iface enp0s9 inet static
+    address 192.168.20.1
+    netmask 255.255.255.0
 
+# Versão dos hosts das Redes Internas
+auto lo
+iface lo inet loopback
 
-> [!IMPORTANT]
-> 💡 Insight de Governança:
-> Sintoma: Baixo Engajamento.
-> Causa Identificada: Falta de Treinamento.
-> Impacto Cultural: Resistência a novos modelos e frameworks.
-
-
-<br>
-
-### Conclusão: Recomendações Práticas
-
-Nesta última etapa do trabalho, pensamos que falarmos de “Recomendações Práticas” seria uma forma interessante de se concluir este relatório para que, afinal, é uma pesquisa de campo, ainda que simulada, que visa descobrir as principais dificuldades ou problemas enfrentados por gestores e usuários para lidar com os processos de governança de TI.  
-
-
-Nesse sentido, respondendo aos dados gerados nesta simulação de pesquisa de campo e considerando especialmente as observações feitas na etapa anterior, entendemos poderiam ser recomendações valiosas a observadas num processo de implantação de uma Governança de TI as seguintes: 
-
-1. Workshop de Integração: para ajudar à tratar aquele problema diagnosticado de “silos organizacionais” dentro da organização e mitigar assim a dificuldade procurando impulsionar o trabalho conjunto entre as diferentes diretorias e a Alta Direção atuando em coesão dentro da empresa.
-2. Programa de Alfabetização digital/TI: voltado para ajudar no engajamento dos colaboradores, procurando transformar o sentimento geral de aversão às mudanças, bem como de reduzir o atrito organizacional em geral em função das mudanças realizadas com a implantação dos novos processos de governança de TI.
-3. Criação de Canais de Feedback: a estruturação destes canais seria essencial para fechar todo o ciclo de vida das medições, uma vez que apenas a partir de informações confiáveis sobre os processos de governança de TI em uso é que as avaliações realizadas por sobre os KPIs e sobre as Metas empresariais serviriam realmente para auxiliar no processo de tomada de decisões (Data-Driven Decision).   
-
-
-<br>
-
-## Apêndice I: Formulário
-
-### Governança Estratégica: Burocracia ou Estratégia?
-
-Este formulário busca compreender quais seriam as principais dificuldades encontradas por gestores e usuários ao lidar com os processos de Governança de TI.
-
-* Indica uma pergunta obrigatória
-
-1. Como você definiria a sua relação com os Processos de Governança da sua empresa: como um Gestor ou como um Usuário?  *
-
-Marcar apenas uma oval.
-
- - [ ] Gestor ou Membro da Alta Direção
- - [ ] Usuário ou Colaborador
-
----
-
-2. Pensando numa escala de 1 a 5, qual valor indicaria como executivos de alto escalão compreendem o papel estratégico da TI e quais seriam as maiores barreiras para se estabelecer o alinhamento de intenções da TI para com os objetivos da empresa? *
-
-Ex: Falta de apoio da diretoria, visão da TI apenas como custo, dificuldade em comunicar o valor da tecnologia para o negócio.
-
----
-
-3. Culturalmente, quais seriam os maiores entraves existentes à compreensão de que a TI deveria atuar como um importante ativo da empresa, e portanto merecedor de ser pensado como investimento e não como simples gasto? *
-Ex: Resistência cultural, falta de verba, falta de treinamento.
-
----
-
-4. Quais as principais dificuldades de comunicação observadas em relação às partes interessadas (Stakeholders) dentro do processo de governança dos processos? *
-
-Ex: Uso de termos técnicos excessivos, falta de reuniões de acompanhamento, falta de padronização para as operações dos setores.
-
----
-
-5. Quais seriam as maiores dificuldades relacionadas à definição de responsabilidades e à tomada de decisão na TI? Existe o uso de algum tipo de framework para fazer essa atribuição de responsabilidades (como a Matriz RACI, por exemplo)? *
-Ex: Falta de uma política para atribuição de posse específica para ativos específicos,  conflitos entre departamentos.
-
----
-
-6. Quais seriam as maiores dificuldades para engajar, envolver e ganhar a adesão dos colaboradores ou dos usuários aos processos definidos pela governança de TI da empresa para gerir a criação dos produtos ou serviços da empresa? *
-Ex: Usuários acham os processos burocráticos ou não entendem o porquê das regras.
-
----
-
-7. A empresa foi capaz de deﬁnir processos eﬁcientes de risco e de compliance de acordo com as necessidades do negócio ou haveria diﬁculdades implícitas interferindo nesse processo? *
-
-Ex: Processos de segurança que travam a agilidade do negócio.
-
----
-
-8. Considerando que existe uma natural diﬁculdade no processo de se medir o valor de TI para as empresas, bem como para se lidar com as complexidades da deﬁnição de ROI para o negócio, perguntamos se a sua empresa também tem diﬁculdades nesse sentido? *
-
-Ex: Dificuldade em provar financeiramente que um novo servidor ou software trouxe
-lucro.
+auto eth0
+iface eth0 inet dhcp
+```
 
 
 <br>
