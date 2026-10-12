@@ -40,16 +40,16 @@ I got into the Tech world a while ago and among some of my interests are web des
     - [Redução de Dimensionalidade com Python -- Machine Learning Project](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/AI/reducao-dimensionalidade-python)
     - [Treinamento de Redes Neurais com Transfer Learning -- Machine Learning Project](https://github.com/ahoymarcus/desafio-transfer-learning-colab)
  - **Bash (+ SED, AWK)** e Arduino:
+    - [Implantação de Rede IPv4 Segura com Gateway, NFTABLES e DNS Local](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/Bash/rede-com-gateway-nftables-dns)
     - [Automatizando o Gerenciamento de Tarefas com Bash e AWK](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/Bash/gerenciando-jobs-bash-awk/)
     - [Arduino com Sensor de Temperatura Analógico e Multímero -- Prototipação](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/Bash/Prototipacao/arduino-sensor-temperatura)
  - **Kali Linux**, **TCPDump**,  **Wireshark**, **NMap** e **Redes**:
     - [Roteamento com OSPF e MPLS e QoS para Vídeoconf. e Voz](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/Bash/roteamento-qos-com-ospf-mpls/)
     - [Simulando um Ataque de Brute Force de Senhas com Medusa e Kali Linux](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/Bash/ciber-medusa-bruteforce)
- - **Docker, Kubernetes e Blockchain**:
+ - **VirtualBox, Docker, Kubernetes e Blockchain**:
     - [Criando Criptomoeda padrão ERC-20 com Solidity e Ganache](https://github.com/ahoymarcus/criando-criptomoeda-diocoin-com-solidity-e-ganache)
     - [Criando Carteira de Criptomoedas Bitcoin com Electrum e Node-JS](https://github.com/ahoymarcus/cryptocoins-with-nodejs-and-electrum)
     - [Criando um Projeto de Organização Autônoma Descentralizada (DAO) nos Padrões Web3](https://github.com/ahoymarcus/criando-uma-dao-nos-padroes-web3)
- - **Máquinas Virtuais - VirtualBox**
  - **JavaScript e Node-JS**:
     - [React.JS e Next.JS - Tech Blog (Web App ver. 1.0) --- FullStack Project](https://nextjs-myjs-tech-blog.vercel.app/)
     - [React.JS Frontend - Online Portfolio (Antigo) (Web App ver. 3.0) --- FrontEnd Project](https://redux-reactjs-personal-portfolio-webpage-version-2.netlify.app/)

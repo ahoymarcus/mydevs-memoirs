@@ -1,4 +1,4 @@
-# Implantação de Rede IPv4 Segura com Servidor Gateway, Firewall (NFTABLES), Serviço de DNS Local e Logs de Segurança
+# Implantação de Rede IPv4 Segura com Gateway, Firewall (NFTABLES), Serviço de DNS Local e Logs de Segurança
 
 ## Cenário da Atividade
 
@@ -22,45 +22,84 @@ O laboratório deverá utilizar três máquinas virtuais, sendo o VirtualBox uma
 
 ![arquitetura-basica-do-projeto](./public/arquitetura-basica-do-projeto.png)
 
-
 <br>
 
-## Relatório de Governança de TI
-
-### Introdução:
-
-Considerando os objetivos propostos para este trabalho, que é de falar e tentar compreender as principais dificuldades enfrentadas pelas empresas no que diz a Gestão de TI, buscando responder em especial o seguinte quesito:
-
-    - **Quais as principais dificuldades encontradas pelos gestores e usuários nos processos de Governança de TI.**
-
-
-Considerando ainda estes outros requisitos, inclusive no que toca ao ao “Texto de Apoio”:
-
-- Melhorar a Gestão de TI.
-- O aumento da relevância do uso da TI no cenário social em geral.
-- A necessidade de implantação do uso de uma TI nas empresas públicas ou privadas, que não seja apenas uma TI de suporte técnico para as operações, mas que possa ser principalmente uma capaz de criar valor para o modelo de negócio, além de poder melhorar os processos administrativos existentes.
+![arquitetura-basica-do-projeto-2](./public/arquitetura-basica-do-projeto-2.png)
 
 
 <br>
 
-Nesse sentido, considerando o objetivo central destacado acima, antes de podermos falar das dificuldades nos processos de governança de TI, primeiro precisamos entender o que poderia ser a gestão de TI e como ela poderia melhorar, bem como entender também a sua relação, quer seja com a gestão da empresa em geral, quer seja com os diversos setores ou áreas de uma empresa pública ou privada, para então, apresentarmos o primeiro esboço das questões que definiriam as dificuldades de gestores e de usuários com a Governança de TI. 
+## Resolução
+
+### Cenário Inicial
+
+Este é um estudo de caso para a matéria “Segurança em Rede de Computadores" do curso de Redes de Computadores - IESB/EAD, no qual estaremos simulando uma infraestrutura de rede com máquinas virtuais, utilizando o VritualBox, sendo que o cenário básico possui estes três hosts: 
 
 
-Assim, como visto ao longo do curso, a tecnologia e a TI que têm se tornado essenciais nas relações sociais entre as pessoas, assumem uma importância ainda maior quando se trata da sua implantação e do seu uso nas empresas, sejam elas públicas ou privadas.
-Isto porque, à medida que o uso da tecnologia aumenta dentro das empresas, os custos também aumentam, bem como mudam os processos de negócios até então conhecidos dentro de uma gestão tradicional das empresas, implicando em um nível de complexidade ainda maior.
+1. Debian Stable: versão 13.6.0 (Configuração básica: 512MB e 12 12BG)
+2. Alpine Linux: versão 3.24.1 (Configuração básica: 256MB e 5GB)
+3. Alpine Linux: versão 3.24.1 (Configuração básica: 256MB e 5GB)
 
 
-Embora isso possa parecer contraditório, que se implante tecnologia nas empresas para criarmos mais custos e mais complexidades, mas a verdade é que a tecnologia é inserida com objetivos muito específicos, os quais estão inclusive dispostos nos requisitos apontados no começo dessa introdução: criar valor de negócio por meio da tecnologia, melhorar os processos administrativos da empresa e aumento de escala no atendimento aos usuários (internos e externos).
+O objetivo geral do experimento é o de criar duas redes internas representadas por cada uma das VMs Alpine Linux, de modo que estas redes internas estejam protegidas por um Gateway/Firewall que será feito pelo host Debian Stable.
 
 
-Dessa forma, esses objetivos não são pequenos e nem simples, pois envolvem não apenas a compra de equipamentos e sistemas caros, mas principalmente a compra daqueles que são corretos para o negócio, além da necessidade implantação e integração deles aos novos processos de gestão que precisam ser modelados, incluindo nisso o próprio treino e ambientação de colaboradores e usuários, tanto da gestão empresarial, quanto dos demais setores da empresa.
+Observe ainda, que este Gateway/Firewall deve prover ainda serviços de resolução local de nomes, na forma de um servidor DNS usando Bind9, além de realizar automaticamente a distribuição de endereços IPs, reservados, máscara de rede, gateway padrão e DNS, na forma de um DHCP4 Kea.
 
 
-É justamente, então, para dar conta desses novos desafios que surge a necessidade de um novo modelo de gestão para a TI, porque tal qual o que aconteceu com a gestão tradicional empresarial, a gestão tradicional da TI operava buscando objetivos que hoje já não são mais suficientes para dar conta das novas demandas de processos do setor de TI e da nova escala de serviços oferecidos aos usuários, internos ou externos à empresa.
-E, para lidar com esse novo contexto social, os frameworks de gestão de TI mais importantes também acabaram evoluindo, para dessa forma permitir conformar a nova gestão de TI da empresa a essa realidade que não está mais apenas centrada e estruturada no suporte e na infraestrutura do próprio setor de tecnologia, mas sim de estender toda a criação de valor, serviços e padronização à toda a empresa, começando pela alta gestão, incluindo também os demais setores envolvidos.
+O resultado inicial da infraestrutura básica das duas redes internas separadas por um gateway com firewall nftables e com o endereçamento definido estaticamente:
+
+- Rede interna A: 192.168.10.0/24
+- Rede interna B: 192.168.20.0/24
+- DNS externo: 8.8.8.8 (google.com) 
 
 
-Surge então a dicotomia de uma Governança de TI e de uma Gestão de TI (tradicional), em que a primeira agora se destaca para assumir uma posição empresarial, colocando-se ao lada da alta gestão e dos demais gestores responsáveis pelos setores de suporte da empresa para permitir remodelar os processos de TI, com qualidade e abrangência, para alcançar a toda empresa e poder criar valor e auxiliar usuários internos e externos igualmente.
+<br>
+![teste-configuracao-basica_redes-internas-com-firewall-nftables](./public/teste-configuracao-basica_redes-internas-com-firewall-nftables.png)
+
+
+<br>
+
+Podemos notar na imagem acima, que nessa configuração inicial da infraestrutura, as duas redes separadas estão ativas, mas separadas por um firewall nftables com regras básicas, de forma que enquanto o host gateway/firewall permite o tráfego dos hosts internos com ele e com a rede WAN, ele bloqueia o tráfego entre eles respectivamente. 
+
+
+E como detalhes para a criação das duas redes internas, temos abaixo a configuração de três placas de rede no gateway/firewall Debian Stable no VirtualBox:
+
+
+1. Placa 1: configurada no modo NAT diretamente no ponto de acesso
+2. Placa 2: configurada no modo Rede Interna 
+3. Placa 3: configurada no modo Rede Interna
+
+<br>
+
+![configuracao-basica_debian-gateway-com-tres-placas-de-rede](./public/configuracao-basica_debian-gateway-com-tres-placas-de-rede.png)
+
+<br>
+
+
+
+
+
+
+<br>
+
+![arquitetura-basica-do-projeto](./public/arquitetura-basica-do-projeto.png)
+
+<br>
+
+![arquitetura-basica-do-projeto](./public/arquitetura-basica-do-projeto.png)
+
+<br>
+
+![arquitetura-basica-do-projeto](./public/arquitetura-basica-do-projeto.png)
+
+<br>
+
+![arquitetura-basica-do-projeto](./public/arquitetura-basica-do-projeto.png)
+
+<br>
+
+
 
 
 <br> 
