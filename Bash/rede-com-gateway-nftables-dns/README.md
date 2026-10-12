@@ -87,12 +87,16 @@ E como detalhes para a criação das duas redes internas, temos abaixo a configu
 - Validar as interfaces e rotas com comandos apropriados, incluindo ip -br address e ip route.
 
 
+<br>
+
 A imagem do Debian Stable usado neste projeto foi baixada do site [Debian.org](https://www.debian.org/index.pt.html), tratando-se de um Debian na versão 13.6.0, a qual foi instalada a partir de uma configuração mínima:
 
 
 - Standard system utilities
 - SSH server
 
+
+<br>
 
 O gateway/firewall foi configurado com três interfaces de rede:
 
@@ -103,6 +107,7 @@ O gateway/firewall foi configurado com três interfaces de rede:
 4. Rede Interna-B: 192.168.20.0/24
 
 
+<br> 
 Observe que essa configuração foi feita diretamente no arquivo /etc/network/interfaces e está relacionada a cada uma das placas de rede habilitadas na configuração da VM pelo VirtualBox.
 
 
@@ -116,12 +121,16 @@ A configuração do arquivo como um todo pode ser vista na parte final, na seç�
 - **static:** diretiva que marca a operação manual de definição do endereço da rede e de sua máscara. 
 
 
+<br>
+
 Note ainda que neste script em /etc/network/interfaces, ele foi escolhido como ponto para a habilitar o recurso de encaminhamento e roteamento de mensagens do host:
 
 
 - **post-up:** está definido como um ‘hook’ do utilitário ifupdow, que instrui o sistema a rodar rodar o comando apenas após o ativamento bem sucedido da interface.
 - **sysctl -w:** é uma ferramenta de linha de comando utilizada para modificar parâmetros do Kernel Linux em tempo de execução. Neste caso, a flag ‘w’ é para gravar o valor ‘1’ no arquivo /proc/sys/net/net.ipv4.ip_forward.
 
+
+<br>
 
 Abaixo, temos a imagem do resultado dos comando ip -br address e ip route, os quais permitem ao administrador retornar as configurações das interfaces do host em tempo real, incluindo a rota de saída WAN:
 
@@ -141,6 +150,8 @@ Abaixo, temos a imagem do resultado dos comando ip -br address e ip route, os qu
 - Apresentar evidências dos leases e da obtenção automática dos parâmetros pelos dois clientes.
 
 
+<br>
+
 Para iniciar com os trabalhos com o serviço Kea DHCP, fazemos as instalações dos pacotes necessários no host:
 
 
@@ -156,6 +167,8 @@ Temos uma ferramenta do servidor Kea DHCP4 para fazer a análise do arquivo de c
 - **kea-dhcp4 -t /ect/kea/kea-dhcp4.conf**
 
  
+<br>
+
 E, começando a configuração com o arquivo /etc/kea/kea-dhcp4.conf, temos um arquivo extenso do qual podemos sublinhar alguns pontos:
 
 
@@ -166,6 +179,8 @@ E, começando a configuração com o arquivo /etc/kea/kea-dhcp4.conf, temos um a
 - E cada host teve uma reserva de endereço: 192.168.10.10 e 192.168.20.10
 
 
+<br>
+
 Na sequência o procedimento é restartar o serviço, checar o estado final e ainda ir até log de serviço:
 
 
@@ -173,6 +188,8 @@ Na sequência o procedimento é restartar o serviço, checar o estado final e ai
 - **systemctl status kea-dhcp4-server**
 - **journalctl -xeu kea-dhcp4-server.service**
 
+
+<br>
 
 Neste ponto, é preciso lembrar que o host principal que é o Debian Stable (gateway/firewall), ele teve as suas três interfaces configuradas manualmente pelo arquivo **/etc/network/interfaces**, como visto na seção anterior.
 
@@ -185,6 +202,8 @@ Mas agora que já temos uma instalação funcional do servidor Kea DHCP4, então
 
 - **iface eth0 inet dhcp**
 
+
+<br>
 
 E, depois de reescritos os arquivos /etc/network/interfaces dos hosts (pc1 e pc2) das redes internas, é preciso reiniciar o serviço de rede para que as novas configurações possam agir.
 
@@ -221,11 +240,15 @@ Assim, podemos notar na imagem abaixo que nas duas VMs foi reiniciado o serviço
 - sistema
 
 
+<br>
+
 Para iniciar com os trabalhos do serviço de DNS, fazemos as instalações dos pacotes necessários no host:
 
 
 - **apt update && apt install bind9 bind9-utils dnsutils -y**
 
+
+<br>
 
 Como no caso anterior, temos aqui que, o comando acima, faz o update do registro de pacotes do host e na sequência fazemos imediatamente a instalação do BIND9 e de suas dependências. Ademais, antes de começarmos a esmiuçar as principais configurações presentes em **/etc/bind/**, é interessante anotar que o BIND9 oferece uma ferramenta nativa de checagem de erros de sintaxe, da qual esperamos como saída uma mensagem de ‘OK’: **named-checkconf**.
 
@@ -235,6 +258,8 @@ Como no caso anterior, temos aqui que, o comando acima, faz o update do registro
 - **named-checkzone 20.168.192.in-addr.arpa /etc/bind/db.192.168.20**
 
 
+<br>
+
 E, ao final das configurações do servidor BIND9, fazemos:
 
 
@@ -242,6 +267,7 @@ E, ao final das configurações do servidor BIND9, fazemos:
 - **systemctl enable bind9 ou systemctl enable named**
 
 
+<br>
 Começando, então, pelas configurações mais gerais em **/etc/bind/named.conf.options**, temos:
  
 
@@ -249,6 +275,8 @@ Começando, então, pelas configurações mais gerais em **/etc/bind/named.conf.
 - **allow-query { localhost; 192.168.10.0/24; 192.168.20.0/24; }:** estamos acrescentando segurança ao serviço, garantindo que ele esteja aberto para fazer resoluções externa à própria rede.
 - **forwarders:** temos aqui um encaminhamento recursivo, ou seja, para as requisições das redes internas que não pertencem à própria rede local (lab.seg.test), mas que dizem respeito ao contexto WAN, o BIND9 as repassa para servidores públicos na Internet. 
 
+
+<br>
 
 A seguir, no arquivo **/etc/bind/named.conf.local**, temos a configuração local para o serviço autoritativo, em que vemos mapeados Zona Direta e Reversas e seus nomes próprios:
 
@@ -258,6 +286,8 @@ A seguir, no arquivo **/etc/bind/named.conf.local**, temos a configuração loca
 - Zona Reversa da Rede B (20.168.192.in-addr.arpa): é interessante notar a notação reversa do formato de procura.
 
 
+<br>
+
 Entendendo um pouco dos registros SOA e Registros de Recursos (RR):
 
 
@@ -265,6 +295,8 @@ Entendendo um pouco dos registros SOA e Registros de Recursos (RR):
 - **/etc/bind/db.192.168.10**
 - **/etc/bind/db.192.168.20**
 
+
+<br>
 
 Nesses arquivos temos configurações mapeando os ativos principais, em termos de nomes e de endereços, bem como podemos ver também diretivas de comportamento, como a definição de tempo para Refresh, Retry, Expire, etc.
 
@@ -287,7 +319,7 @@ E, de forma mais específica, podemos ver em cada resposta, que:
 A seguir, o mesmo resultado para **pc2**:
 
 <br>
-![resultado-das-resolucoes-de-nomes-direta-e-reversa-com-dig-para-pc2](./public/.resultado-das-resolucoes-de-nomes-direta-e-reversa-com-dig-para-pc2png)
+![resultado-das-resolucoes-de-nomes-direta-e-reversa-com-dig-para-pc2](./public/resultado-das-resolucoes-de-nomes-direta-e-reversa-com-dig-para-pc2png)
 
 <br>
 
@@ -306,6 +338,8 @@ O firewall utilizado deverá ser o nftables e as regras devem ser organizadas, c
 - Manter as regras persistentes após reinicialização.
 
 
+<br>
+
 Lembrando dos aspectos gerais da arquitetura do firewall **nftables**, é preciso apontar que em termos gerais ele trabalha a partir de um do tipo: **Tabela -> Chain -> Regra**.
 
 
@@ -319,6 +353,8 @@ Nesse sentido, para este trabalho, definimos uma tabela apenas, de modo que ela 
 - **POSTROUTING:** responsável por processar os pacotes destinados a serem roteados no momento imediatamente antes de saírem pela interface de rede (por exemplo, a tradução de endereços NAT).
 
 
+<br>
+
 Assim, neste trabalho nós começamos do trabalho do firewall na chain INPUT, definindo a política padrão da chain e permitindo a comunicação interna do host, por meio da interface de loopback, além de estabelecer o controle de estado também, o que significa que o firewall passa a mapear o conjunto das conexões a partir das conexões iniciais.
 
 
@@ -330,6 +366,8 @@ Isso é relevante principalmente como segurança para os protocolos orientados �
 - **ca state established,related accept**
 
 
+<br>
+
 A seguir, ainda na cadeia INPUT, permitimos DHCP e DNS apenas pelas interfaces internas, além de restringirmos a administração com SSH apenas a partir do host PC1 (192.168.10.10) na Rede A (192.169.10.0/24):
 
 
@@ -338,12 +376,16 @@ A seguir, ainda na cadeia INPUT, permitimos DHCP e DNS apenas pelas interfaces i
 - **iifname "enp0s8" ip saddr 192.168.10.10 tcp dport 22 accept**
 
 
+<br>
+
 Finalmente, permitirmos o PING ou echo-request para o próprio diagnóstico do serviço de firewall, e finalizamos a chain registrando em log descartes de log:
 
 
 - **iifname { "enp0s8", "enp0s9" } icmp type echo-request accept**
 - **limit rate 5/minute log prefix "NFT-INPUT-DROP: " flags all**
 
+
+<br>
 
 Na chain FORWARD, novamente foram definidos os padrões da política, com DROP, e de uso de regras de estado:
 
@@ -352,11 +394,15 @@ Na chain FORWARD, novamente foram definidos os padrões da política, com DROP, 
 - **ct state established,related accept**
 
 
+<br>
+
 A seguir foi permitido o uso do PING ou echo-request na rede interna, porém de forma limitada, ou seja, podendo ser usado apenas quando iniciado pelo host PC1 da Rede A na direção do host PC2 na Rede B (não confundir com a regra que permite o próprio firewall pode ser pingado pelos hosts para fins de diagnóstico da rede):
 
 
 - **iifname "enp0s8" oifname "enp0s9" ip saddr 192.168.10.10 ip daddr 192.168.20.10 icmp type echo-request accept**
 
+
+<br>
 
 Finalmente, foi liberado o roteamento da rede interna para a WAN através do encaminhamento das conexões, lembrando ainda que por causa do uso de regras de estado, a rede interna permanece separada e protegida em relação às tentativas de conexão iniciadas pela rede pública ou externa, bem como também foi estabelecido controle de pacotes descartados com política de inscrição em log:
 
@@ -364,6 +410,8 @@ Finalmente, foi liberado o roteamento da rede interna para a WAN através do enc
 - **iifname { "enp0s8", "enp0s9" } oifname "enp0s3" accept**
 - **limit rate 5/minute log prefix "NFT-FORWARD-DROP: " flags all**
 
+
+<br> 
 
 A chain de OUTPUT não possui nenhuma regra específica para este laboratório, enquanto que a chain POSTROUTING é responsável justamente por fazer aquela tradução de endereço NAT, para que as conexões iniciadas na rede interna pudessem alcançar a Internet, uma vez que esta não reconhece os endereços privados usados na rede interna:
 
@@ -387,11 +435,15 @@ Nesse sentido, para este laboratório foram considerados alguns pontos básicos 
 - Proibição de acesso SSH como root: dessa forma, nos acessos administrativos ao host, ele só poderá ser logado por usuário comum, o qual precisará conhecer a senha local do root para ser capaz de realizar qualquer trabalho de administração.
 
 
+<br>
+
 Nesse sentido, para que a regra que impede o acesso do root ao gateway/firewall, fazemos a configuração no arquivo /etc//ssh/sshd_config, na diretiva apresentada abaixo:
 
 
 - **PermitRootLogin no**
 
+
+<br>
 
 Tendo dito isso, passamos a uma série de dez testes para garantir que os propósitos básicos de segurança deste laboratório puderam ser alcançados ou não:
 
@@ -413,6 +465,8 @@ Ademais, com os comandos abaixo podemos confirmar todas essas informações:
 - **ip route:** 192.168.10.1 (Gateway) 
 
 
+<br> 
+
 2. **T02: Obtenção de lease no PC2 (IP, Gateway e Reserva - 192.168.20.10)**
 
 ![protocolo-de-testes_t02](./public/protocolo-de-testes_t02.png)
@@ -427,6 +481,26 @@ Ademais, novamente com os comandos abaixo podemos confirmar todas as informaçõ
 
 - **ip a show eth0:** 192.168.20.10 (PC1)
 - **ip route:** 192.168.20.1 (Gateway) 
+
+
+<br>
+
+3. **T03: Resolução direta (dig pc1 e dig pc2)**
+
+![protocolo-de-testes_t03](./public/protocolo-de-testes_t03.png)
+
+<br>
+
+Neste teste de resolução Direta de nomes, podemos ver que o PC1, a VM Linux-alpine-1, ela faz a pergunta ao servidor autoritativo interno a partir dos nomes dos dois hosts internos da rede e recebe de volta os seus respectivos endereços IPs:
+
+
+- **dig pc1.lab.seg.test:** 192.168.10.10
+- **dig pc2.lab.seg.test:** 192.168.20.10
+
+
+<br>
+
+4. **T04: Resolução reversa (dig -x pc1 e dig -x pc2)**
 
 ![protocolo-de-testes_t04](./public/protocolo-de-testes_t04.png)
 
