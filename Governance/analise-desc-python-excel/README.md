@@ -198,7 +198,7 @@ Nesta primeira parte do script, temos a importação das bibliotecas de apoio e 
 import pandas as pd
 import random
 
-# Definir dicioário de dados
+# Definir dicionário de dados
 dados_base = {
     "Cargo": ["Gestor", "Usuário ou Colaborador"],
     "Alta Direção": ["Falta de alinhamento estratégico", "Falta de comprometimento da liderança", "Falta de apoio da diretoria", "Falta de integração entre diretorias"],
