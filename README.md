@@ -40,10 +40,10 @@ I got into the Tech world a while ago and among some of my interests are web des
     - [Redução de Dimensionalidade com Python -- Machine Learning Project](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/AI/reducao-dimensionalidade-python)
     - [Treinamento de Redes Neurais com Transfer Learning -- Machine Learning Project](https://github.com/ahoymarcus/desafio-transfer-learning-colab)
  - **Bash (+ SED, AWK)** e Arduino:
-    - [Implantação de Rede IPv4 Segura com Gateway, NFTABLES e DNS Local](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/Bash/rede-com-gateway-nftables-dns)
     - [Automatizando o Gerenciamento de Tarefas com Bash e AWK](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/Bash/gerenciando-jobs-bash-awk/)
     - [Arduino com Sensor de Temperatura Analógico e Multímero -- Prototipação](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/Bash/Prototipacao/arduino-sensor-temperatura)
  - **Kali Linux**, **TCPDump**,  **Wireshark**, **NMap** e **Redes**:
+    - [Implantação de Rede IPv4 Segura com Gateway, NFTABLES e DNS Local](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/Bash/rede-com-gateway-nftables-dns)
     - [Roteamento com OSPF e MPLS e QoS para Vídeoconf. e Voz](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/Bash/roteamento-qos-com-ospf-mpls/)
     - [Simulando um Ataque de Brute Force de Senhas com Medusa e Kali Linux](https://github.com/ahoymarcus/mydevs-memoirs/tree/main/Bash/ciber-medusa-bruteforce)
  - **VirtualBox, Docker, Kubernetes e Blockchain**:
@@ -80,9 +80,9 @@ I got into the Tech world a while ago and among some of my interests are web des
 <br>
 
 ## :white_check_mark: My Courses and Bootcamps at DIO.me:
-
+ - Santander - RAG com ChromaDB, LlamaIndex e Python - 2h - OUT. 2026 ([Certificado](https://hermes.dio.me/certificates/SGJJ6CCU.pdf)) 
  - TOTVS - Fundamentos de Engenharia de Dados e Machine Learning - 61h - ABR. 2026 ([Certificado](https://hermes.dio.me/certificates/CM2NGU6T.pdf))
- - Bradesco - GenAI & Dados - 52h - FEV-2026 ([Certificado](https://hermes.dio.me/certificates/DFY4YQY8.pdf))
+ - Bradesco - GenAI & Dados - 52h - FEV. 2026 ([Certificado](https://hermes.dio.me/certificates/DFY4YQY8.pdf))
  - Binance - Blockchain Developer with Solidity 2025 - 40h - DEZ. 2025 ([Certificado](https://hermes.dio.me/certificates/IBDNKXGR.pdf)) 
  - Santander - Cibersegurança 2025 - 31h - NOV. 2025 ([Certificado](https://hermes.dio.me/certificates/GERXOQD3.pdf))
  - Santander - Excel com Inteligência Artificial - 26h - MAI. 2025 ([Certificado](https://hermes.dio.me/certificates/ELQFGW4D.pdf))
@@ -90,27 +90,27 @@ I got into the Tech world a while ago and among some of my interests are web des
  - Microsoft AI for Tech - OpenAI Services - 15h - MAR. 2025 ([Certificado](https://hermes.dio.me/certificates/FGLJAUDL.pdf))
  - Santander - Linux para Iniciantes - 30h - MAR. 2025 ([Certificado](https://hermes.dio.me/certificates/B1RTUSAM.pdf))
  - Linux Experience - 44h - FEV. 2025 ([Certificado](https://hermes.dio.me/certificates/QDWPSTH1.pdf)) 
- - Eduzz Fullstack Developer - 95h - NOV-2021 [Certificado](https://certificates.digitalinnovation.one/081852F4)
- - MRV Front End SPA Developer - 81h - JUL-2021 [Certificado](https://certificates.digitalinnovation.one/62FDC5C9)
+ - Eduzz Fullstack Developer - 95h - NOV. 2021 [Certificado](https://certificates.digitalinnovation.one/081852F4)
+ - MRV Front End SPA Developer - 81h - JUL. 2021 [Certificado](https://certificates.digitalinnovation.one/62FDC5C9)
 
 
 <br>
 
 ## :white_check_mark: My Courses at FreeCodeCamp:
 
- - Back End Development and APIs - 300h - OUT-2021 ([Certificado]( https://www.freecodecamp.org/certification/ahoymarcus/back-end-development-and-apis))
- - JavaScript Algorithms and Data Structures - 300h - JUN-2021 ([Certificado](https://www.freecodecamp.org/certification/ahoymarcus/javascript-algorithms-and-data-structures))
- - Front End Development Libraries - 300h - JUN-2021 ([Certificado](https://www.freecodecamp.org/certification/ahoymarcus/front-end-libraries))
- - Responsive Web Design - 300h - JUN-2021 ([Certificado](https://www.freecodecamp.org/certification/ahoymarcus/responsive-web-design))
+ - Back End Development and APIs - 300h - OUT. 2021 ([Certificado]( https://www.freecodecamp.org/certification/ahoymarcus/back-end-development-and-apis))
+ - JavaScript Algorithms and Data Structures - 300h - JUN. 2021 ([Certificado](https://www.freecodecamp.org/certification/ahoymarcus/javascript-algorithms-and-data-structures))
+ - Front End Development Libraries - 300h - JUN. 2021 ([Certificado](https://www.freecodecamp.org/certification/ahoymarcus/front-end-libraries))
+ - Responsive Web Design - 300h - JUN. 2021 ([Certificado](https://www.freecodecamp.org/certification/ahoymarcus/responsive-web-design))
 
 
 <br>
 
 ## :scroll: My Certifications:
 
- - Técnico em Assistente de Suporte e Manutenção de Computadores - 282h - DEZ-2023 - Senac-DF
- - Pós-Graduação em Banco de Dados e Business Intelligence - 430h - DEZ-2021 - FacSenac
- - Técnico em Administração de Banco de Dados (DBA) - 200h - DEZ-2019 - Senac-DF
+ - Técnico em Assistente de Suporte e Manutenção de Computadores - 282h - DEZ. 2023 - Senac-DF
+ - Pós-Graduação em Banco de Dados e Business Intelligence - 430h - DEZ. 2021 - FacSenac
+ - Técnico em Administração de Banco de Dados (DBA) - 200h - DEZ. 2019 - Senac-DF
 
 
 <br>
